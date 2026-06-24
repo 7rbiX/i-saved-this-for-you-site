@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>children know something we forgot</title>
+<link rel="stylesheet" href="../wall.css">
+<style>
+  /* ── scrapbook / a page torn out of someone's journal ───────────── */
+  body{
+    background:
+      radial-gradient(140% 90% at 50% -10%, #fffdf6 0%, rgba(255,255,255,0) 55%),
+      repeating-linear-gradient(0deg, rgba(120,150,200,.05) 0 1px, transparent 1px 28px),
+      #f4efe4;
+  }
+  .journal{
+    max-width:60rem; margin:0 auto; padding:2rem 1.2rem 6rem;
+    position:relative;
+  }
+  /* the red margin rule like a school exercise book */
+  .journal::before{
+    content:""; position:absolute; top:0; bottom:0; left:3.4rem; width:2px;
+    background:rgba(226,67,42,.28); z-index:0;
+  }
+  @media(max-width:600px){ .journal::before{display:none} }
+
+  .head-scrap{
+    position:relative; padding:2.6rem 0 1rem; margin:0 0 1rem 0;
+  }
+  .kicker{
+    font-family:var(--mono); font-size:.74rem; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--ink2); margin:0 0 .4rem;
+  }
+  .bigtitle{
+    font-family:var(--disp); font-weight:300; font-style:italic;
+    font-size:clamp(2.4rem,7vw,4.4rem); line-height:.95; letter-spacing:-.02em;
+    margin:.2rem 0 .3rem; color:var(--ink);
+  }
+  .bigtitle em{ font-style:normal; color:var(--red); }
+  .sub{
+    font-family:var(--hand); font-size:1.7rem; color:var(--blue);
+    transform:rotate(-1.4deg); display:inline-block; margin:.2rem 0 0;
+  }
+  .datestamp{
+    font-family:var(--mono); font-size:.72rem; color:var(--ink2);
+    border:1.5px solid rgba(0,0,0,.25); border-radius:3px;
+    padding:.25rem .5rem; transform:rotate(3deg); display:inline-block;
+    position:absolute; top:2.4rem; right:.5rem;
+  }
+  /* connective hand-written tissue */
+  .tissue{
+    font-family:var(--hand); font-size:1.5rem; line-height:1.35;
+    color:var(--ink); max-width:34rem; margin:1.4rem auto 1.2rem;
+  }
+  .tissue.left{ margin-left:4rem; text-align:left; transform:rotate(-.6deg); }
+  .tissue.right{ margin-right:1rem; margin-left:auto; text-align:right; max-width:28rem; transform:rotate(.7deg); color:var(--purple); }
+  .tissue .hot{ color:var(--red); }
+  .arrow{ font-family:var(--hand); font-size:2.4rem; color:var(--red); display:inline-block; }
+
+  /* a freeform pile band where polaroids overlap */
+  .pile{ position:relative; margin:2.2rem 0; min-height:1px; }
+  .pin-row{ display:flex; flex-wrap:wrap; gap:1.4rem 2rem; align-items:flex-start; justify-content:center; }
+
+  /* override the .snap caption font to read like pencil */
+  .snap .cap{ font-family:var(--mono); }
+
+  hr.torn{
+    border:0; height:24px; margin:2.6rem 0;
+    background:
+      no-repeat center/100% 100%
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='24' preserveAspectRatio='none'%3E%3Cpath d='M0 12 Q30 4 60 12 T120 12 T180 11 T240 13 T300 10 T360 13 T420 11 T480 13 T540 11 T600 12' fill='none' stroke='%23c9b89a' stroke-width='2' stroke-dasharray='3 5'/%3E%3C/svg%3E");
+  }
+  .footnote{ font-family:var(--hand); font-size:1.25rem; color:var(--ink2); transform:rotate(-.8deg); }
+  .corner-tape{ position:absolute; width:90px; height:30px; background:rgba(255,192,46,.5);
+    box-shadow:0 1px 2px rgba(0,0,0,.12);
+    background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.25) 0 6px,rgba(255,255,255,0) 6px 12px); z-index:5; }
+</style>
+</head>
+<body>
+<div class="journal">
+
+  <div class="head-scrap">
+    <span class="corner-tape" style="top:0; left:10%; transform:rotate(-5deg)"></span>
+    <span class="corner-tape blue" style="top:14px; right:18%; width:70px; transform:rotate(6deg); background:rgba(47,95,224,.35)"></span>
+    <p class="kicker">page from the small-people notebook · do not throw out</p>
+    <h1 class="bigtitle">children know <em>something</em><br>we forgot</h1>
+    <span class="datestamp">re-opened<br>2am</span>
+    <div><span class="sub">play, rhymes, toys &amp; the seriousness of being small</span></div>
+  </div>
+
+  <p class="tissue left">
+    i started this page because of one porcelain cup and then i could not stop. it's
+    <span class="hot">all the same thing</span> — a kid spinning a top in 1100, a kid skipping rope in spain,
+    a kid scaring off a navy. they take it so seriously. we're the ones who forgot it was serious.
+  </p>
+
+  <!-- the giant album-leaf as the anchor, taped down big -->
+  <section class="pile" style="text-align:center;">
+    <figure class="snap polaroid tilt-l" style="max-width:560px; margin:0 auto; padding:14px 14px 50px; position:relative;">
+      <span class="corner-tape" style="top:-14px; left:36px; width:84px; transform:rotate(3deg)"></span>
+      <span class="corner-tape pink" style="bottom:-14px; right:30px; width:60px; transform:rotate(-4deg); background:rgba(255,93,143,.42)"></span>
+      <img src="../img2/p033.jpg" loading="lazy"
+        alt="Album leaf showing dozens of children scattered across the composition, playing, running, and spinning tops, ink and color on silk">
+      <figcaption class="cap" style="position:absolute; left:0; right:0; bottom:12px; text-align:center; font-family:var(--hand); font-size:1.3rem; color:var(--ink);">a hundred kids, all busy, none of them performing</figcaption>
+    </figure>
+    <p style="font-family:var(--mono); font-size:.72rem; color:var(--ink2); max-width:34rem; margin:1rem auto 0; line-height:1.5;">
+      Su Hanchen (Chinese, active c. 1101–1125) · <em>One Hundred Children at Play</em>, 1100s–1200s · Album leaf; ink and color on silk · Cleveland Museum of Art · CC0
+    </p>
+    <p class="scrawl" style="max-width:24rem; margin:.6rem auto 0; font-size:1.4rem; color:var(--green); transform:rotate(1.2deg);">
+      i counted maybe forty before i gave up. every single one in their own little world. (it's almost dizzying — like a handful of grain thrown across silk.)
+    </p>
+  </section>
+
+  <p class="tissue right">
+    ↑ look how nobody's looking at us.<br>that's the whole secret i think.
+  </p>
+
+  <hr class="torn">
+
+  <!-- two polaroids leaning on each other -->
+  <section class="pile pin-row">
+    <div style="max-width:300px;">
+      <figure class="snap polaroid tilt-r" style="padding:11px 11px 44px; position:relative;">
+        <span class="corner-tape blue" style="top:-13px; right:24px; width:64px; transform:rotate(-4deg); background:rgba(47,95,224,.38)"></span>
+        <img src="../img2/p037.jpg" loading="lazy"
+          alt="Porcelain cup painted with two children playing among chrysanthemums, one in red, one in blue, docai 'joined colors' ware">
+        <figcaption class="cap" style="position:absolute; left:0; right:0; bottom:12px; text-align:center; font-family:var(--hand); font-size:1.2rem; color:var(--ink);">the cup that started all of this</figcaption>
+      </figure>
+      <p style="font-family:var(--mono); font-size:.68rem; color:var(--ink2); margin:.7rem .2rem 0; line-height:1.5;">
+        Unknown, 1465–87 · Porcelain, underglaze blue + overglaze enamel, <em>docai</em> ("joined colors") ware · Cleveland Museum of Art
+      </p>
+    </div>
+
+    <div class="sticky pink" style="max-width:17rem; transform:rotate(2.4deg); align-self:center; font-family:var(--hand); font-size:1.15rem; line-height:1.4;">
+      two kids painted among chrysanthemums with SO much care they look about to move. somebody balanced precision against joy on a thing you'd drink tea out of. who does that. (people who remembered, that's who.)
+    </div>
+  </section>
+
+  <p class="tissue left" style="font-size:1.35rem;">
+    <span class="arrow">↘</span> &nbsp;and then there's this — a girl with her arms thrown wide pulling the whole dance toward her:
+  </p>
+
+  <section class="pile pin-row">
+    <div style="max-width:340px;">
+      <figure class="snap polaroid tilt-l" style="padding:11px 11px 44px; position:relative;">
+        <span class="corner-tape" style="top:-13px; left:30px; width:70px; transform:rotate(-3deg)"></span>
+        <img src="../img2/p038.jpg" loading="lazy"
+          alt="Three children dancing in a ring; the lead girl stretches her arms wide, her companions in dark plain clothes joining hands around her">
+        <figcaption class="cap" style="position:absolute; left:0; right:0; bottom:12px; text-align:center; font-family:var(--hand); font-size:1.2rem; color:var(--red);">arms wide. world incoming.</figcaption>
+      </figure>
+      <p style="font-family:var(--mono); font-size:.68rem; color:var(--ink2); margin:.7rem .2rem 0; line-height:1.5;">
+        Le Nain (French) · <em>Children Dancing</em> · c. 1650, oil on canvas · Cleveland Museum of Art
+      </p>
+    </div>
+    <p class="scrawl r" style="max-width:20rem; align-self:center; font-size:1.35rem; transform:rotate(-1.6deg); color:#2c2c2c;">
+      everyone's in those dark honest clothes, holding hands in a circle, and there's real joy here — the kind that doesn't need anything fancy at all.
+    </p>
+  </section>
+
+  <hr class="torn">
+
+  <!-- the poem cluster, set as taped scraps -->
+  <p class="tissue left" style="color:var(--purple);">
+    ok the pictures are one thing but the <span class="crossout">old poems</span> 200-year-old poems about being a kid
+    wreck me even harder. keeping a few here so i don't lose them.
+  </p>
+
+  <article class="scrap" style="--r:-2deg; transform:rotate(-2deg); padding:2rem 2.2rem 2.4rem; max-width:36rem; margin:1.6rem auto; position:relative;">
+    <span class="corner-tape" style="top:-13px; left:40%; width:74px; transform:rotate(2deg)"></span>
+    <div class="poem" style="font-size:1.05rem; line-height:1.85; color:#222;">
+      <strong style="font-family:var(--disp); font-size:1.2rem; display:block; margin-bottom:.6rem;">The Little Cripple's Complaint</strong>
+      From my chamber-window high,<br>
+      Lifted to my easy-chair,<br>
+      I the village-green can spy,<br>
+      Once I used to frolic there,<br>
+      March, or beat my new-bought drum;<br>
+      Happy times! no more to come.
+    </div>
+    <div class="by" style="margin-top:1rem; font-family:var(--hand); font-size:1.1rem; color:var(--blue);">— Ann Taylor · PoetryDB</div>
+    <p class="scrawl" style="font-size:1.25rem; color:#333; margin-top:1.1rem; line-height:1.4;">
+      watching the world you used to run through, now from a window. she doesn't make it melodramatic. just the simple aching fact of a child left behind while the village keeps dancing. i had to sit with this one.
+    </p>
+  </article>
+
+  <p class="tissue right" style="font-size:1.4rem;">
+    (the village keeps dancing →<br> that line, man.)
+  </p>
+
+  <div class="flow" style="margin:2rem 0;">
+    <article class="scrap" style="transform:rotate(1.2deg); position:relative;">
+      <span class="corner-tape green" style="top:-12px; right:30px; width:58px; transform:rotate(4deg); background:rgba(47,163,107,.4)"></span>
+      <div class="poem" style="font-size:1.02rem; line-height:1.8; color:#222;">
+        <strong style="font-family:var(--disp); font-size:1.12rem; display:block; margin-bottom:.5rem;">Christmas Holidays</strong>
+        Six weeks elapse, and down the Woodford way<br>
+        A heavy coach drags six more heavy souls,<br>
+        But no glad urchins shout, no trumpets bray,<br>
+        The carriage makes a halt, the gate-bell tolls,<br>
+        And little boys walk in as dull and mum<br>
+        As six new scholars to the Deaf and Dumb!
+      </div>
+      <div class="by" style="margin-top:.8rem; font-family:var(--hand); font-size:1.05rem; color:var(--green);">— Thomas Hood · PoetryDB</div>
+      <p class="scrawl g" style="font-size:1.15rem; margin-top:.8rem; line-height:1.4; color:#3a3a3a;">
+        the exact moment kids come back to school and their whole bodies go quiet and heavy. "dull and mum." everyone who lived through going back knows that feeling in their bones.
+      </p>
+    </article>
+
+    <article class="scrap red" style="transform:rotate(-1deg); position:relative; background:#fdf8f5;">
+      <div class="poem" style="font-size:1.02rem; line-height:1.8; color:#222;">
+        <strong style="font-family:var(--disp); font-size:1.12rem; display:block; margin-bottom:.5rem;">If one of them happens to have something nice…</strong>
+        If one of them happens to have something nice,<br>
+        Directly she offers her sister a slice;<br>
+        And never, like some greedy children, would try<br>
+        To eat in a corner with nobody by!<br>
+        <br>
+        Whatever occurs, in their work or their play,<br>
+        They are willing to yield, and give up their own way.
+      </div>
+      <div class="by" style="margin-top:.8rem; font-family:var(--hand); font-size:1.05rem; color:var(--red);">— Jane Taylor · <em>The Good-Natured Girls</em> · PoetryDB, public domain</div>
+      <p class="scrawl r" style="font-size:1.15rem; margin-top:.8rem; line-height:1.4;">
+        not the grand gesture — the sister offering a slice without hiding. ordinary and perfect. the way kindness actually works when it's real.
+      </p>
+    </article>
+
+    <article class="scrap" style="transform:rotate(.6deg); position:relative; background:#f9f7f2;">
+      <span class="corner-tape pink" style="top:-12px; left:24px; width:56px; transform:rotate(-3deg); background:rgba(255,93,143,.4)"></span>
+      <div class="poem" style="font-size:1.02rem; line-height:1.85; color:#222;">
+        <strong style="font-family:var(--disp); font-size:1.12rem; display:block; margin-bottom:.5rem;">On my Sister Joanna's Entrance into Her 33rd Year</strong>
+        In them renew'd, you'll live and live again,<br>
+        And children's children's children lisp thy name.
+      </div>
+      <div class="by" style="margin-top:.8rem; font-family:var(--hand); font-size:1.05rem; color:var(--purple);">— Major Henry Livingston, Jr. · PoetryDB</div>
+      <p class="scrawl p" style="font-size:1.15rem; margin-top:.8rem; line-height:1.4;">
+        you become immortal not through monuments but through the mouths of the people who come after. a person echoing on, just by being loved.
+      </p>
+    </article>
+
+    <article class="scrap" style="transform:rotate(-1.6deg); position:relative; background:#fff;">
+      <span class="corner-tape blue" style="top:-12px; right:34px; width:60px; transform:rotate(3deg); background:rgba(47,95,224,.38)"></span>
+      <p class="scrawl p" style="font-size:1.2rem; margin:0 0 .6rem; color:var(--purple);">tender &amp; apocalyptic at once —</p>
+      <div class="poem" style="font-size:1.02rem; line-height:1.75; color:#2a2118; border-left:3px solid var(--purple); padding-left:1rem;">
+        <strong style="font-family:var(--disp); font-size:1.12rem; display:block; margin-bottom:.5rem;">Head of a White Woman Winking</strong>
+        When Lily winks they understand everything,<br>
+        right down to the particle<br>
+        of a butterfly's wing lodged<br>
+        in her last good eye,<br>
+        so the situation is avoided,<br>
+        the potential for a cataclysm<br>
+        is narrowly averted,<br>
+        and the bumblebee lugs<br>
+        its little bundle of shaved nerves<br>
+        forward, on a mission<br>
+        from some sick, young godhead.
+      </div>
+      <div class="by" style="margin-top:.8rem; font-family:var(--hand); font-size:1.05rem; color:#6b5a42;">— Edward Taylor · PoetryDB</div>
+      <p class="scrawl" style="font-size:1.12rem; margin-top:.7rem; line-height:1.4; color:#3d3228;">
+        a wink holding back disaster, a bumblebee carrying fragility like it's the weight of the world. "a bundle of shaved nerves" doing its impossible work. children's logic, exactly.
+      </p>
+    </article>
+  </div>
+
+  <hr class="torn">
+
+  <!-- the rhyme + the army of two, the loud bit -->
+  <p class="tissue left" style="font-size:1.45rem;">
+    saving the loud stuff for last. first a rope-skipping rhyme that is pure nonsense and scans
+    <span class="hot">perfectly</span> for jumping —
+  </p>
+
+  <section class="pile pin-row">
+    <article class="scrap" style="max-width:30rem; background:#fef9ec; border:1.5px solid #ddd0a0; transform:rotate(.9deg); position:relative; padding:1.6rem 1.8rem;">
+      <span class="corner-tape" style="top:-13px; left:38px; width:72px; transform:rotate(-2deg)"></span>
+      <p style="font-family:var(--mono); font-size:.7rem; color:#999; letter-spacing:.08em; text-transform:uppercase; margin:0 0 .6rem;">found · traditional spanish children's rhyme</p>
+      <h3 style="font-family:var(--disp); font-size:1.35rem; color:var(--red); margin:0 0 .9rem;">A la lata al latero</h3>
+      <blockquote style="font-size:1.02rem; line-height:1.75; color:#2c2c2c; margin:0 0 1rem; padding-left:1rem; border-left:3px solid var(--sun);">
+        A la lata al latero<br>
+        A la hija del chocolatero<br>
+        A la lima al limón<br>
+        A la hija de Don Simón<br>
+        Que viva la lata<br>
+        Que viva el latero<br>
+        Que viva la hija del chocolatero<br>
+        Que viva la lima<br>
+        Que viva el limón<br>
+        Que viva la hija de Don Simón
+        <footer style="margin-top:.8rem; font-family:var(--hand); font-size:1.05rem; color:#5a4a2a;">
+          — Traditional Spanish Children's Rhyme ·
+          <a href="https://www.mamalisa.com/?t=es&amp;p=3695" style="font-family:var(--mono); font-size:.78rem; word-break:break-all;">mamalisa.com · Mama Lisa's World</a>
+        </footer>
+      </blockquote>
+      <div class="sticky green" style="display:block; margin:.4rem 0 0; transform:rotate(-1.2deg); font-family:var(--hand); font-size:1.12rem; line-height:1.4; max-width:none;">
+        long live the tin man, long live the chocolate-maker's daughter — kids chanting glorious nonsense that times their jumps the exact same way it has for a hundred years. nobody decided it should last. it just did.
+      </div>
+    </article>
+
+    <p class="scrawl" style="max-width:16rem; align-self:center; font-size:1.5rem; color:var(--blue); transform:rotate(-2deg);">
+      try saying it out loud.<br>your feet already know the rhythm. ✦
+    </p>
+  </section>
+
+  <article class="scrap blue" style="max-width:38rem; margin:2.4rem auto; transform:rotate(-.7deg); position:relative;">
+    <span class="corner-tape blue" style="top:-13px; left:38%; width:72px; transform:rotate(-2deg); background:rgba(47,95,224,.38)"></span>
+    <blockquote class="big-quote" style="font-family:var(--hand); font-size:1.4rem; line-height:1.5; margin:.4rem 0 .6rem; color:var(--ink);">
+      "Rebecca and Abigail Bates, daughters of keeper Simeon Bates, famously played fife and drum to scare off British soldiers during the War of 1812, earning them the nickname
+      <span class="marker">'The American Army of Two.'</span>"
+      <footer style="margin-top:.8rem; font-size:.95rem; font-family:var(--body); color:#555; font-style:italic;">
+        — Rebecca and Abigail Bates · <cite><a href="https://sanctuaries.noaa.gov/news/may23/beacons-of-history.html" target="_blank" rel="noopener">NOAA National Marine Sanctuaries</a></cite>
+      </footer>
+    </blockquote>
+    <div class="sticky pink" style="font-family:var(--hand); font-size:1.12rem; line-height:1.4; transform:rotate(1.6deg); margin-top:.6rem;">
+      two lighthouse keeper's daughters picked up their instruments and turned a song into an act of courage. you can almost hear that drum carrying across the water. kids. just KIDS.
+    </div>
+  </article>
+
+  <p class="tissue right" style="font-size:1.5rem; color:var(--red);">
+    (an army of two.<br>i found this at 2am and just sat there.)
+  </p>
+
+  <!-- a small mythic coda with coffee ring -->
+  <section class="pile" style="text-align:center; margin-top:3rem;">
+    <span class="coffee" style="left:8%; top:-20px;"></span>
+    <figure class="snap polaroid tilt-r" style="max-width:380px; margin:0 auto; padding:11px 11px 44px; position:relative;">
+      <span class="corner-tape" style="top:-13px; right:30px; width:64px; transform:rotate(4deg)"></span>
+      <img src="../img2/p226.jpg" loading="lazy"
+        alt="Diana, a young goddess, holds a ribbon bow while a laughing winged Cupid reaches up toward her; a soft landscape behind them">
+      <figcaption class="cap" style="position:absolute; left:0; right:0; bottom:12px; text-align:center; font-family:var(--hand); font-size:1.2rem; color:var(--blue);">a bow made of ribbon. a laughing cupid.</figcaption>
+    </figure>
+    <p style="font-family:var(--mono); font-size:.68rem; color:var(--ink2); margin:.8rem auto 0; max-width:30rem; line-height:1.5;">
+      Pompeo Batoni · <em>Diana and Cupid</em> · 1761, oil on canvas · The Metropolitan Museum of Art · Open Access
+    </p>
+    <p class="scrawl" style="max-width:28rem; margin:.7rem auto 0; font-size:1.3rem; color:#2c2c2c; transform:rotate(.8deg);">
+      even the gods, when they play, look like this — like you stumbled into a garden where the rules don't quite apply.
+    </p>
+  </section>
+
+  <p class="footnote" style="margin-top:3rem; text-align:center;">
+    ok i have to sleep. more tomorrow. — <a href="../index.html">back to the wall</a> &nbsp;✶
+  </p>
+
+</div>
+<script>stitched
+document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&!t.dataset.f){t.dataset.f=1;t.classList.add('broken-img');t.alt=t.alt||'(this picture wandered off)';}},true);
+</script><div class="handfooter"><!--stitched-->
+  <a class="home" href="../index.html">↤ back to the front door</a>
+  <span>wander somewhere else:</span> <a href="weather-as-a-feeling.html">weather as a feeling</a><span>·</span> <a href="flowers-saying-things.html">Flowers Have Been SayingThings This Whole Time
+ </a><span>·</span> <a href="ordinary-holiness.html">ordinaryholiness</a><span>·</span> <a href="everything-is-light.html">everything is about light, actually — a letter</a>
+  <span style="flex-basis:100%;margin-top:.4rem">made by hand, with real things real people made. nothing here is for sale. — <span style="font-family:var(--hand);font-size:1.4rem;color:var(--red)">x</span></span>
+</div>
+</body>
+</html>

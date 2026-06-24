@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>proof that people have always been funny</title>
+<link rel="stylesheet" href="../wall.css">
+<style>
+  /* ——— THE BULLETIN. a cork wall of jokes scratched into stone, margins,
+     and graves. loud where it wants to be, quiet where it has to be. every
+     joke gets a picture pinned next to it so you can SEE who was kidding. ——— */
+  body{
+    background:#f4efe4;
+    background-image:
+      radial-gradient(120% 80% at 50% -5%, #fbf6ec 0%, rgba(0,0,0,0) 55%),
+      radial-gradient(70% 50% at 88% 96%, rgba(47,163,107,.06), rgba(0,0,0,0) 60%),
+      radial-gradient(60% 50% at 6% 40%, rgba(226,67,42,.05), rgba(0,0,0,0) 60%);
+  }
+  .wall{ max-width:62rem; margin:0 auto; padding:2.4rem 1.2rem 7rem; position:relative; }
+
+  /* masthead — a big scrappy banner, hand-torn */
+  .banner{ position:relative; margin:1.5rem 0 1rem; }
+  .banner .kicker{
+    font-family:var(--mono); font-size:.68rem; letter-spacing:.26em;
+    text-transform:uppercase; color:#9a8f7a; margin:0 0 1rem;
+  }
+  .banner h1{
+    font-family:var(--disp); font-weight:800;
+    font-size:clamp(2.6rem,9.5vw,6.4rem); line-height:.9;
+    letter-spacing:-.025em; margin:0; color:#241f17;
+  }
+  .banner h1 em{ font-style:italic; color:var(--red); font-weight:600; }
+  .banner h1 .green{ color:var(--green); }
+  .banner .sub{
+    font-family:var(--hand); font-size:clamp(1.5rem,3.6vw,2.3rem);
+    color:#6f6450; margin:.8rem 0 0; transform:rotate(-1.2deg);
+    max-width:34rem; line-height:1.2;
+  }
+  /* a pin in the corner of the banner */
+  .pin-dot{ position:absolute; width:16px; height:16px; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #ff8a6e, var(--red));
+    box-shadow:0 3px 6px rgba(0,0,0,.3); top:-.4rem; right:9%; }
+
+  /* the lead-in scribble */
+  .leadin{
+    max-width:33rem; margin:1.8rem 0 0; font-family:var(--body);
+    font-size:1.12rem; line-height:1.7; color:#46402f;
+  }
+  .leadin .x{ text-decoration:line-through; text-decoration-color:var(--red); color:#8a8068; }
+
+  hr.rip{ border:0; height:14px; margin:3.4rem 0;
+    background:repeating-linear-gradient(-45deg,#d8cfba 0 7px,transparent 7px 14px);
+    opacity:.5; mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); }
+
+  /* ——— the laughing dog: the star, pinned huge, slightly off-axis ——— */
+  .dog-stage{ position:relative; margin:2rem 0 1rem; }
+  .dog-card{
+    background:#fff; padding:14px 14px 18px; max-width:540px;
+    box-shadow:0 22px 54px rgba(0,0,0,.2); transform:rotate(-2deg);
+    border:1px solid #efe9dc; margin:0 auto; position:relative;
+  }
+  .dog-card img{ width:100%; display:block; border-radius:2px; }
+  .dog-card figcaption{
+    font-family:var(--mono); font-size:.66rem; color:#7a7160;
+    margin-top:.8rem; letter-spacing:.02em; text-align:center;
+  }
+  .dog-card .washi{ position:absolute; top:-12px; left:50%; margin-left:-50px;
+    width:100px; height:26px; background:rgba(255,192,46,.5);
+    transform:rotate(-3deg); mix-blend-mode:multiply; }
+  .dog-shout{
+    font-family:var(--hand); font-size:clamp(1.7rem,5vw,2.8rem);
+    color:var(--red); line-height:1.05; max-width:13rem;
+    position:absolute; right:-1rem; top:1rem; transform:rotate(5deg);
+    text-shadow:0 1px 0 #fff;
+  }
+  .dog-note{
+    font-family:var(--hand); font-size:1.3rem; line-height:1.45;
+    color:#3a3528; max-width:30rem; margin:1.6rem auto 0; text-align:center;
+  }
+  .dog-note em{ color:var(--red); }
+  @media(max-width:680px){ .dog-shout{ position:static; max-width:none; margin:1rem auto 0; text-align:center; transform:rotate(-1deg); } }
+
+  /* ——— general joke card ——— */
+  .joke{ position:relative; max-width:34rem; }
+  .joke .label{
+    font-family:var(--mono); font-size:.64rem; letter-spacing:.16em;
+    text-transform:uppercase; color:#a0957e; margin-bottom:.7rem;
+  }
+  .joke .scratch-q{
+    font-family:var(--disp); font-weight:400; font-style:italic;
+    font-size:clamp(1.5rem,4.5vw,2.4rem); line-height:1.18;
+    color:#211d15; margin:0;
+  }
+  .joke .who{
+    font-family:var(--mono); font-size:.66rem; letter-spacing:.06em;
+    color:#8a8068; margin-top:1rem; line-height:1.5;
+  }
+  .joke .who a{ color:var(--blue); }
+  .joke .react{
+    font-family:var(--hand); font-size:1.2rem; line-height:1.5;
+    color:var(--blue); margin-top:1rem; max-width:26rem;
+  }
+
+  /* a wall photo with caption (mood / margins) */
+  .photo{
+    background:#fff; padding:10px 10px 12px; border:1px solid #ece6d8;
+    box-shadow:0 14px 34px rgba(0,0,0,.16); display:block;
+  }
+  .photo img{ width:100%; display:block; border-radius:2px; }
+  .photo figcaption{
+    font-family:var(--hand); font-size:1.05rem; color:#5a5240;
+    margin-top:.5rem; line-height:1.3; text-align:center;
+  }
+  .photo .stamp{
+    font-family:var(--mono); font-size:.58rem; color:#9a9080;
+    letter-spacing:.04em; text-align:center; margin-top:.3rem;
+  }
+
+  /* a two-up row: margins photo + the scribe's complaint */
+  .duo{ display:flex; flex-wrap:wrap; gap:2.2rem; align-items:flex-start; margin:2rem 0; }
+  .duo > *{ flex:1 1 16rem; min-width:0; }
+
+  /* the gravestone slab */
+  .slab{
+    background:linear-gradient(160deg,#cfc8bb,#b9b1a2);
+    border-radius:6px 6px 4px 4px; padding:3.2rem 2rem 2.6rem;
+    max-width:30rem; margin:2.5rem auto; text-align:center;
+    box-shadow:0 18px 40px rgba(0,0,0,.22), inset 0 2px 0 rgba(255,255,255,.4);
+    transform:rotate(-.8deg); position:relative;
+    border:1px solid #a89f8e;
+  }
+  .slab::before{ content:"R. I. P."; position:absolute; top:.8rem; left:50%; transform:translateX(-50%);
+    font-family:var(--mono); color:#8a8170; font-size:.62rem; letter-spacing:.3em; opacity:.55; }
+  .slab .here{ font-family:var(--mono); font-size:.62rem; letter-spacing:.3em;
+    text-transform:uppercase; color:#6f6757; margin:0 0 1.4rem; }
+  .slab blockquote{
+    margin:0; font-family:var(--disp); font-weight:300; font-style:italic;
+    font-size:clamp(2rem,7vw,3.4rem); line-height:1; color:#33302a;
+    letter-spacing:-.01em;
+  }
+  .slab .who{ font-family:var(--mono); font-size:.6rem; letter-spacing:.06em;
+    color:#6f6757; margin-top:1.6rem; }
+  .slab .who a{ color:#4a5a8a; }
+
+  /* poems set plainly on torn paper */
+  .poem-paper{
+    background:#fffdf6; border:1px solid #ece3cc; max-width:40rem;
+    padding:2rem 2.2rem 1.8rem; box-shadow:0 12px 30px rgba(0,0,0,.12);
+    position:relative;
+  }
+  .poem-paper .label{
+    font-family:var(--mono); font-size:.62rem; letter-spacing:.14em;
+    text-transform:uppercase; color:#a0957e; margin-bottom:1rem;
+  }
+  .poem-paper .verse{
+    font-family:var(--disp); font-weight:300; font-size:clamp(1.2rem,3vw,1.7rem);
+    line-height:1.65; color:#211d15;
+  }
+  .poem-paper .by{
+    font-family:var(--mono); font-size:.64rem; letter-spacing:.06em;
+    color:#8a8068; margin-top:1.4rem;
+  }
+  .poem-paper .react{
+    font-family:var(--hand); font-size:1.2rem; line-height:1.5;
+    margin-top:1.2rem;
+  }
+
+  .home{ font-family:var(--hand); font-size:1.6rem; color:var(--red); text-decoration:none; }
+  .home:hover{ color:var(--blue); }
+</style>
+</head>
+<body>
+
+<div class="wall">
+
+  <!-- masthead -->
+  <header class="banner">
+    <span class="pin-dot"></span>
+    <p class="kicker">i saved this for you · file no. 7 · the comedy drawer</p>
+    <h1>nobody was<br>ever as <em>serious</em><br>as we <span class="green">think</span></h1>
+    <p class="sub">graffiti, gravestones, the margins of holy books &amp; one (1) bored old man — proof.</p>
+  </header>
+
+  <p class="leadin">i went looking through two thousand years of stuff people made and i kept finding the same thing: <span class="x">solemnity</span> jokes. someone scratching a complaint into a wall. a monk drawing on his own homework. a dead man getting the last laugh. here's the pile. i pinned a face next to each one so you can see they were really there, really kidding.</p>
+
+  <hr class="rip">
+
+  <!-- THE DOG. the loudest, dumbest, most beloved thing here. -->
+  <div class="dog-stage">
+    <figure class="dog-card">
+      <span class="washi"></span>
+      <img src="../img2/p166.jpg" loading="lazy"
+           alt="Ancient ceramic dog figurine, forward-facing eyes and open mouth, caught mid-laugh">
+      <figcaption>Unknown · Cleveland Museum of Art · CC0</figcaption>
+    </figure>
+    <p class="dog-shout">he's almost 2,000 and he is LAUGHING</p>
+  </div>
+  <p class="dog-note">someone wanted a dog with a goofy open grin so they <em>made</em> one — and here he still is, glaze still shining like he wants to be petted. i think about that more than i'd admit.</p>
+
+  <hr class="rip">
+
+  <!-- Pompeii: scratched on a wall -->
+  <section class="joke" style="margin:2rem 0 2rem 4%;transform:rotate(-.5deg);">
+    <p class="label">pompeii inn · scratched into the plaster · ~1,900 yrs ago</p>
+    <p class="scratch-q">&ldquo;We have urinated in our beds&hellip; there was no chamber pot.&rdquo;</p>
+    <p class="who">Unknown guest &amp; innkeeper, Pompeii ·
+      <a href="https://www.openculture.com/?p=1122579">Open Culture, citing Pompeii archaeological records</a></p>
+    <p class="react">two thousand years, and the most durable human thing turns out to be an excuse. with a witness. they BOTH wrote on the wall. unbelievable.</p>
+  </section>
+
+  <hr class="rip">
+
+  <!-- the scribe spread: writing photo + complaint photo + the two complaints -->
+  <p class="label" style="font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:#a0957e;text-align:center;margin-bottom:1.4rem;">↓ the monks. doing the most boring job on earth. and saying so. ↓</p>
+
+  <div class="duo">
+    <figure class="photo" style="transform:rotate(-1.6deg);">
+      <img src="../img2/p173.jpg" loading="lazy"
+           alt="Illuminated manuscript page showing a scribe seated at a desk, writing in a book">
+      <figcaption>this is the job. all day. every day. by hand.</figcaption>
+      <p class="stamp">illuminated manuscript · pinned here for the mood (no jokes survive on this exact page — but the next one's full of them)</p>
+    </figure>
+
+    <div class="joke" style="max-width:26rem;align-self:center;">
+      <p class="label">in the margin · by someone who was DONE</p>
+      <p class="scratch-q" style="font-style:normal;font-weight:300;">Thank God, it will soon be dark.</p>
+      <p class="who">Medieval scribe, name lost ·
+        <a href="https://blog.bookstellyouwhy.com/the-humorous-and-absurd-world-of-medieval-marginalia">manuscript marginalia</a></p>
+      <p class="react" style="color:var(--purple);">six words. just a guy counting the hours till he can stop. i have texted this exact sentiment about a spreadsheet.</p>
+    </div>
+  </div>
+
+  <div class="duo" style="flex-direction:row-reverse;">
+    <figure class="photo" style="transform:rotate(1.4deg);">
+      <img src="../img2/p176.jpg" loading="lazy"
+           alt="A medieval manuscript page with decorated initials, red rubrication, and notes in the margins">
+      <figcaption>look at the edges. that's where they hid.</figcaption>
+      <p class="stamp">manuscript leaf, margins &amp; rubrication · mood image, uncredited</p>
+    </figure>
+
+    <div class="joke" style="max-width:26rem;align-self:center;">
+      <p class="label">also in the margin · the body keeps the score</p>
+      <p class="scratch-q">&ldquo;Writing is excessive drudgery. It crooks your back, it dims your sight, it twists your stomach and your sides.&rdquo;</p>
+      <p class="who">Anonymous scribe ·
+        <a href="https://blog.bookstellyouwhy.com/the-humorous-and-absurd-world-of-medieval-marginalia">manuscript marginalia</a></p>
+      <p class="react">he complained about the work&hellip; <em style="font-style:normal;background:rgba(255,192,46,.4);padding:0 .2em;">in the work.</em> in tiny letters nobody was ever meant to read. and here we are. reading.</p>
+    </div>
+  </div>
+
+  <hr class="rip">
+
+  <!-- the gravestone. one big quiet thing. -->
+  <div class="slab">
+    <p class="here">a gravestone, in Georgia</p>
+    <blockquote>I told you<br>I was sick!</blockquote>
+    <p class="who">Unknown ·
+      <a href="https://www.et.byu.edu/~tom/jokes/Funny_Epitaphs.html">et.byu.edu epitaph collection</a></p>
+  </div>
+  <p class="dog-note" style="color:var(--purple);transform:rotate(-.6deg);max-width:28rem;">four words. funny until it isn't — then it's the truest thing anyone ever carved on their own grave.</p>
+
+  <hr class="rip">
+
+  <!-- Edward Lear, one bored old man -->
+  <section style="margin:2rem 0;">
+    <div class="poem-paper" style="transform:rotate(.8deg);margin-left:auto;margin-right:6%;">
+      <p class="label">Edward Lear, on the subject of one (1) bee</p>
+      <p class="verse">
+        There was an Old Man in a tree,<br>
+        Who was horribly bored by a bee.<br>
+        &nbsp;&nbsp;When they said &ldquo;Does it buzz?&rdquo;<br>
+        &nbsp;&nbsp;He replied &ldquo;Yes, it does!<br>
+        It&rsquo;s a regular brute of a bee!&rdquo;
+      </p>
+      <p class="by">Edward Lear · <em>There Was an Old Man in a Tree</em> · PoetryDB</p>
+      <p class="react" style="color:var(--green);">a whole tiny universe of being SO done with one small thing. i've been this old man. you've been this old man.</p>
+    </div>
+  </section>
+
+  <!-- Swift, the literary con -->
+  <section style="margin:2.5rem 0;">
+    <div class="poem-paper" style="transform:rotate(-1deg);margin-left:2%;">
+      <p class="label">Jonathan Swift describes a scam · ~1733</p>
+      <p class="verse" style="font-size:clamp(1.1rem,2.6vw,1.5rem);line-height:1.7;">
+        Lend these to paper-sparing Pope;<br>
+        And when he sets to write,<br>
+        No letter with an envelope<br>
+        Could give him more delight.<br>
+        When Pope has fill&rsquo;d the margins round,<br>
+        Why then recall your loan;<br>
+        Sell them to Curll for fifty pound,<br>
+        And swear they are your own.
+      </p>
+      <p class="by">Jonathan Swift · <em>Advice to the Grub Street Verse-writers</em> · PoetryDB</p>
+      <p class="react" style="color:var(--red);">broke poets lend pope their garbage just so he'll scribble genius in the margins — then sell the pages back claiming the whole thing was theirs. 300 years old and still the funniest hustle i know.</p>
+    </div>
+  </section>
+
+  <hr class="rip">
+
+  <!-- Henley, death as vaudeville, the close -->
+  <section class="joke" style="margin:2rem auto;max-width:38rem;text-align:center;">
+    <p class="label">and one for the road — W. E. Henley turns death into a vaudeville bit</p>
+    <p class="verse" style="font-family:var(--disp);font-weight:300;font-size:clamp(1.4rem,3.6vw,2.1rem);line-height:1.6;color:#211d15;margin:1.4rem auto 0;max-width:32rem;">
+      But she&rsquo;s heard it all before,<br>
+      Well she knows you&rsquo;ve had your fun,<br>
+      Gingerly she gains the door,<br>
+      And your little job is done.
+    </p>
+    <p class="who" style="text-align:center;">William Ernest Henley · <em>Madam Life&rsquo;s a Piece in Bloom</em> · PoetryDB</p>
+    <p class="react" style="color:var(--blue);margin:1rem auto 0;text-align:center;">life's the charming roommate, death's the debt collector with his knees on your ribs — and at the end life just&hellip; walks out. doesn't even look back. she's seen this show a thousand times.</p>
+  </section>
+
+  <hr class="rip">
+
+  <p class="dog-note" style="color:var(--red);transform:rotate(-.5deg);max-width:30rem;">
+    that's the pile. people scratching jokes onto walls and graves and the edges of holy books, centuries deep, never once as solemn as the history books pretend.
+    <span style="display:block;margin-top:.8rem;opacity:.85;">ok. i have to sleep. but look at the dog one more time before you go. ↑</span>
+  </p>
+
+  <p style="text-align:center;margin-top:2.5rem;">
+    <a href="../index.html" class="home">&larr; back to the wall</a>
+  </p>
+
+</div>
+
+<script>stitched
+document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&!t.dataset.f){t.dataset.f=1;t.classList.add('broken-img');t.alt=t.alt||'(this picture wandered off)';}},true);
+</script><div class="handfooter"><!--stitched-->
+  <a class="home" href="../index.html">↤ back to the front door</a>
+  <span>wander somewhere else:</span> <a href="sky-is-oldest-story.html">the sky is the oldest story — i saved this for y</a><span>·</span> <a href="hands-that-made-things.html">handsthat madethings</a><span>·</span> <a href="for-when-you-cant-sleep.html">for when youcan't sleep</a><span>·</span> <a href="ordinary-holiness.html">ordinaryholiness</a>
+  <span style="flex-basis:100%;margin-top:.4rem">made by hand, with real things real people made. nothing here is for sale. — <span style="font-family:var(--hand);font-size:1.4rem;color:var(--red)">x</span></span>
+</div>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>the sky is the oldest story — i saved this for you</title>
+<link rel="stylesheet" href="../wall.css">
+<style>
+  /* ==== this page only: RANSOM-NOTE MAXIMALISM ==== */
+  body.sky{
+    background:#0a0a14;
+    color:#fff;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, #fff 50%, transparent),
+      radial-gradient(1px 1px at 70% 12%, #ffe 50%, transparent),
+      radial-gradient(2px 2px at 40% 70%, #fff 50%, transparent),
+      radial-gradient(1px 1px at 88% 55%, #cde 50%, transparent),
+      radial-gradient(1px 1px at 12% 82%, #fff 50%, transparent),
+      radial-gradient(1.5px 1.5px at 55% 40%, #ffd 50%, transparent),
+      radial-gradient(1px 1px at 33% 18%, #fff 50%, transparent),
+      radial-gradient(2px 2px at 92% 88%, #fff 50%, transparent),
+      radial-gradient(140% 90% at 50% -20%, #1b1b3a 0%, rgba(10,10,20,0) 55%);
+    background-attachment:fixed;
+  }
+  .sky ::selection{background:var(--pink);color:#000}
+
+  /* the big collaged container — no neat grid, just cram */
+  .ransom{
+    max-width:78rem;margin:0 auto;padding:1.2rem .8rem 6rem;position:relative;
+  }
+
+  /* every letter wants to be a different font/color/box — ransom note */
+  .ransomword{
+    display:inline-block;line-height:.9;padding:.02em .14em;margin:.04em .03em;
+    transform:rotate(var(--r,0deg));position:relative;
+  }
+  .rA{font-family:var(--disp);font-weight:900;background:var(--sun);color:#111;}
+  .rB{font-family:var(--mono);font-weight:700;background:var(--red);color:#fff;}
+  .rC{font-family:var(--hand);font-weight:700;color:var(--sun);background:#111;border:3px solid var(--sun);}
+  .rD{font-family:var(--disp);font-style:italic;font-weight:900;background:var(--blue);color:#fff;}
+  .rE{font-family:var(--hand2);font-weight:800;background:var(--pink);color:#111;}
+  .rF{font-family:var(--disp);font-weight:900;background:#fff;color:#111;}
+  .rG{font-family:var(--mono);background:var(--green);color:#06200f;}
+  .rH{font-family:var(--disp);font-weight:900;background:var(--purple);color:#fff;}
+
+  .masthead{position:relative;padding:2.2rem 0 1rem;text-align:center;}
+  .masthead .line{font-size:clamp(2.4rem,8vw,6.2rem);}
+  .masthead .line2{font-size:clamp(1.6rem,5vw,3.6rem);margin-top:.3rem;}
+
+  /* clippings get tossed onto the wall at angles */
+  .clip{
+    background:#12122a;border:2px solid rgba(255,255,255,.14);
+    box-shadow:5px 7px 0 rgba(0,0,0,.5);
+    padding:1.3rem 1.4rem 1.5rem;position:relative;margin:0;
+  }
+  .clip .lbl{
+    font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
+    display:inline-block;padding:.2em .6em;margin-bottom:.7rem;color:#000;background:var(--sun);
+    transform:rotate(-1.5deg);
+  }
+  .clip a{color:var(--sun);text-decoration:underline;word-break:break-word}
+  .clip a:hover{color:var(--pink)}
+  .cred{background:var(--red);color:#fff;border-color:#000}
+  .cblue{background:var(--blue);color:#fff;border-color:#000}
+  .cpink{background:#2a0f1c;border-color:var(--pink)}
+  .cgreen{background:#06200f;border-color:var(--green)}
+  .cpaper{background:#fbf7e9;color:#1a1a1a;border-color:#000}
+  .cpaper .lbl{background:#111;color:var(--sun)}
+  .cpaper a{color:var(--blue)}
+
+  /* the chaotic masonry — uneven columns on purpose */
+  .pile{columns:1;column-gap:1.3rem;}
+  @media(min-width:46rem){.pile{columns:2}}
+  @media(min-width:74rem){.pile{columns:3}}
+  .pile > *{break-inside:avoid;margin:0 0 1.6rem;display:block;}
+
+  .qbig{font-family:var(--disp);font-weight:900;line-height:.98;font-size:clamp(1.5rem,3.6vw,2.6rem);margin:0 0 .5rem;}
+  .arab{font-family:var(--disp);font-weight:900;font-size:clamp(2.6rem,7vw,5rem);line-height:1;color:var(--sun);text-shadow:3px 3px 0 #000;direction:rtl;}
+  .note{font-family:var(--hand);font-size:1.18rem;line-height:1.45;}
+  .src{font-family:var(--mono);font-size:.6rem;line-height:1.6;opacity:.85;margin-top:.6rem;letter-spacing:.02em;}
+
+  .arrow{position:absolute;font-family:var(--hand);color:var(--pink);font-size:1.3rem;z-index:30;pointer-events:none;line-height:1.1;}
+  .scratchnote{font-family:var(--hand);color:var(--sun);font-size:1.5rem;transform:rotate(-3deg);display:inline-block;}
+
+  /* a torn strip banner */
+  .strip{
+    background:repeating-linear-gradient(45deg,var(--red) 0 22px,var(--sun) 22px 44px,var(--blue) 44px 66px);
+    height:14px;margin:0 0 1.4rem;transform:rotate(-.6deg);box-shadow:0 2px 0 #000;
+  }
+  .homebtn{
+    font-family:var(--hand);font-size:1.5rem;color:#111;background:var(--sun);
+    display:inline-block;padding:.1em .6em;text-decoration:none;transform:rotate(-2deg);
+    box-shadow:3px 3px 0 #000;border:2px solid #000;
+  }
+  .homebtn:hover{background:var(--pink);color:#000}
+  .figframe{background:#fff;padding:.7rem .7rem .5rem;box-shadow:0 10px 28px rgba(0,0,0,.5);display:block}
+  .figframe img{width:100%;display:block}
+  .figcap{font-family:var(--hand);font-size:1.05rem;color:#333;text-align:center;padding-top:.4rem;}
+</style>
+</head>
+<body class="sky">
+
+<div class="ransom">
+
+  <!-- little home tab tucked top-left, crooked -->
+  <a href="../index.html" class="homebtn" style="position:absolute;top:.4rem;left:.3rem;z-index:40;">&larr; back to the wall</a>
+
+  <!-- ====== RANSOM MASTHEAD ====== -->
+  <header class="masthead">
+    <div class="line">
+      <span class="ransomword rA" style="--r:-4deg">the</span>
+      <span class="ransomword rC" style="--r:3deg">sky</span>
+      <span class="ransomword rD" style="--r:-2deg">is</span>
+      <span class="ransomword rE" style="--r:5deg">the</span>
+    </div>
+    <div class="line2">
+      <span class="ransomword rF" style="--r:2deg">oldest</span>
+      <span class="ransomword rB" style="--r:-3deg">STORY</span>
+      <span class="ransomword rH" style="--r:4deg">.</span>
+    </div>
+    <p class="scratchnote" style="margin:1.1rem auto 0;max-width:40rem;">
+      stars, constellations, the names we gave the dark
+      <span class="crossout" style="color:#888;text-decoration-color:var(--pink)">by accident</span> on purpose.
+    </p>
+    <p class="note" style="color:#cfd2ff;max-width:34rem;margin:.6rem auto 0;opacity:.9;">
+      ok so i went down a hole at like 2am about how every culture looked at the EXACT same orion
+      and made up something completely different. i taped all of it here. mind the mess.
+    </p>
+  </header>
+
+  <div class="strip"></div>
+
+  <!-- ====== THE PILE ====== -->
+  <div class="pile">
+
+    <!-- POMO BASKET image -->
+    <figure class="clip cpaper" style="transform:rotate(-1.4deg);">
+      <span class="tape" style="top:-12px;left:30px;"></span>
+      <span class="lbl">pomo · c.1895 · art institute of chicago</span>
+      <div class="figframe" style="transform:rotate(1.2deg);">
+        <img src="../img2/p321.jpg" loading="lazy" alt="Pomo Wedding Basket, c. 1895, clamshell and glass beads studding a plant-fiber weave">
+        <figcaption class="figcap">somebody studded the sky with stars</figcaption>
+      </div>
+      <p class="note" style="color:#222;margin:.8rem 0 0;">
+        each clamshell bead catches light like a tiny mirror. it's a map of the heavens you could hold in two hands &mdash; precious AND practical, made for the one day that mattered most. <span class="scratchnote" style="color:var(--red);font-size:1.2rem;">the patience!!</span>
+      </p>
+      <p class="src" style="color:#555;">Pomo, Northern California, United States &middot; Wedding Basket, c.&nbsp;1895 &middot; plant fibers, feathers, glass &amp; clamshell beads &middot; Art Institute of Chicago</p>
+    </figure>
+
+    <!-- RIGEL found -->
+    <div class="clip cblue" style="transform:rotate(1.1deg);">
+      <span class="tape blue" style="top:-12px;right:24px;"></span>
+      <span class="lbl">found &middot; arabic star names</span>
+      <p class="arab">رِجْل الجبّار</p>
+      <p class="scratchnote" style="color:#fff;font-size:1.3rem;margin:.2rem 0 .6rem;">Rigel &mdash; "foot of the giant"</p>
+      <p class="qbig" style="color:var(--sun);font-size:clamp(1.1rem,2.4vw,1.6rem);font-style:italic;">
+        &ldquo;the foot of Orion. the name derives from Arabic astronomical tradition dating back over a thousand years.&rdquo;
+      </p>
+      <p class="note">the ancients looked up & didn't see lights. they saw a GIANT, with a foot reaching toward us. and that name held for a thousand years.</p>
+      <p class="src">Arabic astronomical tradition &middot; Wikipedia, <a href="https://en.wikipedia.org/wiki/List_of_Arabic_star_names">List of Arabic star names</a></p>
+    </div>
+
+    <!-- ARISTOTLE aurora -->
+    <div class="clip cred" style="transform:rotate(-1.6deg);">
+      <span class="tape" style="top:-12px;left:50px;background:rgba(255,255,255,.6)"></span>
+      <span class="lbl" style="background:#fff;color:#000">aristotle &middot; meteorology &middot; c.350 BCE</span>
+      <p class="qbig" style="color:#fff;text-shadow:2px 2px 0 #000;">chasms, trenches, &amp; blood-red colors</p>
+      <p style="font-family:var(--disp);font-style:italic;font-size:1.15rem;line-height:1.5;margin:.4rem 0;">
+        &ldquo;sometimes on a fine night we see a variety of appearances that form in the sky: <span class="marker pink">'chasms' for instance and 'trenches' and blood-red colors.</span>&rdquo;
+      </p>
+      <p class="note" style="color:#ffe;">2,300 years ago and it's STILL that exact feeling &mdash; you look up and the sky goes alien on you. cracks. depth. no explanation.</p>
+      <p class="src" style="color:#ffd;">Aristotle, <em>Meteorology</em> &middot; <a href="https://www.astronomy.com/science/the-northern-lights-a-history-of-aurora-sightings/" style="color:#ffd">astronomy.com</a></p>
+    </div>
+
+    <!-- TLV MIRROR image -->
+    <figure class="clip cgreen" style="transform:rotate(.9deg);">
+      <span class="tape green" style="top:-12px;right:40px;"></span>
+      <span class="lbl" style="background:var(--green);color:#06200f">eastern han &middot; 1st c. CE</span>
+      <div class="figframe" style="transform:rotate(-2deg);">
+        <img src="../img2/p279.jpg" loading="lazy" alt="Bronze TLV-pattern mirror, China, Eastern Han dynasty, green patina with geometric rings">
+        <figcaption class="figcap">a cosmos held still</figcaption>
+      </div>
+      <p class="note" style="color:#dff7e6;margin-top:.8rem;">they turned bronze into a map of <em>something</em> &mdash; sky patterns? the whole universe? &mdash; worn green like it's been keeping secrets for two thousand years. the center square anchors it, the rings pulse out.</p>
+      <p class="src" style="color:#bfe6cc;">Mirror with "TLV" Pattern &middot; China, Eastern Han dynasty (25&ndash;220 CE) &middot; Bronze &middot; Art Institute of Chicago &middot; CC0</p>
+    </figure>
+
+    <!-- DJULPAN found, the long one -->
+    <div class="clip cgreen" style="transform:rotate(-.7deg);">
+      <span class="tape" style="top:-12px;left:38px;background:rgba(47,163,107,.6)"></span>
+      <span class="lbl" style="background:var(--green);color:#06200f">yolŋu oral tradition &middot; arnhem land</span>
+      <h2 style="font-family:var(--disp);font-weight:900;color:#fff;font-size:clamp(1.6rem,4vw,2.6rem);margin:.1rem 0 .6rem;text-shadow:2px 2px 0 var(--green);">Djulpan:<br>the celestial canoe</h2>
+      <p style="font-family:var(--disp);font-style:italic;font-size:1.05rem;line-height:1.6;color:#e8f5e2;background:rgba(47,163,107,.16);padding:.9rem 1rem;border-left:4px solid var(--green);">
+        Three brothers of the King-fish clan went fishing but caught only king-fish. Their clan law forbade eating these fish, so they had to release them. Eventually one brother broke this law and consumed a king-fish. The Sun-woman (Walu) witnessed this and became enraged, creating a waterspout that lifted the brothers skyward, where they remain visible as stars. The three brothers are the three stars across the centre of the canoe (Orion's belt); the Orion nebula is a fish trailing on a fishing line.
+      </p>
+      <p class="note" style="color:#cdf2dd;">this does something greek myth NEVER does &mdash; it's a lesson about consequences, written straight into the sky. every time orion rises, it's a warning that breaking sacred law carries weight. i can't stop thinking about that.</p>
+      <p class="src" style="color:#bfe6cc;">Yolŋu people of Arnhem Land, Australia (documented by Ray Norris &amp; Duane Hamacher) &middot; <a href="http://aboriginalastronomy.blogspot.com/2011/07/djulpan-celestial-canoe.html" style="color:#bff7d0">aboriginalastronomy.blogspot.com</a></p>
+    </div>
+
+    <!-- 1770 AURORA found -->
+    <div class="clip cpink" style="transform:rotate(1.5deg);">
+      <span class="tape pink" style="top:-12px;right:30px;"></span>
+      <span class="lbl" style="background:var(--pink);color:#1a0a12">japan &middot; 1770 &middot; sky on fire</span>
+      <p class="qbig" style="color:var(--pink);">&ldquo;white stripes like rods appeared within intensive red vapor&rdquo;</p>
+      <p class="note" style="color:#ffd6e7;">they watched red vapor fill half the northern sky with rods of white light, and they prayed to buddha, certain the world was ending. it's such a human response to a beauty you have no word for. <span class="scratchnote" style="color:var(--pink);font-size:1.25rem;">awe & terror, one breath</span></p>
+      <p class="src" style="color:#ffb8d0;">Japanese eyewitness account, Shingu historian &middot; <a href="https://www.smithsonianmag.com/science-nature/inside-the-quest-to-find-evidence-of-auroras-in-ancient-texts-180983844/" style="color:#ffd6e7">Smithsonian Magazine</a></p>
+    </div>
+
+    <!-- BAIAME found -->
+    <div class="clip cblue" style="transform:rotate(-1.2deg);">
+      <span class="tape blue" style="top:-12px;left:46px;"></span>
+      <span class="lbl">wiradjuri tradition &middot; the conversation</span>
+      <h2 style="font-family:var(--disp);font-weight:900;color:var(--sun);font-size:clamp(1.6rem,4vw,2.6rem);margin:.1rem 0 .5rem;text-shadow:2px 2px 0 #000;">Baiame &amp; the<br>Pleiades sisters</h2>
+      <p style="font-family:var(--disp);font-style:italic;font-size:1.05rem;line-height:1.55;border-left:5px solid var(--sun);padding:.6rem 1rem;background:rgba(255,255,255,.06);">
+        &ldquo;Baiame is the creation ancestor, seen in the sky as Orion &mdash; nearly identical in shape to his Greek counterpart. He pursues the Pleiades sisters (Mulayndynang) and trips and falls over the horizon as the constellation sets, which is why he appears upside down.&rdquo;
+      </p>
+      <p class="note">same exact stars we call Orion and the Pleiades. completely different universe. a hunter who STUMBLES, chasing the sisters, and you can still catch him falling, upside down, when he sets.</p>
+      <p class="src">Wiradjuri Aboriginal tradition (documented by Ray Norris &amp; Duane Hamacher) &middot; <a href="https://theconversation.com/kindred-skies-ancient-greeks-and-aboriginal-australians-saw-constellations-in-common-74850">theconversation.com/kindred-skies…</a></p>
+    </div>
+
+    <!-- BETELGEUSE found -->
+    <div class="clip cpaper" style="transform:rotate(.8deg);">
+      <span class="tape red" style="top:-12px;right:36px;"></span>
+      <span class="lbl">found &middot; arabic astronomical tradition</span>
+      <h2 style="font-family:var(--disp);font-weight:900;color:#111;font-size:clamp(1.8rem,4.5vw,3rem);margin:.1rem 0;">Betelgeuse:</h2>
+      <p style="font-family:var(--disp);font-style:italic;font-weight:700;color:var(--red);font-size:1.4rem;margin:0 0 .6rem;">the Hand of Orion</p>
+      <p style="display:inline-block;font-family:var(--disp);font-weight:900;color:var(--blue);background:var(--sun);padding:.2em .5em;box-shadow:4px 4px 0 rgba(0,0,0,.25);transform:rotate(-1.4deg);font-size:clamp(1.3rem,3vw,2rem);">Yad al-Jauza'</p>
+      <p class="note" style="color:#222;margin-top:.9rem;">yad al-jauza literally means <em>hand</em>. like the astronomers were pointing straight up &mdash; "see? that's the giant's hand." golden-age scholars handed the sky a language that stuck for a thousand years.</p>
+      <p class="src" style="color:#555;">Arabic astronomical tradition &middot; Muslim Heritage &middot; <a href="https://muslimheritage.com/arabic-star-names/">muslimheritage.com/arabic-star-names</a></p>
+    </div>
+
+    <!-- COWPER poem -->
+    <div class="clip" style="background:#0d0d22;border-color:var(--purple);transform:rotate(-1deg);">
+      <span class="tape" style="top:-12px;left:40px;background:rgba(122,77,219,.6)"></span>
+      <span class="lbl" style="background:var(--purple);color:#fff">poem &middot; william cowper &middot; poetryDB</span>
+      <h2 style="font-family:var(--disp);font-weight:900;color:var(--sun);font-size:clamp(1.8rem,5vw,3rem);margin:.1rem 0 1rem;line-height:1;text-shadow:2px 3px 0 #000;">Jehovah <span style="font-style:italic;color:#d8b4fe;">Jesus</span></h2>
+      <div class="poem" style="font-family:var(--body);font-size:1.12rem;line-height:1.8;font-style:italic;color:#ddd8f8;border-left:3px solid var(--purple);padding-left:1.2rem;">As much when in the manger laid,
+Almighty Ruler of the sky,
+As when the six days' work He made,
+Fill'd all the morning stars with joy.
+
+A cheerful confidence I feel,
+My well placed hopes with joy I see;
+My bosom glows with heavenly zeal,
+To worship Him who died for me.</div>
+      <p class="note" style="color:#c4bfff;margin-top:.8rem;">infinite power, wrapped in swaddling clothes. god was small once, vulnerable, the size of a manger &mdash; and it doesn't diminish him AT ALL. that "cheerful confidence" at the end gets me every time. certainty arrived at by love, not logic.</p>
+      <p class="src" style="color:var(--sun);">&mdash; William Cowper, <em>Jehovah Jesus</em> &middot; PoetryDB</p>
+    </div>
+
+    <!-- AMPHORISKOS image -->
+    <figure class="clip cpaper" style="transform:rotate(-1.3deg);">
+      <span class="tape blue" style="top:-12px;right:30px;"></span>
+      <span class="lbl">greek &middot; corinth &middot; 600&ndash;575 BCE</span>
+      <div class="figframe" style="transform:rotate(2.4deg);">
+        <img src="../img2/p074.jpg" loading="lazy" alt="Small Corinthian amphoriskos with fish decoration, black-figure terracotta, 600–575 BCE">
+        <figcaption class="figcap">small vessel, with a fish</figcaption>
+      </div>
+      <p class="note" style="color:#222;margin-top:.8rem;">a tiny oil container with a fish swimming around it &mdash; and a fish (the Orion nebula) trails on a line in the canoe story two clips up. i taped them near each other on purpose. <span class="scratchnote" style="color:var(--red);font-size:1.2rem;">2,600 yrs old!!</span></p>
+      <p class="src" style="color:#555;">Amphoriskos (Container for Oil) &middot; Greek; Corinth, 600&ndash;575 BCE &middot; terracotta, black-figure &middot; Art Institute of Chicago &middot; CC0</p>
+    </figure>
+
+    <!-- CARPACCIO image -->
+    <figure class="clip" style="background:#101024;border-color:rgba(255,255,255,.16);transform:rotate(1deg);">
+      <span class="tape" style="top:-12px;left:36px;background:rgba(122,77,219,.55)"></span>
+      <span class="lbl" style="background:#fff;color:#111">vittore carpaccio &middot; ca.1490</span>
+      <div class="figframe" style="transform:rotate(-3deg);">
+        <img src="../img2/p051.jpg" loading="lazy" alt="The Meditation on the Passion by Vittore Carpaccio, ca. 1490, oil and tempera on wood">
+        <figcaption class="figcap">a landscape of waiting</figcaption>
+      </div>
+      <p class="note" style="color:#cfd2ff;margin-top:.8rem;">figures sat under a wide quiet sky, contemplating. the kind of waiting where you keep looking up. <span class="crossout" style="color:#888;text-decoration-color:var(--pink)">contemplative</span> <em>still as a held breath</em></p>
+      <p class="src" style="color:#9aa0d8;">The Meditation on the Passion &middot; Vittore Carpaccio, ca.&nbsp;1490 &middot; oil &amp; tempera on wood &middot; The Metropolitan Museum of Art &middot; Open Access</p>
+    </figure>
+
+    <!-- FRAGONARD image -->
+    <figure class="clip cblue" style="transform:rotate(-.9deg);">
+      <span class="tape pink" style="top:-12px;right:34px;"></span>
+      <span class="lbl">fragonard &middot; french &middot; c.1781</span>
+      <div class="figframe" style="transform:rotate(3.2deg);">
+        <img src="../img2/p005.jpg" loading="lazy" alt="Painting by Jean-Honoré Fragonard, c. 1781, a woman in velvet with cherubs hovering above">
+        <figcaption class="figcap">the moment before surrender</figcaption>
+      </div>
+      <p class="note" style="color:#fff;margin-top:.8rem;">a woman dissolving into velvet and stone, cherubs hovering above like they invented the whole idea. it's so self-aware about wanting to be wanted that it loops all the way back around to honest. <span class="scratchnote" style="color:var(--sun);font-size:1.1rem;">cherubs: 2</span></p>
+      <p class="src">Jean-Honoré Fragonard (French, 1732&ndash;1806), c.&nbsp;1781 &middot; Cleveland Museum of Art &middot; CC0</p>
+    </figure>
+
+  </div>
+
+  <!-- a wandering arrow + closing scrawl -->
+  <p class="scratchnote" style="display:block;text-align:center;font-size:1.7rem;color:var(--pink);margin:2rem 0 .3rem;transform:rotate(-1deg);">
+    same stars. a hundred different skies. all of them true. &#10024;
+  </p>
+  <p class="note" style="text-align:center;color:#9aa0d8;max-width:30rem;margin:.4rem auto 0;">
+    ok i have to sleep. i'll cross-tape the comet ones tomorrow, i promise.
+  </p>
+
+  <span class="arrow" style="bottom:7.5rem;left:8%;transform:rotate(18deg);">this one ↗<br>(the fish!)</span>
+
+</div>
+<script>stitched
+document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&!t.dataset.f){t.dataset.f=1;t.classList.add('broken-img');t.alt=t.alt||'(this picture wandered off)';}},true);
+</script><div class="handfooter"><!--stitched-->
+  <a class="home" href="../index.html">↤ back to the front door</a>
+  <span>wander somewhere else:</span> <a href="love-across-3000-years.html">love lettersacross 3,000 years</a><span>·</span> <a href="ordinary-holiness.html">ordinaryholiness</a><span>·</span> <a href="weather-as-a-feeling.html">weather as a feeling</a><span>·</span> <a href="small-gods-kitchen.html">small godsof the kitchen</a>
+  <span style="flex-basis:100%;margin-top:.4rem">made by hand, with real things real people made. nothing here is for sale. — <span style="font-family:var(--hand);font-size:1.4rem;color:var(--red)">x</span></span>
+</div>
+</body>
+</html>

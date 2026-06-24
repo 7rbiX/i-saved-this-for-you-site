@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>i saved this for you</title>
+<link rel="stylesheet" href="wall.css">
+<style>
+  /* ----- this page only. the front door. let it be a little loud. ----- */
+  body{overflow-x:hidden}
+  .door{max-width:74rem;margin:0 auto;padding:2.6rem 1.3rem 6rem;position:relative}
+
+  /* the hello ------------------------------------------------------- */
+  .hello{position:relative;max-width:40rem;margin:1.5rem auto 1rem;z-index:5}
+  .titlewrap{position:relative;margin:0 0 1.4rem}
+  .door h1{font-size:clamp(3rem,11vw,7.4rem);line-height:.86;margin:0;font-weight:900;
+    font-style:italic;color:var(--ink)}
+  .door h1 .you{color:var(--red);display:inline-block;transform:rotate(-3deg)}
+  .door h1 .saved{position:relative}
+  .door h1 .saved::after{content:"";position:absolute;left:-2%;right:-3%;bottom:.12em;height:.18em;
+    background:rgba(255,192,46,.75);transform:rotate(-1.2deg);z-index:-1;border-radius:4px}
+  .underline-doodle{display:block;width:min(30rem,80%);margin:.2rem 0 0;color:var(--blue)}
+
+  .note{font-family:var(--body);font-size:1.22rem;line-height:1.62;color:var(--ink)}
+  .note p{margin:.6rem 0 1rem}
+  .note .by{font-family:var(--hand);font-size:1.9rem;color:var(--red);transform:rotate(-2deg);
+    display:inline-block;margin-top:.2rem}
+
+  /* a couple of taped photos floating near the hello */
+  .float{position:absolute;z-index:4}
+  .float img{display:block;width:100%}
+  .f1{width:175px;right:-1rem;top:-2.5rem;transform:rotate(4deg)}
+  .f2{width:140px;left:-7.5rem;top:7rem;transform:rotate(-6deg)}
+  .f3{width:120px;right:-6rem;top:13rem;transform:rotate(7deg)}
+  @media(max-width:62rem){.f1,.f2,.f3{display:none}}
+
+  .stuck{font-family:var(--mono);font-size:.74rem;color:var(--ink2);margin-top:5px;line-height:1.3}
+
+  /* the doorway in: instructions, scribbled ------------------------- */
+  .turnstile{font-family:var(--hand);font-size:1.9rem;color:var(--blue);text-align:center;
+    margin:2.4rem 0 .4rem;transform:rotate(-1deg)}
+  .turnstile .arr{color:var(--red)}
+
+  /* the rooms — a loose, messy collage, NOT a grid -------------------- */
+  .rooms{position:relative;margin-top:1.4rem}
+  .room{position:relative;display:inline-block;vertical-align:top;text-decoration:none;color:inherit;
+    background:#fff;padding:9px 9px 12px;box-shadow:0 9px 24px rgba(20,20,18,.17);
+    border:1px solid #eee;margin:0 .7rem 1.9rem;transition:transform .18s ease, box-shadow .18s ease;
+    width:var(--w,210px)}
+  .room:hover{transform:rotate(0deg) scale(1.035) !important;box-shadow:0 16px 34px rgba(20,20,18,.26);z-index:9}
+  .room img{display:block;width:100%;height:var(--h,150px);object-fit:cover;filter:saturate(1.03)}
+  .room .lab{font-family:var(--disp);font-weight:700;font-size:1.12rem;line-height:1.08;
+    margin:9px 2px 2px;color:var(--ink)}
+  .room .sub{font-family:var(--mono);font-size:.66rem;color:var(--ink2);line-height:1.35;margin:3px 2px 0;
+    text-transform:lowercase}
+  .room .tag{position:absolute;top:-13px;font-family:var(--hand);font-size:1.35rem;line-height:1;
+    color:var(--red);background:transparent;z-index:6;white-space:nowrap}
+
+  /* hand-placed tilts so nothing lines up */
+  .r1{transform:rotate(-3deg)}  .r2{transform:rotate(2.5deg)}  .r3{transform:rotate(-1.5deg)}
+  .r4{transform:rotate(4deg)}   .r5{transform:rotate(-2deg)}   .r6{transform:rotate(1.5deg)}
+  .r7{transform:rotate(-4deg)}  .r8{transform:rotate(3deg)}
+
+  /* let the collage breathe unevenly with a column flow */
+  .scatter{column-gap:1.4rem;column-count:1}
+  @media(min-width:34rem){.scatter{column-count:2}}
+  @media(min-width:54rem){.scatter{column-count:3}}
+  @media(min-width:78rem){.scatter{column-count:4}}
+  .scatter .room{break-inside:avoid;margin-bottom:2.1rem;display:block;width:auto}
+
+  .gap{height:.1px}
+  /* the gentle handwritten asides scattered through the wall */
+  .aside{font-family:var(--hand);color:var(--purple);font-size:1.55rem;line-height:1.1;
+    transform:rotate(-2deg);break-inside:avoid;margin:.4rem .6rem 2.2rem;display:block}
+  .aside.r{color:var(--red);transform:rotate(2deg)}
+  .aside.g{color:var(--green)}
+
+  .stickyfront{display:block;break-inside:avoid;margin:0 .4rem 2.2rem}
+
+  /* the quiet older-version line + sign-off */
+  .signoff{max-width:42rem;margin:3.6rem auto 0;position:relative}
+  .older{font-family:var(--hand);font-size:1.45rem;color:var(--ink2);transform:rotate(-1deg);
+    display:inline-block}
+  .older a{color:var(--blue)}
+  .fingerprint{font-family:var(--mono);font-size:.72rem;color:var(--ink2);margin-top:2.4rem;
+    border-top:2px dashed rgba(0,0,0,.16);padding-top:1rem;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="door">
+
+  <!-- coffee ring, because i drank a lot of coffee making this -->
+  <span class="coffee" style="top:2rem;right:9%;"></span>
+
+  <section class="hello">
+    <!-- a few photos taped near the greeting -->
+    <figure class="float f1 snap tilt-r">
+      <span class="tape blue tl"></span>
+      <img src="img2/p254.jpg" alt="a glazed horse, looking patient" loading="lazy">
+      <figcaption class="stuck">a horse from ~1300 yrs ago<br>still standing very still for us</figcaption>
+    </figure>
+    <figure class="float f2 snap tilt-l">
+      <span class="tape pink tr"></span>
+      <img src="img2/p025.jpg" alt="a painted bouquet" loading="lazy">
+    </figure>
+    <figure class="float f3 snap tilt-r2">
+      <span class="tape tr"></span>
+      <img src="img2/p344.jpg" alt="a tiny portrait in a locket" loading="lazy">
+    </figure>
+
+    <div class="titlewrap">
+      <h1><span class="saved">i saved</span> this<br>for <span class="you">you</span></h1>
+      <svg class="underline-doodle" viewBox="0 0 480 24" fill="none" aria-hidden="true">
+        <path d="M3 14 Q90 4 170 12 T330 11 Q410 9 477 16" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <div class="note">
+      <p>hi. ok so. i don't totally know how to explain this wall except: i kept finding
+      things — real things, made by real hands, some of them <em>thousands</em> of years old —
+      and every single time my whole chest would do the thing, and i'd want to grab somebody's
+      sleeve and go <span class="marker">you have to see this</span>.</p>
+
+      <p>so i started printing them out and taping them up. and it got <span class="crossout">a little</span>
+      completely out of hand. a poem about laundry from 1600. a cat somebody carved because they
+      loved a cat. love letters older than every country you've heard of. i couldn't keep it to myself.
+      i'm not a museum, i'm just a person who got moved and couldn't shut up about it.</p>
+
+      <p>i made these rooms so you have somewhere to wander. go in any door. tip a thing over.
+      stay as long as you want. <span class="hand red" style="font-size:1.2em">i saved all of it for you.</span></p>
+
+      <span class="by">— come in, it's open</span>
+    </div>
+  </section>
+
+  <hr class="scratch">
+
+  <p class="turnstile"><span class="arr">↓</span> the doors are all unlocked, pick one <span class="arr">↓</span></p>
+
+  <!-- THE ROOMS: a wall, not a menu. messy on purpose. -->
+  <div class="rooms scatter">
+
+    <a class="room r1" style="--h:168px" href="p/sky-is-oldest-story.html">
+      <span class="tag" style="left:6px">look up ✷</span>
+      <img src="img2/p164.jpg" alt="ink-drawn clouds and small birds" loading="lazy">
+      <div class="lab">the sky is the oldest story</div>
+      <div class="sub">stars, constellations, the names we gave the dark on purpose</div>
+    </a>
+
+    <span class="aside">there's no wrong order.<br>i never put things in order either ↴</span>
+
+    <a class="room r4" style="--h:158px" href="p/people-were-funny.html">
+      <span class="tag" style="left:8px;color:var(--green)">ha</span>
+      <img src="img2/p018.jpg" alt="a rowdy crowd of people" loading="lazy">
+      <div class="lab">proof that people have always been funny</div>
+      <div class="sub">graffiti, margins, evidence nobody was ever as serious as we think</div>
+    </a>
+
+    <a class="room r2" style="--h:150px" href="p/children-know-something.html">
+      <span class="tag" style="left:6px;color:var(--blue)">!!</span>
+      <img src="img2/p038.jpg" alt="children dancing in a ring" loading="lazy">
+      <div class="lab">children know something we forgot</div>
+      <div class="sub">play, rhymes, toys, and the seriousness of being small</div>
+    </a>
+
+    <a class="room r5" style="--h:172px" href="p/i-love-how-people-name-things.html">
+      <span class="tag" style="right:8px;left:auto;color:var(--purple)">a kind of love →</span>
+      <img src="img2/p037.jpg" alt="a blue and white porcelain cup" loading="lazy">
+      <div class="lab">i love how people name things</div>
+      <div class="sub">names for winds, moons, colors, ships, stars</div>
+    </a>
+
+    <a class="room r3" style="--h:160px" href="p/animals-were-with-us.html">
+      <span class="tag" style="left:6px;color:var(--red)">good horse 🐴</span>
+      <img src="img2/p254.jpg" alt="a glazed pottery horse" loading="lazy">
+      <div class="lab">the animals were always with us</div>
+      <div class="sub">horses, cats, birds, every creature who put up with us</div>
+    </a>
+
+    <span class="aside r">i found half of these<br>at 2am and just<br><span class="marker pink">sat there</span>.</span>
+
+    <a class="room r6" style="--h:154px" href="p/small-gods-kitchen.html">
+      <span class="tag" style="left:6px;color:var(--sun)">↓ the table</span>
+      <img src="img2/p035.jpg" alt="a domestic courtyard scene" loading="lazy">
+      <div class="lab">small gods of the kitchen</div>
+      <div class="sub">bread, tea, the table, the holiness of being fed</div>
+    </a>
+
+    <a class="room r7" style="--h:166px" href="p/the-sea-wants-something.html">
+      <span class="tag" style="left:6px;color:var(--blue)">~ deep water ~</span>
+      <img src="img2/p013.jpg" alt="crashing ocean waves" loading="lazy">
+      <div class="lab">the sea wants something from us</div>
+      <div class="sub">ships, sailors, salt, the pull of deep water</div>
+    </a>
+
+    <!-- a sticky note tucked into the wall -->
+    <div class="stickyfront">
+      <div class="sticky pink" style="transform:rotate(3deg)">
+        if you only have time for one room today<br>
+        — make it <b>the letters</b> ↓<br>
+        <span style="font-size:.85em">(i cannot get over them)</span>
+      </div>
+    </div>
+
+    <a class="room r8" style="--h:158px" href="p/love-across-3000-years.html">
+      <span class="tag" style="left:6px;color:var(--red)">♡ start here?</span>
+      <img src="img2/p049.jpg" alt="a wall of pinned old letters" loading="lazy">
+      <div class="lab">love letters across 3,000 years</div>
+      <div class="sub">longing is the oldest technology &amp; it never got an update</div>
+    </a>
+
+    <a class="room r1" style="--h:174px" href="p/ordinary-holiness.html">
+      <span class="tag" style="left:6px;color:var(--purple)">quiet in here</span>
+      <img src="img2/p399.jpg" alt="figures in stained glass" loading="lazy">
+      <div class="lab">ordinary holiness</div>
+      <div class="sub">blessings, small saints, the sacred hiding in the everyday</div>
+    </a>
+
+    <a class="room r5" style="--h:160px" href="p/weather-as-a-feeling.html">
+      <span class="tag" style="right:6px;left:auto;color:var(--blue)">clouds →</span>
+      <img src="img2/p108.jpg" alt="figures among painted clouds" loading="lazy">
+      <div class="lab">weather as a feeling</div>
+      <div class="sub">clouds, rain, snow, and the moods of the sky</div>
+    </a>
+
+    <span class="aside g">ok i have to sleep soon.<br>more rooms tomorrow,<br>i promise. ✶</span>
+
+    <a class="room r2" style="--h:170px" href="p/flowers-saying-things.html">
+      <span class="tag" style="left:6px;color:var(--pink)">❀ listen</span>
+      <img src="img2/p025.jpg" alt="a dark still life of flowers" loading="lazy">
+      <div class="lab">flowers have been saying things this whole time</div>
+      <div class="sub">gardens, petals, the secret language of what grows</div>
+    </a>
+
+    <a class="room r4" style="--h:178px" href="p/hands-that-made-things.html">
+      <span class="tag" style="left:6px;color:var(--green)">made by a person ✶</span>
+      <img src="img2/p047.jpg" alt="a violin" loading="lazy">
+      <div class="lab">hands that made things</div>
+      <div class="sub">makers, tools, the dignity of doing one thing well</div>
+    </a>
+
+    <a class="room r3" style="--h:182px" href="p/for-when-you-cant-sleep.html">
+      <span class="tag" style="left:6px;color:var(--purple)">☾ 3am</span>
+      <img src="img2/p021.jpg" alt="a figure at a moonlit window" loading="lazy">
+      <div class="lab">for when you can't sleep</div>
+      <div class="sub">the moon, the dark, lullabies, the long middle of the night</div>
+    </a>
+
+    <a class="room r6" style="--h:156px" href="p/stay-a-while.html">
+      <span class="tag" style="left:6px;color:var(--red)">door's open →</span>
+      <img src="img2/p046.jpg" alt="a warm interior with people" loading="lazy">
+      <div class="lab">stay a while</div>
+      <div class="sub">home, welcome, comfort, the door left open. you can rest here</div>
+    </a>
+
+    <a class="room r7" style="--h:160px" href="p/everything-is-light.html">
+      <span class="tag" style="left:6px;color:var(--sun)">it's all light ☀</span>
+      <img src="img2/p039.jpg" alt="a sunlit park full of people" loading="lazy">
+      <div class="lab">everything is about light, actually</div>
+      <div class="sub">color, paint, dusk, the way the world shows off</div>
+    </a>
+
+    <a class="room r8" style="--h:176px" href="p/cried-on-the-bus.html">
+      <span class="tag" style="left:6px;color:var(--blue)">go gently ♡</span>
+      <img src="img2/p306.jpg" alt="two figures embracing" loading="lazy">
+      <div class="lab">things that made me cry a little</div>
+      <div class="sub">tenderness, grief, the soft stuff. proceed gently</div>
+    </a>
+
+  </div>
+
+  <hr class="scratch">
+
+  <section class="signoff">
+    <p class="older">
+      <span class="aside" style="color:var(--ink2);transform:none;font-size:1em;display:inline">p.s.</span>
+      there is a quieter, older version i made first, before i knew what this was —
+      <a href="_v1/index.html">(there is a quieter, older version i made first — it lives in here)</a>.
+      it's clumsier. i still love it. don't judge it too hard.
+    </p>
+
+    <p class="fingerprint">
+      made by hand, late, by one person who got moved and couldn't keep it to themselves &nbsp;·&nbsp;
+      every image + poem here is real and really made by a human being &nbsp;·&nbsp;
+      <span style="color:var(--red)">if a door is dusty i haven't swept it yet, sorry</span> &nbsp;·&nbsp;
+      i left the typos in on purpose (mostly) &nbsp;·&nbsp; thank you for coming &nbsp;·&nbsp;
+      now go look at something beautiful &nbsp;✷
+    </p>
+  </section>
+
+</div>
+<script>stitched
+document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&!t.dataset.f){t.dataset.f=1;t.classList.add('broken-img');t.alt=t.alt||'(this picture wandered off)';}},true);
+</script>
+</body>
+</html>

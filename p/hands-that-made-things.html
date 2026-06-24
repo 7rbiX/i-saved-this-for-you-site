@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hands that made things — a wall of sticky notes</title>
+<link rel="stylesheet" href="../wall.css">
+<style>
+/* STICKY-NOTE EXPLOSION.
+   the whole page is a corkboard. mostly sticky notes in 4-5 colors at every
+   angle, a few photos pinned in among them. it should look like i emptied a
+   pack of post-its onto a wall at midnight. */
+
+body.cork{
+  background:#cbb38a;
+  background-image:
+    radial-gradient(rgba(120,90,50,.25) .8px, transparent .8px),
+    radial-gradient(rgba(90,65,35,.18) .8px, transparent .8px),
+    linear-gradient(135deg, rgba(255,255,255,.04), rgba(0,0,0,.06));
+  background-size:6px 6px, 9px 9px, 100% 100%;
+  background-position:0 0, 3px 4px, 0 0;
+  color:#241c10;
+}
+
+.board{position:relative;max-width:80rem;margin:0 auto;padding:1.4rem}
+
+/* the title — itself a big sticky, taped down hard */
+.titlenote{
+  display:inline-block;background:#fff7c0;padding:1.6rem 2rem 1.8rem;
+  box-shadow:4px 10px 26px rgba(0,0,0,.32);transform:rotate(-2.2deg);
+  max-width:30rem;position:relative;margin:.5rem 0 2.2rem;
+  border-top:1px solid rgba(0,0,0,.05);
+}
+.titlenote::before{content:"";position:absolute;top:-16px;left:50%;margin-left:-55px;
+  width:110px;height:30px;background:rgba(220,210,160,.6);
+  box-shadow:0 2px 4px rgba(0,0,0,.2);transform:rotate(-2deg);
+  background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.3) 0 5px,transparent 5px 10px)}
+.titlenote h1{font-family:var(--hand);font-weight:700;font-size:clamp(2.6rem,9vw,4.4rem);
+  line-height:.92;margin:0;color:#7a3010;letter-spacing:-.01em}
+.titlenote p{font-family:var(--hand2);font-size:1.15rem;line-height:1.3;margin:.6rem 0 0;color:#3a2a18}
+
+/* every note shares this base; modifiers set color */
+.note{
+  display:block;position:relative;
+  padding:1.1rem 1.2rem 1.2rem;
+  font-family:var(--hand2);font-size:1.02rem;line-height:1.42;color:#241c10;
+  box-shadow:3px 7px 16px rgba(0,0,0,.26);
+  border-top:1px solid rgba(0,0,0,.04);
+}
+.note .lbl{font-family:var(--hand);font-size:1.35rem;color:#7a3010;display:block;
+  margin:.5rem 0 0;text-align:right;opacity:.85}
+.note .src{font-family:var(--mono);font-size:.6rem;letter-spacing:.04em;line-height:1.5;
+  color:#5a4a33;margin-top:.7rem;display:block}
+.note .src a{color:#1d5a8a}
+.note .hl{background:rgba(255,210,40,.6);padding:0 .12em}
+/* curled-corner shadow on a note */
+.note::after{content:"";position:absolute;right:0;bottom:0;width:22px;height:22px;
+  background:linear-gradient(135deg, transparent 50%, rgba(0,0,0,.10) 50%)}
+
+.y{background:#fff07a} .y2{background:#ffe24d}
+.p{background:#ffb3cf} .p2{background:#ff9ec0}
+.b{background:#a9d0ff} .b2{background:#c7defc}
+.g{background:#aef0c4} .g2{background:#cdf2dd}
+.o{background:#ffcf8f} .w{background:#fbf7ea}
+
+/* a pinned photo, like a polaroid tacked to the cork */
+.photo{display:block;position:relative;background:#fff;padding:8px 8px 8px;
+  box-shadow:4px 9px 22px rgba(0,0,0,.34);border:1px solid #eee}
+.photo img{display:block;width:100%}
+.photo .cap{font-family:var(--mono);font-size:.6rem;line-height:1.45;color:#444;
+  padding:.45rem .15rem .1rem}
+.photo .cap a{color:#1d5a8a}
+.pin{position:absolute;top:-9px;left:50%;margin-left:-9px;width:18px;height:18px;border-radius:50%;
+  background:radial-gradient(circle at 34% 30%, #ff9a9a, #c62828);
+  box-shadow:0 3px 5px rgba(0,0,0,.4);z-index:5}
+.pin.bl{background:radial-gradient(circle at 34% 30%, #9ab8ff, #2f5fe0)}
+.pin.gr{background:radial-gradient(circle at 34% 30%, #9ae8b4, #1d8a4e)}
+.pin.yl{background:radial-gradient(circle at 34% 30%, #ffe79a, #e0a020)}
+
+/* DESKTOP: scatter everything absolutely on a tall board */
+.scatter{position:relative}
+@media(min-width:60rem){
+  .scatter{height:2560px}
+  .scatter > *{position:absolute}
+}
+/* MOBILE / fallback: a loose flowing pile, still tilted */
+@media(max-width:60rem){
+  .scatter{column-count:2;column-gap:1.1rem}
+  .scatter > *{break-inside:avoid;margin:0 0 1.2rem;width:100%}
+  .titlenote{display:block;margin-left:auto;margin-right:auto}
+}
+@media(max-width:40rem){ .scatter{column-count:1} }
+
+a.homepin{display:inline-block;font-family:var(--hand);font-size:1.5rem;color:#7a3010;
+  background:#fff07a;padding:.5rem 1rem;box-shadow:3px 6px 14px rgba(0,0,0,.28);
+  transform:rotate(-3deg);text-decoration:none;border-top:1px solid rgba(0,0,0,.05)}
+a.homepin:hover{background:#ffe24d}
+</style>
+</head>
+
+<body class="cork">
+<div class="board">
+
+  <div class="titlenote">
+    <h1>hands<br>that made<br>things</h1>
+    <p>makers, tools, the quiet dignity of doing one thing, all the way, by hand. a whole wall of them. i couldn't stop.</p>
+  </div>
+
+  <!-- the explosion. on desktop these are positioned; on mobile they pile up. -->
+  <div class="scatter">
+
+    <!-- POEM: border ballad — a note, top left -->
+    <article class="note p" style="left:0;top:0;width:23rem;transform:rotate(-2.6deg);z-index:3">
+      <span class="lbl" style="text-align:left;float:left;margin:0 0 .4rem">a poem to start ↓</span>
+      <div style="clear:both;font-family:var(--body);font-size:1rem;line-height:1.65;color:#3a1414">
+        March, march, Ettrick and Teviotdale,<br>
+        Why the deil dinna ye march forward in order!<br>
+        March, march, Eskdale and Liddesdale,<br>
+        All the Blue Bonnets are bound for the Border.<br><br>
+        Fight for the Queen and our old Scottish glory.
+      </div>
+      <span class="src">— Sir Walter Scott, <em>Border Ballad</em> · PoetryDB · public domain</span>
+      <p style="font-family:var(--hand);font-size:1.2rem;color:#7a3010;margin:.7rem 0 0;line-height:1.2">
+        the place-names just tumble over each other and pull you along. he's not describing a march,
+        he's <span class="hl">commanding you into one.</span>
+      </p>
+    </article>
+
+    <!-- PHOTO: viola, big, top-right -->
+    <figure class="photo" style="right:1rem;top:.5rem;width:21rem;transform:rotate(2.4deg);z-index:4">
+      <span class="pin"></span>
+      <img src="../img2/p047.jpg" loading="lazy" alt="Viola by Jacob Stainer, ca. 1660, spruce and maple with warm amber varnish, graceful arched top">
+      <div class="cap">Jacob Stainer (Austrian, 1617–1683) · <em>Viola</em>, ca. 1660 · spruce, maple, blackwood · The Metropolitan Museum of Art · Open Access</div>
+    </figure>
+
+    <article class="note y" style="right:2.5rem;top:21.5rem;width:17rem;transform:rotate(-3deg);z-index:5">
+      stainer was in a tiny austrian village in the 1600s and made a thing out of wood and glue that
+      <span class="hl">still makes people weep four hundred years later.</span> how is that possible. one man. one bench. one viola.
+      <span class="lbl">stainer's voice</span>
+    </article>
+
+    <!-- NOTE: tlaltecuhtli intro + photo nearby -->
+    <article class="note b" style="left:.5rem;top:18rem;width:16rem;transform:rotate(2.2deg);z-index:4">
+      the Mexica earth deity carved straight out of solid stone, every line deliberate, almost harsh.
+      it does not soften and it does not look away. <span class="hl">it holds your gaze.</span>
+      <span class="lbl" style="color:#7a3010">● powerful</span>
+    </article>
+
+    <figure class="photo" style="left:.5rem;top:30rem;width:18rem;transform:rotate(-2deg);z-index:6">
+      <span class="pin bl"></span>
+      <img src="../img2/p011.jpg" loading="lazy" alt="Tlaltecuhtli, Mexica earth deity carved in stone, 1450–1521, direct frontal gaze, deeply carved features">
+      <div class="cap">Mexica artist(s) · <em>Tlaltecuhtli</em>, 1450–1521 · stone · The Metropolitan Museum of Art · Open Access</div>
+    </figure>
+
+    <!-- PHOTO: agni, center -->
+    <figure class="photo" style="left:24rem;top:24rem;width:19rem;transform:rotate(2.6deg);z-index:5">
+      <span class="pin gr"></span>
+      <img src="../img2/p186.jpg" loading="lazy" alt="Agni, God of Fire, sandstone sculpture, c. 1000, flanked by attending figures beneath a crown of flames">
+      <div class="cap">Unknown · <em>Agni, God of Fire</em>, c. 1000 · sandstone · Cleveland Museum of Art</div>
+    </figure>
+
+    <article class="note g" style="left:25rem;top:42.5rem;width:18rem;transform:rotate(-2.4deg);z-index:6">
+      carved out of stone, square-shouldered, that tall crown of flames rising. there's a calm to it —
+      like fire isn't raging here, it's <span class="hl">presiding.</span> the small figures around the base feel
+      like witnesses to something old.
+      <span class="lbl">steadfast ♥</span>
+    </article>
+
+    <!-- PHOTO: egyptian mirror -->
+    <figure class="photo" style="right:1.5rem;top:30rem;width:15rem;transform:rotate(-3deg);z-index:5">
+      <span class="pin yl"></span>
+      <img src="../img2/p180.jpg" loading="lazy" alt="Egyptian copper alloy hand mirror, Dynasty 18, about 1550–1295 BCE, with curved horns at the handle">
+      <div class="cap">Hand Mirror · Egyptian, New Kingdom, Dynasty 18 (about 1550–1295 BCE) · copper alloy · Art Institute of Chicago · CC0</div>
+    </figure>
+
+    <article class="note o" style="right:1rem;top:43rem;width:18rem;transform:rotate(2.5deg);z-index:6">
+      someone 3,500 years ago held this exact mirror, saw their face, set it down — and it survived the
+      <span class="hl">whole weight of history.</span> those curved horns at the handle look like wings. the worn
+      patina is just every hand that came before ours.
+      <span class="lbl">a hand that reflects time</span>
+    </article>
+
+    <!-- ARROW connector note -->
+    <article class="note w" style="left:18rem;top:53rem;width:13rem;transform:rotate(-4deg);z-index:7">
+      <span style="font-family:var(--hand);font-size:1.3rem;color:#1d5a8a">
+        ↑ &nbsp;ok notice: half these makers are <u>unknown</u>. no name, no signature. they made the thing anyway.
+        that's the part that gets me.
+      </span>
+    </article>
+
+    <!-- PHOTO: copper head -->
+    <figure class="photo" style="left:1rem;top:62rem;width:16rem;transform:rotate(2.2deg);z-index:5">
+      <span class="pin"></span>
+      <img src="../img2/p034.jpg" loading="lazy" alt="Copper alloy head, unknown maker, oxidized green patina, direct frontal gaze">
+      <div class="cap">Unknown maker · copper alloy head · The Metropolitan Museum of Art · Open Access</div>
+    </figure>
+
+    <article class="note p2" style="left:.5rem;top:74rem;width:15rem;transform:rotate(-2.8deg);z-index:6">
+      it stares through you with <span class="hl">four thousand years of composure.</span> nobody knows who made it.
+      it does not care. it has outlasted everyone who would have asked.
+    </article>
+
+    <!-- PHOTO: silk griffins -->
+    <figure class="photo" style="left:18rem;top:64rem;width:17rem;transform:rotate(-2.4deg);z-index:5">
+      <span class="pin gr"></span>
+      <img src="../img2/p215.jpg" loading="lazy" alt="Fragment of Byzantine or Islamic silk, star-pattern ground with paired griffins facing each other, 950–1050">
+      <div class="cap">Unknown · <em>Fragment with Star Pattern and Griffins</em>, 950–1050 · silk, plain weave with supplementary weft · Cleveland Museum of Art · CC0</div>
+    </figure>
+
+    <article class="note g2" style="left:18.5rem;top:76rem;width:16rem;transform:rotate(2.5deg);z-index:6">
+      a scrap of silk that survived a thousand years and the griffins are <span class="hl">still sharp, still stepping forward.</span>
+      you can feel the hands that threaded this. how many hands between theirs and ours.
+      <span class="lbl">pattern speaks in griffins</span>
+    </article>
+
+    <!-- PHOTO: sanctuary screen birds -->
+    <figure class="photo" style="right:1rem;top:62rem;width:19rem;transform:rotate(2.8deg);z-index:5">
+      <span class="pin bl"></span>
+      <img src="../img2/p242.jpg" loading="lazy" alt="Limestone relief fragment carved with birds pecking at bunches of grapes on curling vines, 5th–6th century">
+      <div class="cap">Unknown maker · <em>Fragment from a Two-Sided Sanctuary Screen with Birds Eating Grapes</em>, 5th–6th century · limestone, red pigment · The Metropolitan Museum of Art · Open Access</div>
+    </figure>
+
+    <article class="note y2" style="right:2rem;top:78rem;width:16rem;transform:rotate(-3deg);z-index:6">
+      fifteen centuries later and those birds are <span class="hl">still eating.</span> someone carved hunger into stone
+      and it outlasted an empire. the vines curl around them like they're part of the feast.
+      <span class="lbl">frozen joy</span>
+    </article>
+
+    <!-- PHOTO: crazy quilt -->
+    <figure class="photo" style="left:1rem;top:88rem;width:18rem;transform:rotate(-2.6deg);z-index:5">
+      <span class="pin"></span>
+      <img src="../img2/p069.jpg" loading="lazy" alt="Square from a Crazy Quilt, c. 1884: a mosaic of silk velvets, satins and embroidered patches in jewel tones">
+      <div class="cap">United States · <em>Square from a ‘Crazy Quilt’</em>, c. 1884 · silk, cut velvet, embroidered, backed in cotton · Art Institute of Chicago · CC0</div>
+    </figure>
+
+    <article class="note p" style="left:1.5rem;top:101rem;width:16rem;transform:rotate(2.4deg);z-index:6">
+      pure joy — velvet meeting cotton meeting embroidered stars, all the colors arguing in the best way.
+      someone spent <span class="hl">hours stitching this.</span> proof that beauty doesn't need permission to be messy.
+      <span class="lbl">a thousand stitches</span>
+    </article>
+
+    <!-- PHOTO: bugatti teapot -->
+    <figure class="photo" style="left:21rem;top:90rem;width:16rem;transform:rotate(2.6deg);z-index:5">
+      <span class="pin yl"></span>
+      <img src="../img2/p248.jpg" loading="lazy" alt="Tea Pot by Carlo Bugatti, c. 1907: gilt silver body, ivory handle, spout formed as a goat's head with gilt horns">
+      <div class="cap">Carlo Bugatti (Italian, 1856–1940) · <em>Tea Pot</em>, c. 1907 · gilt silver and ivory · Cleveland Museum of Art · CC0</div>
+    </figure>
+
+    <article class="note b2" style="left:21.5rem;top:102rem;width:16rem;transform:rotate(-2.8deg);z-index:6">
+      the goat head is carved with such <span class="hl">personality</span> it almost feels alive — the spout becomes a
+      beard, or a thought. you could pour tea from this and feel like you're in on a secret.
+      <span class="lbl">goat with a dream</span>
+    </article>
+
+    <!-- PHOTO: hanuman -->
+    <figure class="photo" style="right:1.5rem;top:90rem;width:15rem;transform:rotate(-2.4deg);z-index:5">
+      <span class="pin gr"></span>
+      <img src="../img2/p178.jpg" loading="lazy" alt="Hanuman Conversing, India (Tamil Nadu), 11th century, copper alloy: the monkey deity stands balanced and alert, one hand raised">
+      <div class="cap">India (Tamil Nadu) · <em>Hanuman Conversing</em>, 11th century · copper alloy · The Metropolitan Museum of Art · Open Access</div>
+    </figure>
+
+    <article class="note g" style="right:1rem;top:101.5rem;width:16rem;transform:rotate(2.6deg);z-index:6">
+      such presence — balanced there, one hand raised, that calm alert look like he's about to speak.
+      the metalwork is <span class="hl">movement frozen in stillness,</span> armor to face, powerful and intimate at once.
+      <span class="lbl">stands ready</span>
+    </article>
+
+    <!-- a little arrow / margin note -->
+    <article class="note w" style="left:13rem;top:113rem;width:14rem;transform:rotate(3deg);z-index:7">
+      <span style="font-family:var(--hand);font-size:1.3rem;color:#c62828">
+        wood now → &nbsp;the wood ones wreck me the most. a tree, then a person, then four hundred years.
+      </span>
+    </article>
+
+    <!-- PHOTO: menshikov bust -->
+    <figure class="photo" style="left:1rem;top:120rem;width:16rem;transform:rotate(-2.6deg);z-index:5">
+      <span class="pin"></span>
+      <img src="../img2/p346.jpg" loading="lazy" alt="Carved red pine bust of Alexander Menshikov, tall stacked curls and finely detailed cloth folds, calm self-possessed face">
+      <div class="cap">Alexander Danilovich Menshikov (1673–1729) · unknown artist, probably shortly before 1704 · red pine (<em>Pinus sylvestris</em>), wrought-iron clips · The Metropolitan Museum of Art · Open Access</div>
+    </figure>
+
+    <article class="note o" style="left:1.5rem;top:134rem;width:16rem;transform:rotate(2.4deg);z-index:6">
+      so alive — the confidence in those stacked curls, the tiny folds of cloth catching light, the face
+      calm and almost gentle <span class="hl">despite being made of tree.</span> not just a likeness. a presence.
+    </article>
+
+    <!-- PHOTO: tobatsu bishamonten -->
+    <figure class="photo" style="left:20rem;top:118rem;width:15rem;transform:rotate(2.5deg);z-index:5">
+      <span class="pin bl"></span>
+      <img src="../img2/p272.jpg" loading="lazy" alt="Zelkova wood figure of Tobatsu Bishamonten, one hand raised, tiny guardian figures around the base, warm aged patina">
+      <div class="cap">Tobatsu Bishamonten · Japan, late 10th–early 11th century · zelkova wood with traces of color · The Metropolitan Museum of Art · Open Access</div>
+    </figure>
+
+    <article class="note p2" style="left:20.5rem;top:130rem;width:16rem;transform:rotate(-2.6deg);z-index:6">
+      hand raised like he's both blessing and warning, tiny guardian figures carved at his base like he's
+      <span class="hl">sheltering them.</span> the wood has aged to a warm patina — ancient and alive at the same time.
+      <span class="lbl">guardian in stillness</span>
+    </article>
+
+    <!-- PHOTO: fudo myoo by kaikei -->
+    <figure class="photo" style="right:1.5rem;top:118rem;width:15rem;transform:rotate(-2.8deg);z-index:5">
+      <span class="pin yl"></span>
+      <img src="../img2/p331.jpg" loading="lazy" alt="Fudō Myōō, the Immovable Wisdom King, carved wood with gold and pigment, by Kaikei, early 13th century, Japan">
+      <div class="cap">Fudō Myōō, the Immovable Wisdom King (Achala Vidyarāja) · Kaikei, early 13th century · wood, gold, pigment · The Metropolitan Museum of Art · Open Access</div>
+    </figure>
+
+    <article class="note b" style="right:1rem;top:130rem;width:16rem;transform:rotate(2.5deg);z-index:6">
+      Kaikei carved this with such intensity — that dark powerful face, hands holding both a sword and
+      something like prayer beads. he sits <span class="hl">completely still and completely present,</span> which is
+      the whole point, and you get it just by looking.
+      <span class="lbl">the one who does not move</span>
+    </article>
+
+    <!-- PHOTO: stela of intef -->
+    <figure class="photo" style="left:2rem;top:148rem;width:15rem;transform:rotate(2.4deg);z-index:5">
+      <span class="pin gr"></span>
+      <img src="../img2/p004.jpg" loading="lazy" alt="Carved limestone stela of the Overseer of the Fortress Intef, hieroglyphic inscriptions and a seated figure in careful relief">
+      <div class="cap">Stela of the Overseer of the Fortress Intef · unknown maker, ca. 2000–1988 B.C. · limestone · The Metropolitan Museum of Art · Open Access</div>
+    </figure>
+
+    <article class="note y" style="left:2.5rem;top:160.5rem;width:16rem;transform:rotate(-2.6deg);z-index:6">
+      carved stone holds weight differently than anything else. a whole person and their whole world in
+      careful lines — you can almost feel the chisel from <span class="hl">four thousand years ago</span> still trying to
+      say who they were.
+      <span class="lbl">speaking across millennia</span>
+    </article>
+
+    <!-- PHOTO: yuny & renenutet -->
+    <figure class="photo" style="left:20rem;top:146rem;width:16rem;transform:rotate(-2.5deg);z-index:5">
+      <span class="pin"></span>
+      <img src="../img2/p096.jpg" loading="lazy" alt="Yuny and His Wife Renenutet, limestone with paint, ca. 1294–1279 B.C., two figures carved standing side by side from one block">
+      <div class="cap">Unknown maker · <em>Yuny and His Wife Renenutet</em>, ca. 1294–1279 B.C. · limestone, paint · The Metropolitan Museum of Art · Open Access</div>
+    </figure>
+
+    <article class="note p" style="left:20.5rem;top:158.5rem;width:16rem;transform:rotate(2.6deg);z-index:6">
+      carved with such clarity — folds of pleated linen, fine profiles — and they stand absolutely still,
+      <span class="hl">permanent as stone can make you.</span> there's tenderness in how close they are, fit into the same block.
+      <span class="lbl">standing together</span>
+    </article>
+
+    <!-- PHOTO: decorated jar with boats -->
+    <figure class="photo" style="right:2rem;top:146rem;width:16rem;transform:rotate(2.6deg);z-index:5">
+      <span class="pin bl"></span>
+      <img src="../img2/p263.jpg" loading="lazy" alt="Decorated jar with boat scenes, marl clay, c. 3300–3100 BCE, boats with shield-like sails and geometric creatures">
+      <div class="cap">Unknown maker · <em>Decorated Jar with Boat Scenes</em>, c. 3300–3100 BCE · marl clay pottery · Cleveland Museum of Art · CC0</div>
+    </figure>
+
+    <article class="note g2" style="right:1.5rem;top:158rem;width:16rem;transform:rotate(-2.8deg);z-index:6">
+      boats with shield-like sails, and <span class="hl">strange geometric creatures floating between them.</span> someone five
+      thousand years ago wanted to tell a story in clay that would outlast them. it did.
+      <span class="lbl">an ancient dream</span>
+    </article>
+
+    <!-- PHOTO: mclaughlin porcelain vase -->
+    <figure class="photo" style="left:9rem;top:174rem;width:15rem;transform:rotate(-2.4deg);z-index:5">
+      <span class="pin yl"></span>
+      <img src="../img2/p171.jpg" loading="lazy" alt="Porcelain vase with spiral surface decoration, by M. Louise McLaughlin, 1902">
+      <div class="cap">M. Louise McLaughlin · <em>Vase</em>, 1902 · porcelain · The Metropolitan Museum of Art · Open Access</div>
+    </figure>
+
+    <article class="note o" style="left:9.5rem;top:186rem;width:16rem;transform:rotate(2.6deg);z-index:6">
+      the swirls seem to move even though they're carved into stillness — almost biological, like watching
+      <span class="hl">water freeze mid-spiral.</span> she made it seem inevitable, the way the curls build on each other.
+      <span class="lbl">spirals frozen in porcelain</span>
+    </article>
+
+    <!-- closing note -->
+    <article class="note y2" style="right:3rem;top:175rem;width:18rem;transform:rotate(2.2deg);z-index:7">
+      <span style="font-family:var(--hand);font-size:1.45rem;color:#7a3010;line-height:1.2">
+        ok i have to sleep. but here's the thing i keep landing on:
+        almost none of these people are remembered by name — and the thing they made <u>still works.</u>
+        still sings, still stares, still holds tea. that's the dignity. you do one thing all the way and
+        it outlives your name.
+      </span>
+      <span class="src" style="text-align:right">— left a typo somewhere on purpose, find it · <a href="../index.html">back to the wall</a></span>
+    </article>
+
+    <!-- home pin, bottom -->
+    <a class="homepin" href="../index.html" style="left:1rem;top:200rem">↩ back to the wall</a>
+
+  </div>
+</div>
+<script>stitched
+document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&!t.dataset.f){t.dataset.f=1;t.classList.add('broken-img');t.alt=t.alt||'(this picture wandered off)';}},true);
+</script><div class="handfooter"><!--stitched-->
+  <a class="home" href="../index.html">↤ back to the front door</a>
+  <span>wander somewhere else:</span> <a href="for-when-you-cant-sleep.html">for when youcan't sleep</a><span>·</span> <a href="small-gods-kitchen.html">small godsof the kitchen</a><span>·</span> <a href="children-know-something.html">children know somethingwe forgot</a><span>·</span> <a href="animals-were-with-us.html">the animals werealways with us</a>
+  <span style="flex-basis:100%;margin-top:.4rem">made by hand, with real things real people made. nothing here is for sale. — <span style="font-family:var(--hand);font-size:1.4rem;color:var(--red)">x</span></span>
+</div>
+</body>
+</html>

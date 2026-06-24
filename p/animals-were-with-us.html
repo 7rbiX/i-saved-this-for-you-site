@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>the animals were always with us</title>
+<link rel="stylesheet" href="../wall.css">
+<style>
+  /* ===========================================================
+     THE SALON WALL — hang everything, edge to edge, no breathing
+     room, the way they did it in 1820 when a wall was a brag.
+     labels tucked under, frames bumping frames. obsessive.
+     =========================================================== */
+  body{
+    background:#e7ded0;
+    background-image:
+      radial-gradient(120% 90% at 50% -5%, #efe7da 0%, rgba(0,0,0,0) 55%),
+      radial-gradient(80% 60% at 50% 120%, rgba(0,0,0,.10), rgba(0,0,0,0) 60%);
+  }
+  /* a brass rail across the top, like a real gallery */
+  .rail{
+    position:sticky;top:0;z-index:40;
+    height:14px;
+    background:linear-gradient(#caa45a,#8a6d2e 40%,#6f5320 60%,#b7913f);
+    box-shadow:0 4px 12px rgba(0,0,0,.28);
+  }
+  .header{
+    text-align:center;padding:3.2rem 1rem 1.2rem;position:relative;
+  }
+  .header h1{
+    font-family:var(--disp);font-weight:900;
+    font-size:clamp(2.4rem,8vw,6.2rem);line-height:.92;
+    color:#2a2620;margin:0;letter-spacing:-.02em;
+  }
+  .header .sub{
+    font-family:var(--hand);color:var(--red);
+    font-size:clamp(1.3rem,3vw,2rem);transform:rotate(-1.4deg);
+    display:inline-block;margin-top:.3rem;
+  }
+  .header .placard{
+    font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;
+    text-transform:uppercase;color:#7a6f5c;margin-top:1.1rem;
+  }
+  .header .placard s{color:#b09; opacity:.5}
+
+  /* the hang itself: tight columns, things of all heights, no gaps
+     bigger than a finger. masonry via columns. */
+  .salon{
+    column-count:5;column-gap:10px;
+    padding:10px 10px 6rem;max-width:1500px;margin:0 auto;
+  }
+  @media(max-width:1200px){.salon{column-count:4}}
+  @media(max-width:900px){.salon{column-count:3}}
+  @media(max-width:620px){.salon{column-count:2;column-gap:8px;padding:8px 8px 5rem}}
+  @media(max-width:380px){.salon{column-count:1}}
+
+  /* every framed thing */
+  .frame{
+    break-inside:avoid;margin:0 0 10px;display:inline-block;width:100%;
+    background:#fbf8f1;
+    padding:7px 7px 6px;
+    border:1px solid rgba(0,0,0,.08);
+    box-shadow:0 3px 9px rgba(20,18,14,.20), inset 0 0 0 1px #fff;
+    position:relative;
+  }
+  /* gilt frame variant */
+  .frame.gilt{
+    padding:10px;
+    background:
+      linear-gradient(135deg,#d9b56a,#a9853c 30%,#caa45a 55%,#8a6c2c 80%,#d9b56a);
+    box-shadow:0 5px 16px rgba(20,18,14,.32);
+    border:none;
+  }
+  .frame.gilt .mat{background:#f3eee2;padding:6px;box-shadow:inset 0 0 0 1px #d8cdb4}
+  .frame.dark{background:#1c1a17;border-color:#000}
+  .frame.dark .lbl{color:#cfc6b6}
+  .frame.dark .lbl b{color:#fff}
+  .frame img{display:block;width:100%;height:auto}
+  .lbl{
+    font-family:var(--mono);font-size:.585rem;line-height:1.45;
+    color:#5b5346;letter-spacing:.005em;padding:5px 3px 1px;
+  }
+  .lbl b{font-family:var(--body);font-weight:600;color:#2a2620;font-size:.66rem}
+  .lbl em{font-style:italic}
+  .lbl .mus{color:var(--red);font-weight:600}
+  .lbl .mus.b{color:var(--blue)} .lbl .mus.g{color:var(--green)}
+  .lbl .mus.p{color:var(--purple)}
+
+  /* tilts so it never looks gridded */
+  .t1{transform:rotate(-1.6deg)} .t2{transform:rotate(1.3deg)}
+  .t3{transform:rotate(-.8deg)} .t4{transform:rotate(2.1deg)}
+  .t5{transform:rotate(-2.4deg)}
+
+  /* a hand note that lives IN the hang, like a card someone wedged
+     between two frames */
+  .card{
+    break-inside:avoid;margin:0 0 10px;width:100%;
+    padding:.9rem 1rem;position:relative;
+  }
+  .card.note{
+    background:#fff7d6;font-family:var(--hand2);font-size:1rem;
+    line-height:1.4;color:#3a3120;transform:rotate(-1.5deg);
+    box-shadow:2px 4px 10px rgba(0,0,0,.13);
+  }
+  .card.note.blue{background:#d4e3ff;transform:rotate(1.3deg)}
+  .card.note.pink{background:#ffd9e6;transform:rotate(-.7deg)}
+  .card.poem{
+    background:#fbf8f1;border:1px solid rgba(0,0,0,.09);
+    box-shadow:0 3px 9px rgba(20,18,14,.16);
+  }
+  .card.poem .ttl{font-family:var(--disp);font-style:italic;font-weight:600;
+    font-size:1.02rem;color:#2a2620;margin:0 0 .4rem;line-height:1.2}
+  .card.poem .vv{font-family:var(--body);font-size:.86rem;line-height:1.55;
+    color:#2a2620;white-space:pre-wrap}
+  .card.poem .by{font-family:var(--mono);font-size:.6rem;color:#8a8170;
+    margin-top:.6rem;letter-spacing:.04em;border-top:1px solid #e3dcca;padding-top:.4rem}
+  .card.poem .by a{color:var(--blue)}
+
+  .scrawlnote{font-family:var(--hand);font-size:1.04rem;line-height:1.4;
+    color:var(--blue);margin:.35rem .2rem 0}
+  .scrawlnote.r{color:var(--red)} .scrawlnote.g{color:var(--green)}
+  .scrawlnote.p{color:var(--purple)}
+
+  /* a tiny piece of tape on a couple frames */
+  .wash{position:absolute;width:46px;height:15px;z-index:5;
+    background:rgba(255,205,90,.55);
+    background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.25) 0 5px,rgba(255,255,255,0) 5px 10px);
+    mix-blend-mode:multiply;box-shadow:0 1px 2px rgba(0,0,0,.1)}
+  .wash.tl{top:-6px;left:14px;transform:rotate(-7deg)}
+  .wash.tr{top:-6px;right:14px;transform:rotate(6deg);background:rgba(120,170,240,.5)}
+
+  /* one big anchor piece spans two columns where supported */
+  .span2{column-span:none}
+
+  .footnote{
+    text-align:center;font-family:var(--hand);color:#6a5f4d;
+    font-size:1.4rem;padding:1rem 1rem 3rem;transform:rotate(-.6deg);
+  }
+  .footnote a{color:var(--red)}
+  .arrow{font-family:var(--hand);color:var(--purple);font-size:1.2rem}
+  ::selection{background:#caa45a;color:#1c1a17}
+</style>
+</head>
+<body>
+
+<div class="rail"></div>
+
+<header class="header">
+  <h1>the animals were<br>always with us</h1>
+  <div class="sub">horses, cats, birds &amp; every creature who put up with us</div>
+  <div class="placard">room iv &middot; the salon hang &middot; <s>do not touch</s> please touch with your eyes only</div>
+</header>
+
+<!-- the wall. i hung it tight on purpose. there's no order, that's the order. -->
+<main class="salon">
+
+  <!-- 1. the silk birds — i started here -->
+  <figure class="frame gilt t1">
+    <span class="wash tl"></span>
+    <div class="mat">
+      <img src="../img2/p075.jpg" loading="lazy" alt="Fragment of silk with mirrored golden birds on deep red ground, Italy, 16th century">
+    </div>
+    <figcaption class="lbl">
+      <b>Fragment</b> &mdash; Italy, 16th&nbsp;century. Silk, plain weave with supplementary patterning wefts.<br>
+      <span class="mus">Art Institute of Chicago &middot; CC0</span>
+    </figcaption>
+  </figure>
+  <p class="scrawlnote r">golden birds mirrored across red forever &mdash; like they're having a conversation we got to overhear 400 years late</p>
+
+  <!-- a card to open the wall -->
+  <div class="card note">
+    ok. i kept finding animals in places they had no business being &mdash; sewn into a needle-tray, carved onto a cooking pot, hiding in a poem about fleas. so i took them all down off their separate walls and hung them together. here they are.
+  </div>
+
+  <!-- 2. the soft burning feathers -->
+  <figure class="frame t3">
+    <img src="../img2/p382.jpg" loading="lazy" alt="Feather mosaic, rust-to-cream gradient, 600–1500 CE">
+    <figcaption class="lbl">
+      <b>Feather &ldquo;mosaic&rdquo;</b> &mdash; Unknown, 600&ndash;1500. Feathers sewed on coarse cotton cloth.<br>
+      <span class="mus b">Cleveland Museum of Art &middot; CC0</span>
+    </figcaption>
+  </figure>
+  <p class="scrawlnote">thousands of tiny feathers, embers that never quite burn out. a whole bird taken apart to make this, which i don't love to think about, but: look at it.</p>
+
+  <!-- 3. the dog figurine -->
+  <figure class="frame dark t2">
+    <span class="wash tr"></span>
+    <img src="../img2/p168.jpg" loading="lazy" alt="Burnished red earthenware dog, mouth open mid-bark, 200 BCE–300 CE">
+    <figcaption class="lbl">
+      <b>Male Dog</b> &mdash; Unknown, 200&thinsp;BCE&ndash;300&thinsp;CE. Earthenware with burnished red slip.<br>
+      <span class="mus g">Cleveland Museum of Art &middot; CC0</span>
+    </figcaption>
+  </figure>
+  <p class="scrawlnote g">a creature that's never smiled and never will. that open mouth isn't happy &mdash; it's <i>mid-bark</i>, two thousand years and still going off about something.</p>
+
+  <!-- joshu's dog koan, wedged right under the actual dog -->
+  <div class="card poem t1">
+    <div class="ttl">Joshu's Dog</div>
+    <div class="vv">A monk asked Joshu in all earnestness, "Does a dog have Buddha nature or not?" Joshu said, "Mu."
+
+Has a dog Buddha-nature?
+This is the most serious question of all.
+If you say yes or no
+You lose your own Buddha-nature.</div>
+    <div class="by">&mdash; Wumen Huikai (1183&ndash;1260), <em>Mumonkan</em> &middot; <a href="https://www.antonvolney.com/p/zen-koan-1-joshus-mu-zhaozhous-dog">source</a></div>
+  </div>
+  <p class="scrawlnote p">i hung the dog and the koan together on purpose. you ask the clay dog the same question. it says nothing. same answer.</p>
+
+  <!-- 4. the chimu cats -->
+  <figure class="frame gilt t4">
+    <div class="mat">
+      <img src="../img2/p379.jpg" loading="lazy" alt="Chimú feather textile with stylized cats or pumas, gold-rimmed eyes, 1470–1532">
+    </div>
+    <figcaption class="lbl">
+      <b>Feather textile panel</b> &mdash; Chim&uacute;, Peru, possibly Nazca Valley, 1470&ndash;1532. Cotton, plain weave, embellished with knotted feathers.<br>
+      <span class="mus p">Art Institute of Chicago</span>
+    </figcaption>
+  </figure>
+  <p class="scrawlnote">cats as glyphs. spiral tails, gold-rimmed eyes watching each other across the weave. somebody made this to be <i>touched</i>.</p>
+
+  <!-- 5. the cat + butterfly -->
+  <figure class="frame t5">
+    <span class="wash tl"></span>
+    <img src="../img2/p164.jpg" loading="lazy" alt="Album leaf, cat gazing up at a butterfly, Min Zhen, 1788">
+    <figcaption class="lbl">
+      <b>Album leaf</b> &mdash; Min Zhen (Chinese, 1730&ndash;after 1788). Ink on paper, 1788.<br>
+      <span class="mus g">Cleveland Museum of Art</span>
+    </figcaption>
+  </figure>
+  <div class="card note blue">
+    the cat's face is so soft and the butterfly hangs up in the white like a held breath. they're both watching the same fleeting thing. the whole page is listening.
+  </div>
+
+  <!-- 6. steinlen cat on a balustrade -->
+  <figure class="frame t2">
+    <img src="../img2/p163.jpg" loading="lazy" alt="Lithograph of a cat stretched on a balustrade in summer, Steinlen, 1909">
+    <figcaption class="lbl">
+      <b>Summer: Cat on a Balustrade</b> &mdash; Th&eacute;ophile-Alexandre Steinlen (French, b. Switzerland, 1859&ndash;1923). Lithograph, 1909.<br>
+      <span class="mus">Art Institute of Chicago</span>
+    </figcaption>
+  </figure>
+  <p class="scrawlnote r">stretched out like it owns the whole balcony AND all of summer beyond it. you can feel the exact weight of it. the paw, extended just so.</p>
+
+  <!-- basho horse haiku -->
+  <div class="card poem t3">
+    <span class="wash tr" style="background:rgba(255,140,160,.5)"></span>
+    <div class="ttl">Fleas and Lice</div>
+    <div class="vv">fleas and lice
+now a horse pisses
+by my pillow</div>
+    <div class="by">&mdash; Matsuo Basho, tr. Jane Reichhold &middot; <a href="https://thehaikufoundation.org/book-of-the-week-basho-the-complete-haiku-of-japanese-poet-matsuo-basho-in-translation-by-jane-reichhold/">The Haiku Foundation</a></div>
+  </div>
+  <p class="scrawlnote">the animals were always RIGHT THERE. in the bed, by the pillow. this is the least romantic horse in all of poetry and i adore it.</p>
+
+  <!-- 7. fire-flame vessel with creature finials -->
+  <figure class="frame dark t1">
+    <img src="../img2/p188.jpg" loading="lazy" alt="Fire-flame cooking vessel with creature finials, earthenware, c. 2500 BCE">
+    <figcaption class="lbl">
+      <b>Fire-flame Cooking Vessel (Ka'en Doki)</b> &mdash; Unknown, c.&thinsp;2500&thinsp;BCE. Earthenware, carved &amp; applied decoration.<br>
+      <span class="mus b">Cleveland Museum of Art &middot; CC0</span>
+    </figcaption>
+  </figure>
+  <p class="scrawlnote b">someone 4,500 years ago topped their cooking pot with fierce little creatures so the pot itself would feel alive. ceremony, frozen in clay.</p>
+
+  <!-- hopkins dogrose poem -->
+  <div class="card poem t2">
+    <div class="ttl">The Furl of Fresh-Leaved Dogrose Down</div>
+    <div class="vv">His locks like all a ravel-rope's-end,
+With hempen strands in spray&mdash;
+Fallow, foam-fallow, hanks&mdash;fall'n off their ranks,
+Swung down at a disarray.
+
+Or like a juicy and jostling shock
+Of bluebells sheaved in May
+Or wind-long fleeces on the flock
+A day off shearing day.</div>
+    <div class="by">&mdash; Gerard Manley Hopkins &middot; <em>PoetryDB</em></div>
+  </div>
+  <p class="scrawlnote p">"wind-long fleeces on the flock" &mdash; he reaches for a whole field of sheep just to describe a boy's hair. you can't hold still long enough to describe someone beautiful in a straight line.</p>
+
+  <!-- 8. the kiss of judas — two faces, animal closeness -->
+  <figure class="frame t4">
+    <span class="wash tl"></span>
+    <img src="../img2/p394.jpg" loading="lazy" alt="Kiss of Judas, pen and brown ink, attributed to Ludovico Carracci">
+    <figcaption class="lbl">
+      <b>Kiss of Judas</b> &mdash; attributed to Ludovico Carracci (Italian, 1555&ndash;1619). Pen and brown ink, black chalk on ivory laid paper.<br>
+      <span class="mus p">Art Institute of Chicago &middot; CC0</span>
+    </figcaption>
+  </figure>
+  <div class="card note pink">
+    not an animal, i know &mdash; but two faces so close they're almost one face, all quick nervous lines, the way a cat and a dog get nose to nose. i couldn't leave it out. the betrayal lives in the lines.
+  </div>
+
+  <!-- 9. the sewing tray with birds -->
+  <figure class="frame gilt t3">
+    <div class="mat">
+      <img src="../img2/p101.jpg" loading="lazy" alt="Lacquer sewing tray with mother-of-pearl birds and flowers, 1800s">
+    </div>
+    <figcaption class="lbl">
+      <b>Tray for Sewing Tools with Mother-of-Pearl Inlay</b> &mdash; Unknown, 1800s. Lacquer with inlay.<br>
+      <span class="mus g">Cleveland Museum of Art &middot; CC0</span>
+    </figcaption>
+  </figure>
+  <p class="scrawlnote g">a tray to hold needles and thread &mdash; and they inlaid little birds that catch the light like they're trying to escape the black lacquer. even the tray gets a bird.</p>
+
+  <!-- 10. the apple market crowd -->
+  <figure class="frame t1">
+    <img src="../img2/p199.jpg" loading="lazy" alt="The Apple Market at Landerneau, pen and ink, Lhermitte, 1878">
+    <figcaption class="lbl">
+      <b>The Apple Market at Landerneau</b> &mdash; L&eacute;on Augustin Lhermitte (French, 1844&ndash;1925). Pen and brown ink over red chalk, 1878.<br>
+      <span class="mus">Cleveland Museum of Art</span>
+    </figcaption>
+  </figure>
+  <p class="scrawlnote r">the human animal in a herd. you can feel the bustle in every scratchy line, bodies actually crowding. no two people quite the same.</p>
+
+  <!-- 11. leech sketch -->
+  <figure class="frame t5">
+    <img src="../img2/p300.jpg" loading="lazy" alt="Sketch for Mrs. Pottles Can't Abide a Crowd, John Leech, 1856">
+    <figcaption class="lbl">
+      <b>Sketch for Mrs. Pottles Can't Abide a Crowd</b> &mdash; John Leech (British, 1817&ndash;1864). Graphite, 1856.<br>
+      <span class="mus b">Cleveland Museum of Art</span>
+    </figcaption>
+  </figure>
+  <p class="scrawlnote b">quick uncertain lines, a note he scribbled to himself in the corner. a whole social comedy living in a handful of marks.</p>
+
+  <!-- 12. daumier opera ball -->
+  <figure class="frame dark t2">
+    <span class="wash tr"></span>
+    <img src="../img2/p299.jpg" loading="lazy" alt="Opera ball crowd, wood engraving after Daumier, 1868/1920">
+    <figcaption class="lbl">
+      <b>At the Opera Ball</b> &mdash; after Honor&eacute; Victorin Daumier (French, 1808&ndash;1879), engraved by Etienne, printed by F. L. Schmied, 1868 / printed 1920. Wood engraving.<br>
+      <span class="mus">Art Institute of Chicago &middot; CC0</span>
+    </figcaption>
+  </figure>
+  <p class="scrawlnote">a chaos of hats and elbows and wild gestures, everyone trying to be glamorous and failing spectacularly. we are, after all, just another loud crowd of animals in good coats.</p>
+
+  <!-- 13. the virgin ascending -->
+  <figure class="frame gilt t4">
+    <div class="mat">
+      <img src="../img2/p211.jpg" loading="lazy" alt="Virgin of the Immaculate Conception, carved wood, Maragliano, 1710–20">
+    </div>
+    <figcaption class="lbl">
+      <b>Virgin of the Immaculate Conception</b> &mdash; Antonio Maragliano (Italian, 1664&ndash;1741). Wood, 1710&ndash;20.<br>
+      <span class="mus p">Art Institute of Chicago &middot; CC0</span>
+    </figcaption>
+  </figure>
+  <div class="card note">
+    she's caught mid-rising, robes carved to look like they're actually moving, an angel at her feet looking up. the instant just before flight. even we wanted to be birds.
+  </div>
+
+  <!-- closing note tucked at the bottom of the hang -->
+  <div class="card note blue" style="transform:rotate(-2deg)">
+    that's the wall. i ran out of room before i ran out of creatures.<br>
+    ok i have to sleep. more tomorrow. <span class="arrow">&#8593;</span> (the dog stays up all night anyway)
+  </div>
+
+</main>
+
+<p class="footnote">
+  drew this little arrow <span class="arrow">&#10551;</span> between the cat and the butterfly in my head and never erased it.<br>
+  go back <a href="../index.html">home</a>, the lights are still on.
+</p>
+
+<script>stitched
+document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&!t.dataset.f){t.dataset.f=1;t.classList.add('broken-img');t.alt=t.alt||'(this picture wandered off)';}},true);
+</script><div class="handfooter"><!--stitched-->
+  <a class="home" href="../index.html">↤ back to the front door</a>
+  <span>wander somewhere else:</span> <a href="the-sea-wants-something.html">the sea wantssomething from us</a><span>·</span> <a href="flowers-saying-things.html">Flowers Have Been SayingThings This Whole Time
+ </a><span>·</span> <a href="for-when-you-cant-sleep.html">for when youcan't sleep</a><span>·</span> <a href="hands-that-made-things.html">handsthat madethings</a>
+  <span style="flex-basis:100%;margin-top:.4rem">made by hand, with real things real people made. nothing here is for sale. — <span style="font-family:var(--hand);font-size:1.4rem;color:var(--red)">x</span></span>
+</div>
+</body>
+</html>

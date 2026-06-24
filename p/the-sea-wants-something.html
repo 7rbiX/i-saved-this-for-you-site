@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>the sea wants something from us</title>
+<link rel="stylesheet" href="../wall.css">
+<style>
+  /* ---- the desk this whole thing is spread out on ---- */
+  body{
+    background:#d8cdb8;
+    background-image:
+      repeating-linear-gradient(91deg, rgba(0,0,0,.035) 0 2px, transparent 2px 26px),
+      repeating-linear-gradient(0deg, rgba(120,90,50,.05) 0 1px, transparent 1px 30px),
+      radial-gradient(140% 90% at 50% -10%, rgba(255,250,240,.35), transparent 55%);
+  }
+  /* big rough title scrawled on the desk itself */
+  .deskhead{
+    max-width:1180px;margin:0 auto;padding:3rem 1.4rem .5rem;position:relative;
+  }
+  .deskhead h1{
+    font-family:var(--disp);font-weight:900;color:#2a2620;
+    font-size:clamp(2.4rem,7.5vw,6rem);line-height:.92;
+    transform:rotate(-1.3deg);text-shadow:1px 1px 0 rgba(255,255,255,.4);
+    margin:0;
+  }
+  .deskhead .sub{
+    font-family:var(--hand);color:var(--blue);font-size:clamp(1.3rem,3vw,2rem);
+    transform:rotate(.7deg);margin:.3rem 0 0 .4rem;
+  }
+  .deskhead .filed{
+    font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;
+    color:#6a5f4c;position:absolute;top:2.2rem;right:1.6rem;text-align:right;
+    transform:rotate(2deg);
+  }
+
+  /* every card looks like a real index card / scrap on the desk */
+  .card{
+    position:relative;background:#fffdf7;
+    box-shadow:0 10px 22px rgba(40,30,15,.28), 0 2px 4px rgba(0,0,0,.12);
+    border:1px solid #ece3cf;
+  }
+  /* ruled index card */
+  .card.ruled{
+    background:
+      linear-gradient(#fffdf7,#fffdf7),
+      repeating-linear-gradient(#fffdf7 0 27px, #bcd0e6 27px 28px);
+    background-blend-mode:normal;
+    background-image:repeating-linear-gradient(#fffdf7 0 27px, rgba(120,160,200,.30) 27px 28px);
+  }
+  .card.ruled::after{
+    content:"";position:absolute;left:34px;top:0;bottom:0;width:1px;background:rgba(220,90,90,.35);
+  }
+  /* push pin sitting ON TOP of a card */
+  .tack{
+    position:absolute;width:20px;height:20px;border-radius:50%;z-index:8;
+    background:radial-gradient(circle at 34% 30%, #ffd2d2, #d23b2a 70%);
+    box-shadow:0 3px 5px rgba(0,0,0,.4), inset -1px -1px 2px rgba(0,0,0,.3);
+  }
+  .tack.b{background:radial-gradient(circle at 34% 30%, #c8dbff, #2f5fe0 70%);}
+  .tack.g{background:radial-gradient(circle at 34% 30%, #b9f0d3, #2fa36b 70%);}
+  .tack.s{background:radial-gradient(circle at 34% 30%, #ffe9b0, #e8a81e 70%);}
+
+  /* the loose spread layout */
+  .spread{max-width:1180px;margin:1.5rem auto 0;padding:1rem 1.2rem 5rem;
+    display:flex;flex-wrap:wrap;gap:1.6rem 1.4rem;align-items:flex-start;justify-content:center;}
+  .spread > *{flex:0 1 auto;}
+
+  /* handwriting on the desk between cards */
+  .deskscrawl{font-family:var(--hand);color:#3a342a;line-height:1.1;
+    flex:1 1 100%;text-align:center;font-size:clamp(1.4rem,3.4vw,2.2rem);
+    margin:.6rem 0 -.2rem;}
+  .deskscrawl.r{color:var(--red)} .deskscrawl.b{color:var(--blue)}
+  .arrow{font-family:var(--hand);color:var(--red);font-size:2rem;display:inline-block}
+
+  /* the coffee stain */
+  .ring{position:absolute;width:130px;height:130px;border-radius:50%;
+    border:9px solid rgba(110,70,30,.13);box-shadow:inset 0 0 0 5px rgba(110,70,30,.06);
+    pointer-events:none;z-index:6}
+
+  .card .pad{padding:1.1rem 1.3rem 1.2rem}
+  .label{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#8a7c5e}
+
+  @media(max-width:720px){
+    .card{transform:none !important;max-width:92vw !important}
+    .deskhead .filed{position:static;text-align:left;transform:none;margin-top:1rem}
+  }
+</style>
+</head>
+<body>
+
+<header class="deskhead">
+  <p class="filed">box 04 / sea things<br>do not file. leave out.<br>— me, 1:40am</p>
+  <h1>the sea wants<br>something from us</h1>
+  <p class="sub">ships, sailors, salt, &amp; the pull of deep water. i spread it all out on the desk &amp; couldn't put it back.</p>
+</header>
+
+<main class="spread">
+
+  <!-- ========== index card: charlotte smith ========== -->
+  <article class="card ruled" style="max-width:340px;transform:rotate(-2.2deg)">
+    <span class="tack" style="top:-9px;left:50%;margin-left:-10px"></span>
+    <div class="pad" style="padding-left:42px">
+      <p class="label" style="color:var(--red)">card 01 &middot; sonnet xliii</p>
+      <div class="poem" style="font-family:var(--body);font-size:1.04rem;line-height:1.7;white-space:pre-wrap;color:#1a1a1a;margin:.4rem 0 .8rem">And, if a flattering cloud appears to show
+The fancied semblance of a distant sail,
+Then melts away—anew his spirits fail,
+While the lost hope but aggravates his woe!</div>
+      <p class="label">— Charlotte Smith, <em style="text-transform:none">The Unhappy Exile</em></p>
+      <p class="scrawl" style="font-family:var(--hand);font-size:1.05rem;color:#333;line-height:1.45;margin:.7rem 0 0;border-left:3px solid var(--red);padding-left:.7rem">smith knows exactly how hope can wreck you worse than despair. you let yourself believe—you see what <em>might</em> be a ship—and then it dissolves. the cruelty is in the wanting.</p>
+    </div>
+  </article>
+
+  <!-- big huge title card pinned crooked -->
+  <article class="card" style="max-width:230px;transform:rotate(3.5deg);background:#2f5fe0;color:#fff;align-self:center">
+    <span class="tack s" style="top:-9px;right:18px"></span>
+    <div class="pad" style="text-align:center">
+      <p class="huge" style="font-size:3.4rem;line-height:.85;color:#fff;margin:.2rem 0;font-family:var(--disp);font-weight:900">O dear<br>whare</p>
+      <p style="font-family:var(--hand);font-size:1.3rem;color:#ffe08a;margin:.3rem 0 0">are all the whales<br>gone to</p>
+    </div>
+  </article>
+
+  <!-- amphitrite polaroid -->
+  <article class="card" style="max-width:300px;transform:rotate(-1.4deg);background:#fff;padding:10px 10px 10px">
+    <span class="tack b" style="top:-9px;left:24px"></span>
+    <figure style="margin:0">
+      <img src="../img2/p015.jpg" loading="lazy" alt="Bust of Amphitrite, marble, Lambert Sigisbert Adam" style="width:100%;display:block">
+      <figcaption style="font:.65rem/1.4 var(--mono);color:#555;padding:.5rem .3rem .1rem">
+        Lambert Sigisbert Adam (French, 1700&ndash;1759)<br>
+        <em>Bust of Amphitrite</em><br>Art Institute of Chicago &middot; CC0
+      </figcaption>
+    </figure>
+    <p class="scrawl r" style="font-family:var(--hand);font-size:1.35rem;color:var(--pink);margin:.2rem 0 .3rem .4rem;transform:rotate(-2deg)">the sea queen herself &mdash; all marble &amp; saltwater divinity</p>
+  </article>
+
+  <p class="deskscrawl b">i kept finding the sea hiding inside other things. inside a cloud. inside a knot. inside the word <span class="crossout" style="text-decoration-color:var(--red)">flaw</span> &mdash; which means a gust of wind, did you know that <span class="arrow">&#8600;</span></p>
+
+  <!-- FLAW card -->
+  <article class="card ruled" style="max-width:300px;transform:rotate(1.8deg)">
+    <span class="tack g" style="top:-9px;left:30px"></span>
+    <div class="pad" style="padding-left:42px">
+      <p class="label" style="color:var(--green)">found &middot; dictionary of sea-terms</p>
+      <p style="font-family:var(--disp);font-size:2.6rem;font-weight:800;color:var(--green);line-height:1;margin:.3rem 0 .1rem" class="marker">Flaw</p>
+      <p style="font-family:var(--body);font-style:italic;font-size:1.08rem;margin:.2rem 0 .7rem;color:#222">A sudden breeze or gust of wind.</p>
+      <p class="label">— Darcy Lever, <a href="https://navalmarinearchive.com/research/docs/darcy_lever_glossary.html" style="color:#8a7c5e">Dictionary of Sea-Terms</a></p>
+      <p class="scrawl" style="font-family:var(--hand);font-size:1.05rem;color:var(--green);line-height:1.45;margin:.6rem 0 0">old sailor weather-words are so honest. not "gust." a <em>flaw</em>. something sudden &amp; unexpected, the kind of thing that catches you off guard out on the open water.</p>
+    </div>
+  </article>
+
+  <!-- ASPERITAS cloud-as-sea card -->
+  <article class="card" style="max-width:360px;transform:rotate(-1deg);background:#fff8f0;border-left:5px solid var(--sun)">
+    <span class="tack s" style="top:-9px;right:40px"></span>
+    <span class="ring" style="right:-30px;bottom:-30px"></span>
+    <div class="pad">
+      <p class="label" style="color:#c08800">found &middot; meteorology</p>
+      <h3 style="font-family:var(--disp);font-size:1.2rem;margin:.2rem 0 .7rem">Asperitas: the cloud that looks like a troubled sea</h3>
+      <blockquote style="margin:0;border:none;font-family:var(--body);font-style:italic;font-size:1rem;line-height:1.65;color:#222">&ldquo;Well-defined, wave-like structures in the underside of the cloud&hellip; sometimes descending into sharp points as if viewing a roughened sea surface from below.&rdquo;</blockquote>
+      <p class="label" style="margin-top:.6rem">International Cloud Atlas / <a href="https://en.wikipedia.org/wiki/Asperitas_(cloud)" style="color:#8a7c5e">Wikipedia</a></p>
+      <p class="scrawl" style="font-family:var(--hand);font-size:1.05rem;color:#555;line-height:1.45;margin:.7rem 0 0;border-top:1px dashed #e0c080;padding-top:.7rem">it's the SKY but it looks like you're underwater looking <em>up</em> at the surface. "asperitas" = roughness in latin. first new cloud type added to the atlas in 66 years &mdash; 2017. it always looks like a storm's coming &amp; then it mostly just&hellip; dissolves.</p>
+    </div>
+  </article>
+
+  <!-- ha'apai ivory figure polaroid -->
+  <article class="card" style="max-width:250px;transform:rotate(2.6deg);background:#fff;padding:10px 10px 10px">
+    <span class="tack" style="top:-9px;left:50%;margin-left:-10px"></span>
+    <figure style="margin:0">
+      <img src="../img2/p233.jpg" loading="lazy" alt="Ha'apai Islands deity figure carved from whale ivory" style="width:100%;display:block">
+      <figcaption style="font:.65rem/1.4 var(--mono);color:#555;padding:.5rem .3rem .1rem">
+        Ha&rsquo;apai Islands artist &mdash; <em>&lsquo;Otua fefine</em> (deity figure)<br>
+        Early 19th c. &middot; Whale ivory<br>The Metropolitan Museum of Art
+      </figcaption>
+    </figure>
+    <p class="scrawl" style="font-family:var(--hand);font-size:1.2rem;color:var(--blue);margin:.2rem 0 .3rem .3rem">carved from the sea's own creature</p>
+  </article>
+
+  <p class="deskscrawl r" style="text-align:right;padding-right:2rem;transform:rotate(-1deg)">ok the next one is the one that made me actually put my head down on the desk for a second <span class="arrow">&#8595;</span></p>
+
+  <!-- THE LOGBOOK — the heart of the page, bigger -->
+  <article class="card ruled" style="max-width:540px;transform:rotate(.6deg);flex-basis:540px">
+    <span class="tack" style="top:-9px;left:50%;margin-left:-10px"></span>
+    <span class="tack b" style="top:-9px;left:30px"></span>
+    <span class="tack b" style="top:-9px;right:30px"></span>
+    <div class="pad" style="padding-left:46px">
+      <p class="label" style="color:var(--red)">found &middot; uss roman logbook &middot; japan grounds, aug 16 1838</p>
+      <blockquote style="margin:.5rem 0 .7rem;border:none;padding:0;font-family:var(--body);font-style:italic;font-size:1.28rem;line-height:1.55;color:#b03030">&ldquo;these 24 hours brisk winds from E &amp; some squals saw fin backs Jumpers &amp; porpuses but No Sperm Whales. O dear whare are all the whales gone to are they all Killed of[f] or Not.&rdquo;</blockquote>
+      <p class="label">— Captain Robert M. Joy, aboard <em style="text-transform:none">the Roman</em> &middot; <a href="https://www.earthisland.org/journal/index.php/magazine/entry/how-data-from-whalers-logbooks-inform-marine-and-climate-research/" style="color:#8a7c5e">Earth Island Journal / New Bedford Whaling Museum</a></p>
+      <p class="scrawl" style="font-family:var(--hand);font-size:1.15rem;color:var(--blue);line-height:1.4;margin:.8rem 0 0;border-top:1px dashed #b9c6dd;padding-top:.8rem">the misspelling of "where." the "O dear." a whaler in 1838 watching the ocean go quiet around him and writing down his dread like a weather note. he was part of the very thing emptying the sea &mdash; and you can feel him starting to understand that, right there on the page. that's the whole century in eleven misspelled words.</p>
+    </div>
+  </article>
+
+  <!-- knots — two little cards clipped together -->
+  <article class="card" style="max-width:240px;transform:rotate(-3deg);background:#fffdf5;border-left:4px solid var(--sun)">
+    <span class="tack s" style="top:-9px;left:20px"></span>
+    <div class="pad">
+      <p class="label" style="color:#c8960c">sailor's knot</p>
+      <h3 style="font-family:var(--disp);font-size:1.15rem;margin:.2rem 0 .6rem">Bowline</h3>
+      <p style="font-family:var(--mono);font-size:.85rem;line-height:1.55;border-left:3px solid var(--sun);padding-left:.7rem;color:#222">&ldquo;used to create a fixed loop at the end of a rope.&rdquo;</p>
+      <p class="label" style="margin-top:.5rem">— NZ Maritime Museum</p>
+      <p class="scrawl" style="font-family:var(--hand);font-size:1rem;color:#444;line-height:1.4;margin:.6rem 0 0">one exact job. won't slip, won't tighten under load. trusted for centuries because it just <em>works</em>.</p>
+    </div>
+  </article>
+
+  <article class="card" style="max-width:240px;transform:rotate(2.4deg);background:#fff0f3;border-left:4px solid var(--red)">
+    <span class="tack" style="top:-9px;right:20px"></span>
+    <div class="pad">
+      <p class="label" style="color:#b7283a">sailor's knot</p>
+      <h3 style="font-family:var(--disp);font-size:1.15rem;margin:.2rem 0 .6rem">Stopper Knot</h3>
+      <p style="font-family:var(--mono);font-size:.85rem;line-height:1.55;border-left:3px solid var(--red);padding-left:.7rem;color:#222">&ldquo;used to prevent lines from slipping through narrow holes.&rdquo;</p>
+      <p class="label" style="margin-top:.5rem">— NZ Maritime Museum, <em style="text-transform:none">10 Essential Knots</em></p>
+      <p class="scrawl" style="font-family:var(--hand);font-size:1rem;color:#444;line-height:1.4;margin:.6rem 0 0">keeps your rope from disappearing through a hole. no flourish, pure function. one problem, solved beautifully.</p>
+    </div>
+  </article>
+
+  <!-- HOLD FAST sticky -->
+  <article class="sticky" style="max-width:300px;background:#ffd34d;transform:rotate(-2.6deg);align-self:flex-start;box-shadow:3px 7px 16px rgba(0,0,0,.2)">
+    <span class="tack" style="top:-9px;left:50%;margin-left:-10px"></span>
+    <p class="big-quote" style="font-family:var(--disp);font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--red);font-size:1.9rem;line-height:1.05;margin:.3rem 0 .5rem">HOLD<br>FAST</p>
+    <p style="font-family:var(--body);font-style:italic;font-size:.95rem;line-height:1.55;color:#2a2010;margin:0 0 .6rem">tattooed across the knuckles by English sailormen &mdash; the idea was, with these words worn into your hands, you'd keep your grip in the rigging and not fall.</p>
+    <p class="label" style="color:#7a6010">— <a href="https://en.wikipedia.org/wiki/Sailor_tattoos" style="color:#7a6010">Wikipedia, sailor tattoos</a></p>
+    <p class="scrawl r" style="font-family:var(--hand);font-size:1.02rem;color:#7a3010;line-height:1.4;margin:.6rem 0 0">(honesty note: the timeline's murkier than the lore claims, might be more 20th-c. than "ancient." but&mdash;) a tattoo not for vanity but as a literal grip on survival. i can't stop thinking about that.</p>
+  </article>
+
+  <p class="deskscrawl">the rest are poems. i'm just going to lay them out &amp; you read whichever one your eye lands on. that's how i found them anyway.</p>
+
+  <!-- hopkins -->
+  <article class="card ruled" style="max-width:420px;transform:rotate(-1.6deg)">
+    <span class="tack b" style="top:-9px;left:50%;margin-left:-10px"></span>
+    <div class="pad" style="padding-left:44px">
+      <p class="label" style="color:var(--blue)">card &middot; hopkins, half-finished</p>
+      <div class="poem" style="font-family:var(--body);font-size:1rem;line-height:1.65;white-space:pre-wrap;color:#1a1a1a;margin:.4rem 0 .7rem">A bush-browed, beetle-browed billow is it?
+With a south-westerly wind blustering, with a tide rolls reels
+Of crumbling, fore-foundering, thundering all-surfy seas in; seen
+Underneath, their glassy barrel, of a fairy green.</div>
+      <p class="label">— Gerard Manley Hopkins, <em style="text-transform:none">What Being in Rank-Old Nature</em> &middot; PoetryDB</p>
+      <p class="scrawl" style="font-family:var(--hand);font-size:1.05rem;color:#555;line-height:1.45;margin:.6rem 0 0;border-top:1px dashed #ccc;padding-top:.7rem">hopkins wrings language till it breaks &amp; reforms into something alive &mdash; the words get buffeted by wind, stuttering, tossed around by the forces they describe. you <em>feel</em> the wave, you don't read it. &amp; that "glassy barrel of fairy green" tucked under all the chaos stays bright in my head for days.</p>
+    </div>
+  </article>
+
+  <!-- donne sticky -->
+  <article class="sticky pink" style="max-width:330px;background:#ffe1ea;transform:rotate(2deg)">
+    <span class="tack" style="top:-9px;left:50%;margin-left:-10px"></span>
+    <p class="label" style="color:var(--purple)">A Hymn To God The Father</p>
+    <div class="poem" style="font-family:var(--body);font-size:1rem;line-height:1.7;white-space:pre-wrap;color:#1a1a1a;margin:.4rem 0 .7rem">I have a sin of fear, that when I have spun
+My last thread, I shall perish on the shore;
+Swear by thyself, that at my death thy Son
+Shall shine as he shines now and heretofore;
+And, having done that, thou hast done,
+I fear no more.</div>
+    <p class="label">— John Donne</p>
+    <p class="scrawl" style="font-family:var(--hand);font-size:1rem;color:#444;line-height:1.45;margin:.6rem 0 0;border-left:3px solid var(--purple);padding-left:.7rem">the whole poem keeps confessing more &amp; more, like he's emptying himself out, &amp; then at the very end it goes quiet. he stops listing what he did wrong &amp; just asks for light at the shore. the surrender feels true.</p>
+  </article>
+
+  <!-- clough -->
+  <article class="card ruled" style="max-width:340px;transform:rotate(1.3deg)">
+    <span class="tack g" style="top:-9px;right:24px"></span>
+    <div class="pad" style="padding-left:42px">
+      <p class="label" style="color:var(--blue)">across the sea along the shore</p>
+      <div class="poem" style="font-family:var(--body);font-size:1rem;line-height:1.7;white-space:pre-wrap;color:#1a1a1a;margin:.4rem 0 .7rem">What is it came ye here to note?
+A young man preaching in a boat.</div>
+      <p class="label">— Arthur Hugh Clough</p>
+      <p class="scrawl r" style="font-family:var(--hand);font-size:1.02rem;color:#333;line-height:1.45;margin:.5rem 0 0;border-left:3px solid var(--blue);padding-left:.7rem">there's something devastating about watching people miss the point while it happens in front of them &mdash; the crowd hunting for authority in all the expected places while the real thing floats past in a plain boat.</p>
+    </div>
+  </article>
+
+  <!-- west lake painting polaroid -->
+  <article class="card" style="max-width:360px;transform:rotate(-2deg);background:#fff;padding:10px 10px 10px">
+    <span class="tack b" style="top:-9px;left:40px"></span>
+    <span class="tack" style="top:-9px;right:40px"></span>
+    <figure style="margin:0">
+      <img src="../img2/p126.jpg" loading="lazy" alt="Boats at Anchor on West Lake at the City Gate, ink and color on silk, Song dynasty" style="width:100%;display:block">
+      <figcaption style="font:.65rem/1.4 var(--mono);color:#555;padding:.5rem .3rem .1rem">
+        Unknown &mdash; <em>Boats at Anchor on West Lake at the City Gate</em>, 1150&ndash;1200<br>
+        Album leaf; ink &amp; color on silk &middot; Cleveland Museum of Art &middot; CC0
+      </figcaption>
+    </figure>
+    <p class="scrawl" style="font-family:var(--hand);font-size:1.2rem;color:var(--purple);margin:.2rem 0 .3rem .3rem">a few boats, misty dark ink on silk &mdash; it's memory itself, behind a veil</p>
+  </article>
+
+  <!-- tilly rice — the human steadiness card -->
+  <article class="card" style="max-width:330px;transform:rotate(1.7deg);background:#fce4ec">
+    <span class="tack" style="top:-9px;left:50%;margin-left:-10px"></span>
+    <div class="pad">
+      <p class="label" style="color:var(--red)">mass observation diary &middot; day war was declared</p>
+      <p style="font-family:var(--body);font-style:italic;font-size:1rem;line-height:1.6;color:#222;margin:.3rem 0 .7rem">&ldquo;I myself have felt all along that war would be possibly be averted at the last moment&hellip; I haven't felt swayed by the alternate waves of pessimism and optimism that affect those around me.&rdquo;</p>
+      <p class="label">— Tilly Rice, <a href="https://juliakellywrites.substack.com/p/mass-observation-diaries-in-world" style="color:#8a7c5e">Mass Observation Archive, Univ. of Sussex</a></p>
+      <p class="scrawl r" style="font-family:var(--hand);font-size:1rem;color:#555;line-height:1.45;margin:.6rem 0 0;border-top:1px solid #f4b8c8;padding-top:.7rem">she wrote this the day war was declared &amp; she's <em>refusing</em> to believe it &mdash; "alternate waves," she says, like she's the one steady boat. stubbornly calm while everyone around her pitches. she sounds like someone we know.</p>
+    </div>
+  </article>
+
+  <!-- shackamaxon ship -->
+  <article class="card ruled" style="max-width:380px;transform:rotate(-1.2deg)">
+    <span class="tack b" style="top:-9px;left:34px"></span>
+    <div class="pad" style="padding-left:44px">
+      <p class="label" style="color:var(--blue)">liverpool &rarr; sydney, 1863</p>
+      <p style="font-family:var(--disp);font-style:italic;font-weight:700;font-size:1.6rem;line-height:1.1;margin:.2rem 0 .5rem">The Shackamaxon</p>
+      <p style="font-family:var(--body);font-style:italic;font-size:.97rem;line-height:1.65;color:#1a1a1a;margin:0 0 .7rem">&ldquo;A ship registered in Liverpool, 989 tons burden, departed 11 September 1863 bound for Sydney&hellip; The name <em>Shackamaxon</em> comes from Lenape, meaning &lsquo;place where chiefs are made.&rsquo;&rdquo;</p>
+      <p class="label">State Records Authority of NSW, <em style="text-transform:none">Mariners and Ships database</em></p>
+      <p class="scrawl r" style="font-family:var(--hand);font-size:1.02rem;color:#333;line-height:1.45;margin:.6rem 0 0">what a name to carry across an ocean. a lenape word for "place where chiefs are made" &mdash; wrapped around a merchant ship hauling immigrants to the far side of the world. a whole geography of power &amp; ceremony, translated into timber &amp; sail.</p>
+    </div>
+  </article>
+
+  <!-- katherine philips, last small scrap -->
+  <article class="card" style="max-width:300px;transform:rotate(3deg);background:#fffdf7;border-left:4px solid var(--pink)">
+    <span class="tack" style="top:-9px;right:24px"></span>
+    <div class="pad">
+      <p class="label" style="color:var(--pink)">friendships mystery</p>
+      <div class="poem" style="font-family:var(--body);font-style:italic;font-size:1.05rem;line-height:1.8;white-space:pre-wrap;color:#1a1a1a;margin:.3rem 0 .6rem">We are our selves but by rebound,
+And all our Titles shuffled so,
+Both Princes, and both Subjects too.</div>
+      <p class="label">— Katherine Philips, <em style="text-transform:none">To My Dearest Lucasia</em></p>
+      <p class="scrawl" style="font-family:var(--hand);font-size:1rem;color:#333;line-height:1.45;margin:.5rem 0 0;border-left:3px solid var(--pink);padding-left:.7rem">we only exist in the mirror of another person &mdash; both rulers &amp; ruled at once. she just caught the whole strange math of loving someone. (it's not even about the sea, i just couldn't leave it in the box.)</p>
+    </div>
+  </article>
+
+  <!-- closing handwritten note + home link -->
+  <article class="sticky blue" style="max-width:300px;background:#cfe0ff;transform:rotate(-2deg);margin-top:1rem">
+    <span class="tack b" style="top:-9px;left:50%;margin-left:-10px"></span>
+    <p style="font-family:var(--hand);font-size:1.3rem;color:#1c3a8a;line-height:1.3;margin:.2rem 0">ok i have to sleep. the desk is a mess &amp; i'm leaving it like this on purpose.</p>
+    <p style="font-family:var(--hand);font-size:1.1rem;color:#2a4a9a;margin:.6rem 0 0">more tomorrow, probably &mdash; <a href="../index.html" style="color:var(--red)">back to the rest of the wall &#8594;</a></p>
+  </article>
+
+</main>
+
+<script>stitched
+document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&!t.dataset.f){t.dataset.f=1;t.classList.add('broken-img');t.alt=t.alt||'(this picture wandered off)';}},true);
+</script><div class="handfooter"><!--stitched-->
+  <a class="home" href="../index.html">↤ back to the front door</a>
+  <span>wander somewhere else:</span> <a href="for-when-you-cant-sleep.html">for when youcan't sleep</a><span>·</span> <a href="flowers-saying-things.html">Flowers Have Been SayingThings This Whole Time
+ </a><span>·</span> <a href="children-know-something.html">children know somethingwe forgot</a><span>·</span> <a href="everything-is-light.html">everything is about light, actually — a letter</a>
+  <span style="flex-basis:100%;margin-top:.4rem">made by hand, with real things real people made. nothing here is for sale. — <span style="font-family:var(--hand);font-size:1.4rem;color:var(--red)">x</span></span>
+</div>
+</body>
+</html>

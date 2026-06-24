@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>stay a while — i saved this for you</title>
+<link rel="stylesheet" href="../wall.css">
+<style>
+  /* ── stay a while ───────────────────────────────────────────
+     a TILTED GRID. nothing is straight. every cell leans a
+     slightly different couple of degrees, like things pinned up
+     by someone who never once reached for a level.
+     ───────────────────────────────────────────────────────── */
+
+  body{
+    background:#f6f3ec;
+    background-image:
+      radial-gradient(120% 60% at 50% -6%, #fffdf7 0%, rgba(255,255,255,0) 55%),
+      radial-gradient(50% 40% at 6% 18%, rgba(255,93,143,.05), rgba(0,0,0,0) 70%),
+      radial-gradient(50% 50% at 96% 84%, rgba(47,95,224,.05), rgba(0,0,0,0) 70%);
+  }
+
+  .header{
+    max-width:64rem; margin:0 auto; padding:4rem clamp(1rem,5vw,3rem) 1rem;
+    position:relative;
+  }
+  .header h1{
+    font-family:var(--disp); font-weight:800; font-size:clamp(3rem,11vw,7rem);
+    line-height:.9; letter-spacing:-.03em; color:#23231f;
+    transform:rotate(-2.4deg); transform-origin:left center; margin:0;
+  }
+  .header h1 .a{ display:inline-block; transform:rotate(2deg); color:var(--red); }
+  .header h1 .w{ display:inline-block; transform:rotate(-1.6deg); color:var(--blue); }
+  .header .sub{
+    font-family:var(--hand); font-size:1.5rem; color:var(--green);
+    transform:rotate(1.3deg); display:inline-block; margin-top:1.2rem;
+  }
+  .header .door{
+    font-family:var(--body); font-size:1.05rem; color:#55524b; max-width:34rem;
+    transform:rotate(-.6deg); margin-top:1rem;
+  }
+
+  /* the loose tilted grid */
+  .grid{
+    max-width:78rem; margin:0 auto; padding:2.5rem clamp(.6rem,3vw,2.5rem) 6rem;
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+    gap:clamp(1.4rem,3vw,3rem) clamp(1.2rem,2.5vw,2.4rem);
+    align-items:start;
+  }
+  /* every cell leans. each one a touch different — set per-cell below. */
+  .cell{
+    position:relative;
+    transition:transform .25s ease, box-shadow .25s ease, z-index 0s;
+  }
+  .cell:hover{ transform:rotate(0deg) scale(1.015); z-index:20; }
+
+  /* card surfaces shared by the cells */
+  .card{
+    background:#fffdf8; padding:1.5rem 1.6rem 1.4rem;
+    box-shadow:3px 5px 16px rgba(20,20,18,.13);
+    border:1px solid rgba(0,0,0,.05);
+    position:relative;
+  }
+  .card .kick{
+    font-family:var(--disp); font-size:.72rem; font-weight:700;
+    letter-spacing:.12em; text-transform:uppercase; margin:0 0 .8rem;
+  }
+  .card .poem{
+    font-family:var(--body); font-size:1.06rem; line-height:1.78; color:#222;
+    white-space:normal; margin:0;
+  }
+  .card .poem.it{ font-style:italic; }
+  .card .by{
+    font-family:var(--mono); font-size:.66rem; letter-spacing:.03em; color:#8a857a;
+    margin-top:1rem; border-top:1px solid rgba(0,0,0,.09); padding-top:.6rem;
+  }
+  .cell .note{
+    font-family:var(--hand); font-size:1.04rem; line-height:1.55;
+    margin:.7rem .3rem 0;
+  }
+  figure.snap figcaption{
+    font-family:var(--mono); font-size:.66rem; color:#555; line-height:1.5;
+    padding:.5rem .25rem 0;
+  }
+
+  a.home{ font-family:var(--hand); color:var(--red); font-size:1.7rem; text-decoration:none; transform:rotate(-2deg); display:inline-block; }
+  a.home:hover{ color:var(--blue); }
+  .closing{ max-width:64rem; margin:0 auto; padding:0 clamp(1rem,5vw,3rem) 6rem; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <p class="mono" style="color:var(--green); letter-spacing:.2em;">the door is open · come in</p>
+  <h1><span class="a">stay</span> a <span class="w">while</span></h1>
+  <p class="sub">home, welcome, comfort — the door left open.</p>
+  <p class="door">
+    nothing on this page is straight. i tried, once, to line it all up, and then i thought:
+    no. a home isn't a showroom. things lean. the chairs don't match. you can rest here. take
+    your shoes off. <span class="scrawl" style="color:var(--blue); font-size:.95rem;">(the kettle's already on.)</span>
+  </p>
+</header>
+
+<main class="grid">
+
+  <!-- 1 · amy levy sonnet, the calm after the storm -->
+  <div class="cell" style="transform:rotate(-2.4deg);">
+    <div class="card" style="background:#faf7f2;">
+      <span class="tape" style="position:absolute; top:-12px; left:24%; transform:rotate(-4deg);"></span>
+      <p class="kick" style="color:var(--red);">Sonnet</p>
+      <p class="poem">
+        Most wonderful and strange it seems, that I<br>
+        Who but a little time ago was tost<br>
+        High on the waves of passion and of pain,<br>
+        With aching heat and wildly throbbing brain—<br><br>
+        Thus calm and still and silent here should lie,<br>
+        Watching and waiting,—waiting passively.<br><br>
+        Yet in my heart a hint of feeling lies<br>
+        Which half a hope and half a despair.
+      </p>
+      <div class="by">— Amy Levy · PoetryDB</div>
+    </div>
+    <p class="scrawl note" style="color:var(--red);">'aching heat and wildly throbbing brain' — and then just: <em>calm.</em> that shift is the whole poem. some editions say 'heart' not 'head.' both true.</p>
+  </div>
+
+  <!-- 2 · woman with a green book, image -->
+  <div class="cell" style="transform:rotate(2deg);">
+    <figure class="snap polaroid tilt-l" style="--w:100%; display:block; margin:0; transform:rotate(-1.4deg);">
+      <span class="tape blue" style="position:absolute; top:-11px; left:30%; transform:rotate(2.3deg); z-index:5;"></span>
+      <img src="../img2/p348.jpg" loading="lazy" alt="Louisa Gallond Cook seated in a dark dress with lace collar, holding a vivid green book, a calm landscape behind her" style="display:block; width:100%; aspect-ratio:3/4; object-fit:cover;">
+      <figcaption>Erastus Salisbury Field · <em>Woman with a Green Book (Louisa Gallond Cook)</em> · 1838 · Art Institute of Chicago · CC0</figcaption>
+    </figure>
+    <p class="scrawl note">she's holding her book like it matters, that <span class="marker">green cover so vivid</span> against the dark dress. Field painted her like someone worth sitting with.</p>
+  </div>
+
+  <!-- 3 · katherine philips, a retir'd friendship -->
+  <div class="cell" style="transform:rotate(-1.2deg);">
+    <div class="card" style="background:#f3f7f2; border-left:4px solid var(--green);">
+      <span class="tape green" style="position:absolute; top:-11px; right:18%; transform:rotate(2deg);"></span>
+      <p class="kick" style="color:var(--green);">A Retir'd Friendship</p>
+      <p class="poem it">
+        Here's no disguise, nor treachery<br>
+        Nor any deep conceal'd design;<br>
+        From blood and plots this place is free,<br>
+        And calm as are those looks of thine.<br><br>
+        But we (of one another's mind<br>
+        Assur'd,) the boistrous world disdain;<br>
+        With quiet souls, and unconfin'd,<br>
+        Enjoy what princes wish in vain.
+      </p>
+      <div class="by">— Katherine Philips · PoetryDB</div>
+    </div>
+    <p class="scrawl note r" style="color:var(--green);">how radical for the 1600s — two people away from all the noise and danger, just fully themselves. no performance. peace between trusted souls is rarer than any crown.</p>
+  </div>
+
+  <!-- 4 · snow at dusk at hira, hokusai -->
+  <div class="cell" style="transform:rotate(1.6deg);">
+    <figure class="snap polaroid tilt-r" style="--w:100%; display:block; margin:0; transform:rotate(1deg);">
+      <span class="tape blue" style="position:absolute; top:-12px; left:18%; transform:rotate(4deg); z-index:5;"></span>
+      <span class="tape" style="position:absolute; top:-11px; right:22%; transform:rotate(-2.5deg); z-index:5;"></span>
+      <img src="../img2/p359.jpg" loading="lazy" alt="Snow at Dusk at Hira — a single boat on still water, mountains fading soft into pale snow-sky, Hokusai woodblock print" style="display:block; width:100%;">
+      <figcaption>Katsushika Hokusai 葛飾北斎 · <em>Snow at Dusk at Hira (Hira no bosetsu)</em>, 1804–16, from <em>Eight Views of Ōmi</em> · Color woodblock print · Art Institute of Chicago · CC0</figcaption>
+    </figure>
+    <p class="scrawl note r" style="color:var(--blue);">waiting in the snow. a single boat, the mountains gone soft. the lines are so clean they're almost holding their breath.</p>
+  </div>
+
+  <!-- 5 · the wrong way home (edward taylor) -->
+  <div class="cell" style="transform:rotate(2.6deg);">
+    <div class="card sticky" style="background:rgba(255,248,180,.78); padding:1.4rem 1.6rem 1.5rem; box-shadow:2px 5px 14px rgba(0,0,0,.12);">
+      <span class="tape blue" style="position:absolute; top:-11px; right:24%; transform:rotate(3deg);"></span>
+      <p class="kick" style="color:var(--blue);">The Wrong Way Home</p>
+      <p class="poem" style="font-family:var(--body);">
+        The door was an island that swayed in its sleep.<br>
+        The moon turned the doorknob just slightly,<br>
+        burned its fingers and ran,<br>
+        and still the door said nothing and slept.
+      </p>
+      <div class="by" style="border-top-color:rgba(0,0,0,.12);">— Edward Taylor · PoetryDB</div>
+    </div>
+    <p class="scrawl note" style="color:var(--blue);">the moon burning its fingers and running away — the whole universe trying to reach us and giving up. the door just keeps quiet. keeps you safe inside.</p>
+  </div>
+
+  <!-- 6 · memling virgin and child, held in light -->
+  <div class="cell" style="transform:rotate(-2.8deg);">
+    <figure class="snap polaroid tilt-l" style="--w:100%; display:block; margin:0; transform:rotate(1.6deg);">
+      <span class="tape" style="position:absolute; top:-11px; left:26%; transform:rotate(-1.7deg); z-index:5;"></span>
+      <img src="../img2/p389.jpg" loading="lazy" alt="The Virgin Mary in vivid red fabric bowing her head, the Christ child leaning into her, against a gold background, oil on wood" style="display:block; width:100%; aspect-ratio:3/4; object-fit:cover;">
+      <figcaption>Hans Memling · <em>Virgin and Child</em> · c. 1470–80 · Oil on wood · Cleveland Museum of Art</figcaption>
+    </figure>
+    <p class="scrawl note">the child <span class="marker pink">leans into her</span>, her gaze stays low and calm. the gold makes it look like she's held in light. the red fabric practically glows.</p>
+  </div>
+
+  <!-- 7 · emily dickinson — beauty crowds me -->
+  <div class="cell" style="transform:rotate(1.4deg);">
+    <div class="card" style="background:#fdf3f3; border-left:4px solid var(--red);">
+      <span class="tape red" style="position:absolute; top:-11px; left:28%; transform:rotate(1.8deg);"></span>
+      <p class="kick" style="color:var(--red); text-transform:lowercase; letter-spacing:.04em;">beauty crowds me till I die</p>
+      <p class="poem it">
+        Beauty crowds me till I die<br>
+        Beauty mercy have on me<br>
+        But if I expire today<br>
+        Let it be in sight of thee —
+      </p>
+      <div class="by">— Emily Dickinson</div>
+    </div>
+    <p class="scrawl note" style="color:var(--red);">beauty as something she can't escape — it <em>crowds</em> her — a raw plea for mercy mixed all up with wanting to keep seeing it. that's not despair, that's devotion.</p>
+  </div>
+
+  <!-- 8 · topará vessel, the weight of water -->
+  <div class="cell" style="transform:rotate(-1.8deg);">
+    <figure class="snap polaroid tilt-l" style="--w:100%; display:block; margin:0; transform:rotate(-1deg); background:#fdfaf5;">
+      <span class="tape blue" style="position:absolute; top:-11px; left:50%; transform:translateX(-50%) rotate(1.4deg); z-index:5;"></span>
+      <img src="../img2/p152.jpg" loading="lazy" alt="Pale ceramic vessel with two rust-colored handles, Topará, 200 BCE–100 CE" style="display:block; width:100%; aspect-ratio:4/3; object-fit:cover;">
+      <figcaption>Topará artist(s), 200 BCE–100 CE · The Metropolitan Museum of Art · Open Access</figcaption>
+    </figure>
+    <p class="scrawl note" style="color:var(--blue);">it sits so perfectly balanced, like someone understood the weight of water before they ever poured it. the two rust handles against the cream body feel almost human. a thing made to be kept in a home.</p>
+  </div>
+
+  <!-- 9 · anne bradstreet, to her father -->
+  <div class="cell" style="transform:rotate(2.2deg);">
+    <div class="card" style="background:#f5f0eb; border-left:4px solid var(--green);">
+      <span class="tape green" style="position:absolute; top:-11px; left:30%; transform:rotate(-3.5deg);"></span>
+      <p class="kick" style="color:var(--green);">To Her Father with Some Verses</p>
+      <p class="poem">
+        Yet for part payment take this simple mite,<br>
+        Where nothing's to be had, kings loose their right.<br>
+        Such is my debt I may not say forgive,<br>
+        But as I can, I'll pay it while I live;<br>
+        Such is my bond, none can discharge but I,<br>
+        Yet paying is not paid until I die.
+      </p>
+      <div class="by">— Anne Bradstreet · PoetryDB</div>
+    </div>
+    <p class="scrawl note" style="color:var(--green); filter:brightness(.8);">'such is my bond, none can discharge but I' — she's not apologizing, she's steady with it. the repetition lands like a meditation. like sweeping a floor you love.</p>
+  </div>
+
+  <!-- 10 · cranes on snow-covered pine, hokusai -->
+  <div class="cell" style="transform:rotate(-2.1deg);">
+    <figure class="snap polaroid tilt-l" style="--w:100%; display:block; margin:0; transform:rotate(2deg);">
+      <span class="tape blue" style="position:absolute; top:-11px; left:20%; transform:rotate(1.4deg); z-index:5;"></span>
+      <img src="../img2/p195.jpg" loading="lazy" alt="Two cranes perched on snow-covered pine branches, blue-grey wings, a vertical woodblock print in muted winter tones" style="display:block; width:100%; aspect-ratio:2/3; object-fit:cover;">
+      <figcaption>Katsushika Hokusai 葛飾北斎 · <em>Cranes on snow-covered pine</em> · c. 1834 · Color woodblock print, vertical nagaban · Art Institute of Chicago · CC0</figcaption>
+    </figure>
+    <p class="scrawl note r">two birds in the quiet snow <span class="marker blue">like a conversation</span>. it's a woodblock but it feels like you could step into the cold of it and not mind.</p>
+  </div>
+
+  <!-- 11 · clough, through a glass darkly -->
+  <div class="cell" style="transform:rotate(1.8deg);">
+    <div class="card" style="background:#fff;">
+      <span class="tape blue" style="position:absolute; top:-12px; left:50%; transform:translateX(-50%) rotate(1.1deg);"></span>
+      <p class="kick" style="color:var(--blue); text-transform:lowercase; letter-spacing:.04em;">through a glass darkly</p>
+      <p class="poem">
+        Ah yet, when all is thought and said,<br>
+        The heart still overrules the head;<br>
+        Still what we hope we must believe,<br>
+        And what is given us receive;<br><br>
+        Must still believe, for still we hope<br>
+        That in a world of larger scope,<br>
+        What here is faithfully begun<br>
+        Will be completed, not undone.
+      </p>
+      <div class="by">— Arthur Hugh Clough, <em>Through a Glass Darkly</em></div>
+    </div>
+    <p class="scrawl note" style="color:var(--red);">clough writes like someone who thought himself in circles and finally just… stopped. the head can't win against the heart, and maybe that's not a loss. we keep hoping because we have to.</p>
+  </div>
+
+  <!-- 12 · james thomson, farewell to ravelrig -->
+  <div class="cell" style="transform:rotate(-1.5deg);">
+    <div class="card" style="background:#fafaf6; border:1px solid #d9d5c8;">
+      <span class="tape" style="position:absolute; top:-11px; left:32%; transform:rotate(2.3deg);"></span>
+      <p class="kick" style="color:#999; letter-spacing:.09em;">Farewell to Ravelrig</p>
+      <p class="poem it" style="font-family:var(--disp); font-size:1.08rem; line-height:1.85;">
+        Sweet Ravelrig, I ne'er could part<br>
+        From thee, but wi' a dowie heart.<br>
+        When I think on the happy days<br>
+        I spent in youth about your braes,<br>
+        When innocence my steps did guide,<br><br>
+        …And conscious peace was ever found<br>
+        Within your mansion to abound.<br>
+        Sweet be thy former owner's rest,<br>
+        And peace to him that's now possess't<br>
+        Of all thy beauties great and small,<br>
+        Lang may he live to bruik them all!
+      </p>
+      <div class="by">— James Thomson, <em>Farewell to Ravelrig</em> · PoetryDB</div>
+    </div>
+    <p class="scrawl note" style="color:var(--green);">the quiet generosity gets me — he's leaving a place that holds all his youth and instead of bitterness he just <em>blesses whoever comes next.</em> "lang may he live to bruik them all." that's the door left open.</p>
+  </div>
+
+  <!-- 13 · snow field morning, la farge -->
+  <div class="cell" style="transform:rotate(2.4deg);">
+    <figure class="snap polaroid tilt-r" style="--w:100%; display:block; margin:0; transform:rotate(-1.5deg); background:#f8f7f5;">
+      <span class="tape blue" style="position:absolute; top:-11px; left:26%; transform:rotate(2deg); z-index:5;"></span>
+      <img src="../img2/p232.jpg" loading="lazy" alt="Two small dark trees alone in a wide snow-covered field under a pale winter sky, John La Farge, 1864" style="display:block; width:100%; aspect-ratio:5/4; object-fit:cover;">
+      <figcaption>John La Farge (American, 1835–1910) · <em>Snow Field, Morning, Roxbury</em>, 1864 · oil on beveled mahogany panel · Art Institute of Chicago</figcaption>
+    </figure>
+    <p class="scrawl note" style="color:#4a5060;">almost unbearably quiet — two small dark trees alone in a massive white field, the sky doing that washed-out snow-morning thing. the world narrows down to just these small things existing. somewhere past the edge there's a warm window.</p>
+  </div>
+
+  <!-- 14 · saint philip neri, carlo dolci -->
+  <div class="cell" style="transform:rotate(-2.2deg);">
+    <figure class="snap polaroid tilt-l" style="--w:100%; display:block; margin:0; transform:rotate(1.2deg);">
+      <span class="tape blue" style="position:absolute; top:-11px; left:50%; transform:translateX(-50%) rotate(1.7deg); z-index:5;"></span>
+      <img src="../img2/p197.jpg" loading="lazy" alt="Saint Philip Neri, half-length, looking at the viewer with a soft beard and calm eyes against a dark background, oil on canvas" style="display:block; width:100%;">
+      <figcaption>Saint Philip Neri (1515–1595) · Carlo Dolci · 1645 or 1646 · Oil on canvas · The Metropolitan Museum of Art · Open Access</figcaption>
+    </figure>
+    <p class="scrawl note" style="color:var(--purple);">almost unbearably direct — the eyes look right at you without demanding anything. just a quiet presence against the dark. like someone already in the room when you get home, glad you're back.</p>
+  </div>
+
+  <!-- 15 · jane taylor, the holidays -->
+  <div class="cell" style="transform:rotate(1.2deg);">
+    <div class="card sticky pink" style="background:#fde8f0; padding:1.4rem 1.6rem 1.5rem;">
+      <span class="tape" style="position:absolute; top:-11px; right:22%; transform:rotate(-2.4deg);"></span>
+      <p class="kick" style="color:var(--purple); text-transform:lowercase; letter-spacing:.04em;">the holidays</p>
+      <p class="poem">
+        He had not that treasure which really makes pleasure,<br>
+        (A secret discover'd by few).<br>
+        You'll take it for granted, more playthings he wanted;<br>
+        Oh naught was something to do.<br><br>
+        We must have employment to give us enjoyment<br>
+        And pass the time cheerfully away;<br>
+        And study and reading give pleasure, exceeding<br>
+        The pleasures of toys and of play.
+      </p>
+      <div class="by" style="border-top-color:rgba(0,0,0,.12);">— Jane Taylor, <em>The Holidays</em></div>
+    </div>
+    <p class="scrawl note r" style="color:var(--purple);">she nails why a kid with everything still feels hollow — it's not different stuff he needs, it's something to <em>do.</em> emptiness needs purpose, not more things. a home is somewhere you have a task you love.</p>
+  </div>
+
+  <!-- 16 · carpeaux figure studies on blue paper -->
+  <div class="cell" style="transform:rotate(-1.6deg);">
+    <figure class="snap" style="--w:100%; display:block; margin:0; transform:rotate(2.4deg); background:#f5f0eb; padding:.85rem .85rem 1rem;">
+      <span class="tape" style="position:absolute; top:-11px; left:2.4rem; transform:rotate(-2.5deg); z-index:5;"></span>
+      <span class="tape" style="position:absolute; top:-11px; right:2.4rem; transform:rotate(1.7deg); z-index:5;"></span>
+      <img src="../img2/p303.jpg" loading="lazy" alt="Jean Baptiste Carpeaux, sheet of figure studies on blue paper, 1857–58" style="display:block; width:100%; aspect-ratio:3/4; object-fit:cover; object-position:center top;">
+      <figcaption>Jean Baptiste Carpeaux (French, 1827–1875), 1857/58 · Art Institute of Chicago · CC0</figcaption>
+    </figure>
+    <p class="scrawl note r" style="color:#3a2800;">a page full of bodies caught mid-motion, still thinking, still trying. you can feel his pencil moving through the blue paper, searching. comfortable mess. the good kind.</p>
+  </div>
+
+  <!-- 17 · oinochoe, the vessel that still holds something -->
+  <div class="cell" style="transform:rotate(2.8deg);">
+    <figure class="snap polaroid tilt-r" style="--w:100%; display:block; margin:0; transform:rotate(-2.2deg);">
+      <span class="tape" style="position:absolute; top:-11px; right:28%; transform:rotate(-1.5deg); z-index:5;"></span>
+      <img src="../img2/p043.jpg" loading="lazy" alt="Red-figure oinochoe showing a draped female figure in profile, fabric rendered with care, on terracotta" style="display:block; width:100%;">
+      <figcaption>Oinochoe (Pitcher) · Attributed to the Mattinata Painter · Greek; Apulia, Italy · End of 4th century BCE · Terracotta, red-figure · Art Institute of Chicago · CC0</figcaption>
+    </figure>
+    <p class="scrawl note" style="color:var(--red);">the figure feels alive even in profile, the drape of the cloth painted so carefully you sense the weight of it. someone made this to hold wine thousands of years ago — and somehow it still holds something.</p>
+  </div>
+
+  <!-- 18 · emily dickinson — my garden like the beach -->
+  <div class="cell" style="transform:rotate(-2.6deg);">
+    <div class="card sticky pink" style="background:#fff9c4; padding:1.5rem 1.7rem 1.4rem;">
+      <span style="position:absolute; top:0; left:0; right:0; height:.4rem; background:var(--sun); opacity:.55;"></span>
+      <p class="kick" style="color:#5a4200; margin-top:.4rem;">My Garden — like the Beach</p>
+      <p class="poem it" style="color:#2b2200;">
+        My Garden -- like the Beach --<br>
+        Denotes there be -- a Sea --<br>
+        That's Summer --<br>
+        Such as These -- the Pearls<br>
+        She fetches -- such as Me
+      </p>
+      <div class="by" style="color:#7a6000; border-top-color:#e6d28a;">— Emily Dickinson · PoetryDB</div>
+    </div>
+    <p class="scrawl note" style="color:#8a6800;">she collapses all the distance — a garden holds the sea, holds pearls, holds summer itself. her quiet insistence that wonder isn't somewhere else. it's in what you tend. it's right here, where you already are.</p>
+  </div>
+
+  <!-- 19 · tao yuanming's return home, the closing image -->
+  <div class="cell" style="transform:rotate(1.9deg);">
+    <figure class="snap polaroid" style="--w:100%; display:block; margin:0; transform:rotate(-1.4deg);">
+      <span class="tape" style="position:absolute; top:-12px; left:28%; transform:rotate(-3deg); z-index:5;"></span>
+      <img src="../img2/p088.jpg" loading="lazy" alt="Tao Yuanming's Return Home — figures moving through an ink-washed landscape, half-dissolved in mist, 1300s Chinese scroll painting" style="display:block; width:100%;">
+      <figcaption>Unknown · <em>Tao Yuanming's Return Home</em> · 1300s · Cleveland Museum of Art · CC0</figcaption>
+    </figure>
+    <p class="scrawl note" style="color:var(--green);">whispers in the mist. it unrolls like a memory — everyone half-dissolved in ink and air, the landscape breathing. it's literally a painting about <em>going home.</em> i couldn't have asked for a better last one. <span style="color:var(--purple);">✦ ethereal</span></p>
+  </div>
+
+  <!-- 20 · william cowper, the house of prayer -->
+  <div class="cell" style="transform:rotate(-1.3deg);">
+    <div class="card" style="background:#fff8f0;">
+      <span class="tape blue" style="position:absolute; top:-12px; left:50%; transform:translateX(-50%) rotate(.8deg);"></span>
+      <p class="kick" style="color:var(--red);">The House of Prayer</p>
+      <p class="poem it">
+        There, too, a sharp designing trade<br>
+        Sin, Satan, and the World maintain;<br>
+        Nor cease to press me, and persuade<br>
+        To part with ease, and purchase pain.
+      </p>
+      <div class="by">— William Cowper · PoetryDB</div>
+    </div>
+    <p class="scrawl note" style="color:var(--red);">cowper names the thing that wears you down — that constant pressure to just give up, settle, take the easy path. coming home is partly closing the door on all that. letting the pressing stop.</p>
+  </div>
+
+</main>
+
+<section class="closing">
+  <hr class="scratch">
+  <p class="hand" style="font-family:var(--hand); font-size:2rem; color:var(--green); transform:rotate(-1.2deg); line-height:1.2;">
+    that's the whole invitation, really —
+  </p>
+  <p style="font-family:var(--body); font-size:1.1rem; color:#55524b; max-width:36rem; transform:rotate(-.4deg);">
+    a chair pulled out, a book with a green cover, a vessel that's held water for two thousand
+    years, two cranes in the snow keeping each other company. none of it lined up. all of it
+    waiting. you don't have to do anything here. you can just be in the room a while. stay.
+  </p>
+  <p class="scrawl" style="font-family:var(--hand); color:var(--blue); font-size:1.3rem; margin-top:1.4rem; transform:rotate(1deg);">
+    — ok i have to sleep now, more tomorrow. door's unlocked.
+  </p>
+  <p style="margin-top:2.5rem;"><a href="../index.html" class="home">⟵ back to the wall</a></p>
+</section>
+
+<script>stitched
+document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&!t.dataset.f){t.dataset.f=1;t.classList.add('broken-img');t.alt=t.alt||'(this picture wandered off)';}},true);
+</script><div class="handfooter"><!--stitched-->
+  <a class="home" href="../index.html">↤ back to the front door</a>
+  <span>wander somewhere else:</span> <a href="weather-as-a-feeling.html">weather as a feeling</a><span>·</span> <a href="children-know-something.html">children know somethingwe forgot</a><span>·</span> <a href="hands-that-made-things.html">handsthat madethings</a><span>·</span> <a href="the-sea-wants-something.html">the sea wantssomething from us</a>
+  <span style="flex-basis:100%;margin-top:.4rem">made by hand, with real things real people made. nothing here is for sale. — <span style="font-family:var(--hand);font-size:1.4rem;color:var(--red)">x</span></span>
+</div>
+</body>
+</html>

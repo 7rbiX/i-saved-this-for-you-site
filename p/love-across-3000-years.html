@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>love letters across 3,000 years</title>
+<link rel="stylesheet" href="../wall.css">
+<style>
+  /* ——— MIDNIGHT. only this page. warm-dark, not goth. ——— */
+  html{ background:#0c0805; }
+  body{
+    background:#0c0805;
+    color:#e7d6b6;
+    background-image:
+      radial-gradient(130% 90% at 50% -8%, #1c130a 0%, rgba(0,0,0,0) 55%),
+      radial-gradient(80% 60% at 12% 18%, rgba(210,140,40,.10), rgba(0,0,0,0) 55%),
+      radial-gradient(80% 70% at 92% 80%, rgba(150,90,200,.08), rgba(0,0,0,0) 55%);
+  }
+  ::selection{ background:rgba(240,180,50,.35); color:#fff5e0; }
+  a{ color:#e0a850; }
+  a:hover{ color:#ffd27a; }
+
+  .lamp{ max-width:64rem; margin:0 auto; padding:3rem 1.3rem 6rem; }
+
+  /* masthead ------------------------------------------------ */
+  .moon{
+    position:relative; padding:3.5rem 0 1.5rem; text-align:center;
+  }
+  .moon h1{
+    font-family:var(--disp); font-weight:300;
+    font-size:clamp(2.7rem,9vw,6.4rem); line-height:.94;
+    color:#f4dca0; letter-spacing:-.02em; margin:0;
+    text-shadow:0 0 60px rgba(240,180,60,.18);
+  }
+  .moon h1 em{ font-style:italic; color:#e8b860; }
+  .moon .sub{
+    font-family:var(--hand); font-size:clamp(1.4rem,3.4vw,2.1rem);
+    color:#c89048; margin:.7rem 0 0; line-height:1.2; opacity:.92;
+    transform:rotate(-1deg);
+  }
+  .moon .tick{
+    font-family:var(--mono); font-size:.66rem; letter-spacing:.22em;
+    text-transform:uppercase; color:#7a5c34; margin-top:1.6rem;
+  }
+
+  /* faint moon disc behind the title */
+  .disc{
+    position:absolute; top:-1.5rem; left:50%; width:300px; height:300px;
+    margin-left:-150px; border-radius:50%; pointer-events:none; z-index:-1;
+    background:radial-gradient(circle at 42% 38%, rgba(255,228,160,.16), rgba(255,200,100,.05) 45%, rgba(0,0,0,0) 70%);
+  }
+
+  /* the warm intro letter ---------------------------------- */
+  .open{
+    max-width:40rem; margin:2.5rem auto 1rem; font-family:var(--body);
+    font-size:1.18rem; line-height:1.75; color:#d8c4a0;
+  }
+  .open p{ margin:0 0 1.1rem; }
+  .open .ember{ color:#f0b860; }
+  .open .crossout{ color:#8a7456; text-decoration-color:#a05030; }
+
+  /* a column river the cards flow down ---------------------- */
+  .river{ max-width:46rem; margin:0 auto; }
+  .river > *{ margin-bottom:2.4rem; }
+
+  /* whispered margin notes drifting at the edges ----------- */
+  .whisper{
+    font-family:var(--hand); color:#b08440; opacity:.8;
+    font-size:1.35rem; line-height:1.25; max-width:18rem;
+  }
+  .whisper.r{ color:#a87ac0; }
+
+  /* a hand-drawn arrow between two things ------------------ */
+  .arrow{ color:#9a6a30; display:block; margin:-.6rem auto 1rem; opacity:.7; }
+
+  /* the across-time stripe -------------------------------- */
+  .timeline{
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.06em;
+    color:#8a6838; text-align:center; margin:3.5rem auto 2.5rem;
+    max-width:50rem; line-height:2;
+    border-top:1px solid rgba(180,120,40,.2);
+    border-bottom:1px solid rgba(180,120,40,.2); padding:1.1rem 0;
+  }
+  .timeline b{ color:#f0c060; font-weight:400; }
+
+  /* gallery: two glowing photographs ----------------------- */
+  .glowframe{ display:block; max-width:100%; }
+  .glowframe img{
+    border-radius:3px;
+    box-shadow:0 0 38px rgba(255,200,90,.16), 0 10px 40px rgba(0,0,0,.7);
+    filter:brightness(.94) saturate(1.06);
+  }
+  .glowframe figcaption{
+    font-family:var(--mono); font-size:.68rem; color:#7c6244;
+    line-height:1.45; margin-top:.6rem;
+  }
+
+  /* a torn full-bleed band of mood photos ------------------ */
+  .nightstrip{
+    display:flex; gap:.5rem; margin:3rem -1.3rem; padding:0 .4rem;
+    overflow:hidden; opacity:.78;
+  }
+  .nightstrip img{
+    flex:1 1 0; height:150px; object-fit:cover; border-radius:2px;
+    filter:brightness(.7) saturate(.9) sepia(.15);
+  }
+
+  /* footer scrap, the 2am note ----------------------------- */
+  .latenote{
+    max-width:32rem; margin:4rem auto 0; font-family:var(--hand);
+    font-size:1.5rem; line-height:1.3; color:#c08838; text-align:center;
+    transform:rotate(-.8deg); opacity:.9;
+  }
+  .home-link{
+    display:block; text-align:center; margin-top:3rem;
+    font-family:var(--hand); font-size:1.7rem; color:#e0a850;
+    text-decoration:none;
+  }
+  .home-link:hover{ color:#ffd27a; }
+
+  /* let the module wrappers breathe a touch wider ---------- */
+  .river .mod-midnight, .river .mod3-page, .river .mod2-wrap,
+  .river [class*="mod5"], .river section, .river article, .river div{ }
+
+  /* ——— the hero gallery: two glowing love-objects, right up top ——— */
+  .heroband{
+    display:grid; grid-template-columns:1.05fr .95fr; gap:1.4rem;
+    align-items:end; margin:1.5rem auto 0; max-width:54rem;
+  }
+  .heroband figure{ margin:0; position:relative; }
+  .heroband img{
+    width:100%; display:block; border-radius:3px;
+    box-shadow:0 0 44px rgba(255,200,90,.18), 0 14px 44px rgba(0,0,0,.7);
+    filter:brightness(.96) saturate(1.06);
+  }
+  .heroband .a{ transform:rotate(-2.2deg); }
+  .heroband .b{ transform:rotate(1.8deg); margin-bottom:1.4rem; }
+  .heroband figcaption{
+    font-family:var(--mono); font-size:.6rem; color:#7c6244; line-height:1.45;
+    margin-top:.55rem; letter-spacing:.02em;
+  }
+  .heroband .handlabel{
+    position:absolute; font-family:var(--hand); font-size:1.35rem;
+    color:#e8b860; line-height:1.1; text-shadow:0 2px 8px rgba(0,0,0,.8);
+  }
+  .heroband .hl-a{ top:-1.6rem; left:.5rem; transform:rotate(-3deg); }
+  .heroband .hl-b{ bottom:3.4rem; right:.4rem; transform:rotate(3deg); color:#c49ad8; max-width:9rem; text-align:right; }
+  /* a thin glowing strip of mood photos right under the hero, to say "a pile of enclosures" */
+  .herostrip{
+    display:flex; gap:.45rem; margin:1.6rem -1.3rem 0; padding:0 .4rem;
+    overflow:hidden; opacity:.8;
+  }
+  .herostrip img{
+    flex:1 1 0; height:108px; object-fit:cover; border-radius:2px;
+    filter:brightness(.74) saturate(.92) sepia(.12);
+    box-shadow:0 0 22px rgba(255,190,80,.1);
+  }
+
+  @media(max-width:680px){
+    .whisper{ max-width:none; margin:0 auto; text-align:center; }
+    .nightstrip img{ height:96px; }
+    .heroband{ grid-template-columns:1fr; gap:2.4rem; }
+    .heroband .b{ margin-bottom:0; }
+    .heroband .hl-b{ bottom:auto; top:-1.4rem; right:.5rem; }
+    .herostrip img{ height:80px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="lamp">
+
+  <header class="moon">
+    <span class="disc"></span>
+    <h1>love letters<br>across <em>3,000</em> years</h1>
+    <p class="sub">longing is the oldest technology<br>and it never got an update</p>
+    <p class="tick">i saved this for you &nbsp;·&nbsp; read this one in the dark</p>
+  </header>
+
+  <!-- HERO GALLERY: two glowing love-objects before a single word of mine -->
+  <div class="heroband">
+    <figure>
+      <span class="handlabel hl-a">somebody embroidered<br>this for somebody →</span>
+      <img class="a" src="../img2/p319.jpg" loading="lazy"
+           alt="Ornate folding fan, copper alloy with satin weave silk and embroidery, mid-1800s, Cleveland Museum of Art">
+      <figcaption>Unknown artist, mid-1800s · Copper alloy; satin weave silk; silk and metal thread embroidery; paper · Cleveland Museum of Art</figcaption>
+    </figure>
+    <figure>
+      <span class="handlabel hl-b">love, drawn as two skeletons mid-argument. accurate.</span>
+      <img class="b" src="../img2/p128.jpg" loading="lazy"
+           alt="Type-metal engraving of a skeleton watercarrier arguing with a woman, two skeleton angels above; José Guadalupe Posada, ca. 1890–96">
+      <figcaption>José Guadalupe Posada · <em>In proof of true love, a watercarrier skeleton arguing with a woman</em>; two skeleton angels above (Manilla) · ca. 1890–96 · type-metal engraving and letterpress · The Metropolitan Museum of Art · Open Access</figcaption>
+    </figure>
+  </div>
+  <div class="herostrip" aria-hidden="true">
+    <img src="../img2/p204.jpg" loading="lazy" alt="">
+    <img src="../img2/p277.jpg" loading="lazy" alt="">
+    <img src="../img2/p041.jpg" loading="lazy" alt="">
+    <img src="../img2/p333.jpg" loading="lazy" alt="">
+    <img src="../img2/p118.jpg" loading="lazy" alt="">
+  </div>
+
+  <div class="open">
+    <p>ok come sit. turn the big light off, the small one's fine. i went looking for the oldest love poem i could find and i ended up <span class="crossout">researching</span> just sitting here at 2am with a stranger from 1200 BC who said the sound of someone's voice was <span class="ember">pomegranate wine</span> to him. and i thought — nothing has changed. nothing. we are still doing this exact thing.</p>
+    <p>so here's a little stack of people, three thousand years deep, all saying the same thing in different costumes. sappho. an anonymous egyptian. milton, who was sad. a town poet from dundee who really meant it. read them slow. they're not going anywhere — they already waited this long.</p>
+  </div>
+
+  <p class="whisper" style="margin:0 auto 2rem; text-align:center;">(the oldest one is at the bottom. i couldn't put it first, it felt like spoiling the ending.)</p>
+
+  <div class="river">
+
+    <!-- the egyptian + sappho, the ancients up top as a teaser -->
+<style>
+  .mod2-wrap {
+    background: #1a0f0a;
+    padding: 3rem 2rem 3.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3.4rem;
+    border-radius: 6px;
+    box-shadow: 0 0 60px rgba(180,100,20,.1), inset 0 0 90px rgba(0,0,0,.45);
+  }
+  .mod2-wrap .scrawl { font-family: var(--hand); color:#c9a07a; font-size:1.2rem; line-height:1.45; opacity:.9; margin:.75rem 0 0; }
+  .mod2-wrap .scrawl.r { text-align:right; }
+  .mod2-wrap blockquote { margin:0; padding:0; border:none; }
+  .mod2-wrap .big-quote { font-family:var(--disp); font-size:clamp(1.4rem,3.5vw,2.2rem); font-style:italic; color:#f0e0c8; line-height:1.5; font-weight:300; }
+  .mod2-wrap .by { font-family:var(--mono); font-size:.72rem; color:#8c6a4e; letter-spacing:.08em; text-transform:uppercase; margin-top:1rem; }
+  .mod2-wrap .source-link { font-family:var(--mono); font-size:.65rem; color:#6b4f38; text-decoration:none; letter-spacing:.05em; display:block; margin-top:.35rem; }
+  .mod2-wrap .source-link:hover { color:#c9a07a; }
+  .mod2-item { max-width:640px; margin:0 auto; width:100%; }
+  .mod2-item .marker { background:rgba(240,180,50,.2); padding:.1em .3em; border-radius:2px; }
+  .mod2-divider { width:2rem; height:1px; background:#3d2415; margin:0 auto; }
+</style>
+<div class="mod2-wrap">
+  <div class="mod2-item">
+    <p class="whisper" style="margin:0 0 1rem; font-size:1.1rem; opacity:.6;">↓ the second-oldest heartbreak on file</p>
+    <blockquote>
+      <p class="big-quote">"Like the very gods in my sight is he who sits where he can look in your eyes, who listens close to you, to hear the soft voice, its sweetness murmur in love and laughter, all for him. But it breaks my spirit; underneath my breast all the heart is shaken."</p>
+      <div class="by">— Sappho, translated by Mary Barnard
+        <a class="source-link" href="https://www.bopsecrets.org/gateway/passages/sappho.htm" target="_blank" rel="noopener">bopsecrets.org · Archive of Sappho translations</a>
+      </div>
+    </blockquote>
+    <p class="scrawl">sappho's fragment 31 — the oldest jealousy on record, and still no cure for it. she watches someone she loves sit and laugh with someone else and her whole body just... goes. 600 BC. nothing has changed.</p>
+  </div>
+
+  <div class="mod2-divider"></div>
+
+  <div class="mod2-item">
+    <blockquote>
+      <p class="big-quote">"To hear your voice is <span class="marker">pomegranate wine</span> to me: I draw life from hearing it."</p>
+      <div class="by">— Ancient Egyptian Love Poem (New Kingdom, c. 1200 BC)
+        <a class="source-link" href="https://www.nationalgeographic.com/culture/article/ancient-egyptian-love-poems" target="_blank" rel="noopener">National Geographic · Ancient Egyptian Poetry</a>
+      </div>
+    </blockquote>
+    <p class="scrawl r">three thousand years old and it still lands. that's not trying to be clever. that's just real desire saying itself. this is the one. this is the one that made me build the whole page.</p>
+  </div>
+
+  <div class="mod2-divider"></div>
+
+  <div class="mod2-item">
+    <div class="poem" style="font-family:var(--body);font-size:1.05rem;color:#e8d5bc;line-height:1.9;font-style:italic;">
+      Open my heart and you will see<br>
+      Graved inside of it, "Italy."<br>
+      Such lovers old are I and she:<br>
+      So it always was, so shall ever be!
+    </div>
+    <div class="by" style="font-family:var(--mono);font-size:.72rem;color:#8c6a4e;letter-spacing:.08em;text-transform:uppercase;margin-top:1rem;">— Robert Browning, <em>De Gustibus—</em> · PoetryDB</div>
+    <p class="scrawl">a place becoming the whole landscape of your soul. forever isn't flowers here — it's just italy carved into the chest. (browning loved her so much he loved her country.)</p>
+  </div>
+</div>
+
+    <p class="whisper r" style="margin-left:auto; transform:rotate(2deg);">i keep thinking about the gap between sappho and that egyptian poem. 600 years. and they're saying the same thing. →</p>
+
+    <!-- the across-time stripe -->
+    <div class="timeline">
+      <b>c.1200 BC</b> the egyptian, voice like wine &nbsp;·&nbsp; <b>c.600 BC</b> sappho, shaken &nbsp;·&nbsp; <b>1593</b> marlowe, come live with me &nbsp;·&nbsp; <b>1595</b> spenser, most happy letters &nbsp;·&nbsp; <b>1645</b> milton, the music that all creatures made &nbsp;·&nbsp; <b>1685</b> dryden, lov'd out in us both &nbsp;·&nbsp; <b>1855</b> browning, italy in the chest &nbsp;·&nbsp; <b>1889</b> levy, an omnibus suffices me
+    </div>
+
+    <!-- sappho fragment 16 + dryden + marlowe — the long lush block -->
+<style>
+  .mod3-page { background:#190e09; padding:3.2rem 2rem 3.4rem; font-family:var(--body); color:#e8ddd0; border-radius:6px; box-shadow:0 0 50px rgba(160,90,20,.09), inset 0 0 80px rgba(0,0,0,.5); }
+  .mod3-page .poem { font-family:var(--body); font-size:1.15rem; line-height:1.85; color:#f0e8dc; white-space:pre-wrap; margin:0 0 .5rem; }
+  .mod3-page .by { font-family:var(--mono); font-size:.72rem; letter-spacing:.06em; color:#a08878; margin-top:.9rem; text-transform:uppercase; }
+  .mod3-page .scrawl { font-family:var(--hand); font-size:1.25rem; color:#c4a882; line-height:1.45; margin:1.1rem 0 0; }
+  .mod3-page .scrap { background:#2a1a12; border-left:3px solid #7a4a32; border-radius:3px; padding:1.8rem 2rem 1.6rem; margin:0 auto; max-width:48rem; box-shadow:0 4px 32px rgba(0,0,0,.55), 0 1px 0 #3a2218; }
+  .mod3-page blockquote { border:none; margin:0; padding:0; font-family:var(--body); font-size:1.22rem; font-style:italic; color:#f0e8dc; line-height:1.75; }
+  .mod3-page blockquote cite { display:block; font-style:normal; font-family:var(--mono); font-size:.68rem; letter-spacing:.06em; color:#907060; text-transform:uppercase; margin-top:1rem; }
+  .mod3-page blockquote cite a { color:#b08060; text-decoration:none; border-bottom:1px solid #5a3a28; }
+  .mod3-page blockquote cite a:hover { color:#d4a880; }
+  .mod3-page .big-quote { font-family:var(--disp); font-size:clamp(1.6rem,4vw,2.6rem); font-weight:300; font-style:italic; color:#f5ede3; line-height:1.3; letter-spacing:-.01em; }
+  .mod3-page .section-divider { width:3rem; height:1px; background:#3a2a20; margin:3rem auto; }
+  .mod3-page .glow-card { background:linear-gradient(160deg,#211410 0%,#180e08 100%); border:1px solid #3a2218; border-radius:4px; padding:2.2rem 2.4rem 2rem; max-width:48rem; margin:0 auto; box-shadow:0 2px 24px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,200,150,.04); }
+  .mod3-page .label { font-family:var(--mono); font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; color:#6a4a38; margin-bottom:1.4rem; }
+</style>
+<section class="mod3-page" aria-label="three poems of yearning">
+  <div class="glow-card">
+    <p class="label">found · sappho, fragment 16</p>
+    <blockquote>
+      <p class="big-quote">Some say a cavalry corps,<br>
+      some infantry, some, again,<br>
+      will maintain that the swift oars<br>
+      of our fleet are the finest<br>
+      sight on dark earth; but I say<br>
+      that whatever one loves, is.</p>
+      <cite>— Mary Barnard, <em>Sappho: A New Translation</em>, 1958 ·
+        <a href="https://en.wikipedia.org/wiki/Sappho:_A_New_Translation" target="_blank" rel="noopener">Wikipedia</a>
+      </cite>
+    </blockquote>
+    <p class="scrawl">"that whatever one loves, is." seven syllables and it's a whole philosophy. she's saying forget the armies and the ships — the most beautiful thing on earth is whatever YOUR heart is pointed at. i had to put my phone down after this one.</p>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="scrap" style="max-width:48rem;margin:0 auto;">
+    <p class="label">poem · the brave & honest one</p>
+    <div class="poem">We lov'd, and we lov'd, as long as we could,
+Till our love was lov'd out in us both:
+But our marriage is dead, when the pleasure is fled:
+'Twas pleasure first made it an oath.</div>
+    <p class="by">— John Dryden · <em>Why Should A Foolish Marriage Vow</em> · PoetryDB</p>
+    <p class="scrawl">and then dryden, just being brutally honest — love burns out and that's not a tragedy, it's just weather. i don't fully agree with him?? but i respect that he said it out loud while everyone else was writing roses.</p>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="glow-card">
+    <p class="label">poem · pure yearning</p>
+    <div class="poem">Come live with me, and be my love,
+And we will all the pleasures prove,
+That hills and valleys, dales and fields,
+And all the craggy mountain yields.
+
+There we will sit upon the rocks,
+And see the shepherds feed their flocks
+By shallow rivers, to whose falls
+Melodious birds sing madrigals.</div>
+    <p class="by">— Christopher Marlowe · <em>The Passionate Shepherd to His Love</em> · PoetryDB</p>
+    <p class="scrawl">marlowe building an entire world out of wanting someone. come live with me, i'll give you mountains, i'll give you birds, i'll give you everything — it's desperate and it's gorgeous and we all do exactly this when we fall.</p>
+  </div>
+</section>
+
+    <p class="whisper" style="margin:2rem auto 1rem;text-align:center;max-width:34rem;">(remember that fan up top? the red and green's faded to almost nothing — like it got loved transparent. i bet it changed hands on a wedding day. objects can be love letters too.)</p>
+
+    <!-- milton + livingston + mcgonagall trio (mod-0 styled) -->
+<style>
+  .mid-trio .mod-midnight-wrap, .mid-trio .mod-midnight-hearth, .mid-trio .mod-midnight-gold{ margin-bottom:2.2rem; }
+  .mod-midnight-wrap { background:#1a1008; border-radius:6px; padding:2em 1.8em 1.6em; box-shadow:0 0 60px rgba(180,100,20,.12), inset 0 0 80px rgba(0,0,0,.4); }
+  .mod-midnight-wrap .poem { font-family:var(--body); font-size:clamp(1rem,2.2vw,1.2rem); line-height:1.8; color:#e8d8b8; margin:0 0 .3em; font-style:italic; }
+  .mod-midnight-wrap .by { font-family:var(--mono); font-size:.72rem; letter-spacing:.08em; color:#a07840; margin-top:.9em; text-transform:uppercase; }
+  .mod-midnight-wrap .scrawl { font-family:var(--hand); font-size:1.25rem; color:#c8924a; line-height:1.4; max-width:40ch; opacity:.9; }
+  .mod-midnight-wrap .poem-title { font-family:var(--disp); font-size:clamp(1.1rem,2.5vw,1.5rem); font-weight:400; color:#f0c870; letter-spacing:.03em; margin:0 0 .8em; line-height:1.2; }
+  .mod-midnight-wrap .marker { background:rgba(240,180,50,.18); padding:.05em .25em; border-radius:2px; }
+  .mod-midnight-hearth { background:#12100e; border-radius:6px; padding:2em 1.8em 1.6em; box-shadow:0 0 48px rgba(160,80,10,.1), inset 0 0 60px rgba(0,0,0,.5); position:relative; }
+  .mod-midnight-hearth .poem { font-family:var(--body); font-size:clamp(1rem,2.2vw,1.18rem); line-height:1.85; color:#ddd0b0; margin:0 0 .3em; font-style:italic; }
+  .mod-midnight-hearth .by { font-family:var(--mono); font-size:.7rem; letter-spacing:.08em; color:#906830; margin-top:.9em; text-transform:uppercase; }
+  .mod-midnight-hearth .poem-title { font-family:var(--disp); font-size:clamp(1rem,2.2vw,1.35rem); font-weight:400; color:#e8b850; letter-spacing:.02em; margin:0 0 .8em; }
+  .mod-midnight-hearth .sticky { font-family:var(--hand); font-size:1.2rem; line-height:1.4; background:rgba(255,200,80,.09); border-left:2px solid rgba(240,160,40,.35); padding:.7em 1em; color:#c89848; max-width:40ch; margin-top:1.3em; border-radius:0 3px 3px 0; transform:none; box-shadow:none; }
+  .mod-midnight-hearth .sticky::before{ display:none; }
+  .mod-midnight-gold { background:#110e0c; border-radius:6px; padding:2em 1.8em 1.8em; box-shadow:0 0 52px rgba(200,140,30,.09), inset 0 0 70px rgba(0,0,0,.45); }
+  .mod-midnight-gold .poem { font-family:var(--body); font-size:clamp(1rem,2.2vw,1.18rem); line-height:1.9; color:#d8c8a0; font-style:italic; margin:0; }
+  .mod-midnight-gold .by { font-family:var(--mono); font-size:.7rem; letter-spacing:.08em; color:#886828; margin-top:.9em; text-transform:uppercase; }
+  .mod-midnight-gold .poem-title { font-family:var(--disp); font-size:clamp(1rem,2.2vw,1.35rem); font-weight:400; color:#d8a830; letter-spacing:.02em; margin:0 0 .85em; }
+  .mod-midnight-gold .big-quote { font-family:var(--disp); font-size:clamp(1.8rem,5vw,3rem); color:rgba(240,180,40,.18); line-height:1; user-select:none; display:block; margin-bottom:-.4em; }
+  .mod-midnight-gold .scrawl { font-family:var(--hand); font-size:1.25rem; color:#b88438; line-height:1.45; max-width:40ch; margin-top:1.3em; opacity:.9; transform:rotate(.4deg); display:block; }
+  .mod-midnight-gold .marker { background:rgba(240,180,50,.15); padding:.04em .2em; border-radius:2px; }
+</style>
+<div class="mid-trio">
+  <div class="mod-midnight-wrap">
+    <div class="poem-title">At A Solemn Musick</div>
+    <div class="poem">
+      Dead things with inbreath'd sense able to pierce,<br>
+      And to our high-rais'd phantasie present,<br>
+      That undisturbed Song of pure content,<br>
+      <br>
+      As once we did, till disproportion'd sin<br>
+      <span class="marker">Jarr'd against natures chime, and with harsh din</span><br>
+      The fair musick that all creatures made
+    </div>
+    <div class="by">— John Milton &nbsp;·&nbsp; PoetryDB</div>
+    <p class="scrawl" style="margin:1.4em 0 0 .2em;transform:rotate(-.6deg);">milton holds up this memory of everything in creation singing in tune — and then one word, <em>Jarr'd</em>, breaks it. that's the sound of paradise going out of key. the whole poem is just him aching to hear the original music again. aren't we all.</p>
+  </div>
+
+  <div class="mod-midnight-hearth">
+    <div class="poem-title">1819 New Year's Carrier's Address</div>
+    <div class="poem">
+      Hail home! sacred home! to my soul ever dear;<br>
+      Abroad may be wonders but rapture is here.<br>
+      My future ambition will never soar higher<br>
+      Than the clean brushed hearth and convivial fire;
+    </div>
+    <div class="by">— Major Henry Livingston, Jr. &nbsp;·&nbsp; PoetryDB · public domain</div>
+    <div class="sticky">a love letter to a room. he's saying: keep your wonders, give me the warm fire and the people next to it. somebody who knows exactly where the magic lives and isn't embarrassed about it.</div>
+  </div>
+
+  <div class="mod-midnight-gold">
+    <div class="poem-title">The Late Sir John Ogilvy</div>
+    <span class="big-quote">"</span>
+    <div class="poem">
+      Because such men as Sir John Ogilvy are hard to be found,<br>
+      Especially in Christian charity his large heart did abound,<br>
+      Therefore a monument should be erected for him most handsome to behold,<br>
+      And <span class="marker">his good deeds engraven thereon in letters of gold.</span>
+    </div>
+    <div class="by">— William Topaz McGonagall &nbsp;·&nbsp; PoetryDB</div>
+    <span class="scrawl">ok and this one — mcgonagall is famously the "worst poet" but i won't hear it. this awkward, stubborn belief that goodness deserves to be carved in GOLD and remembered forever. love isn't always pretty meter. sometimes it's a working man clumsily insisting that kindness matters.</span>
+  </div>
+</div>
+
+    <p class="whisper" style="margin:1rem auto 2rem;text-align:center;">↓ and the last three. the ones about wanting so much it almost hurts.</p>
+
+    <!-- tennyson + spenser amoretti (mod-6) -->
+<div style="display:flex;flex-wrap:wrap;gap:1.6rem;justify-content:center;align-items:flex-start;">
+<article style="background:#1a1108;border-radius:4px;padding:2rem 2.2rem 1.8rem;max-width:38ch;position:relative;box-shadow:0 0 40px rgba(0,0,0,.7), inset 0 0 60px rgba(200,134,10,.04);transform:rotate(-1deg);">
+  <span style="display:block;font-family:var(--hand);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(200,134,10,.55);margin-bottom:.9em;">poem</span>
+  <h3 style="font-family:var(--disp);font-size:1.18rem;font-weight:600;font-style:italic;color:#f0e6d0;margin:0 0 1.2em;line-height:1.3;">O Beauty, Passing Beauty!</h3>
+  <div class="poem" style="font-family:var(--body);font-size:1.05rem;line-height:1.9;color:#d4c4a8;white-space:pre-wrap;font-style:italic;">The bare word &#8220;kiss&#8221; hath made my inner soul
+To tremble like a lute string, ere the note
+Hath melted in the silence that it broke.</div>
+  <div class="by" style="font-family:var(--mono);font-size:.66rem;color:rgba(200,134,10,.6);margin-top:1.2em;letter-spacing:.04em;border-top:1px solid rgba(200,134,10,.18);padding-top:.65em;">&#8212; Lord Alfred Tennyson, <em style="font-style:normal;opacity:.8;">PoetryDB</em></div>
+  <p class="scrawl" style="font-family:var(--hand);font-size:1.25rem;color:rgba(240,220,180,.78);margin:1.3em 0 0;line-height:1.45;transform:rotate(-.7deg);">just the WORD "kiss" makes him tremble like a plucked string. not the kiss — the word. the anticipation more powerful than the thing. tennyson knew.</p>
+</article>
+
+<article style="background:#110f1a;border-radius:4px;padding:2rem 2.2rem 1.8rem;max-width:42ch;position:relative;box-shadow:0 0 40px rgba(0,0,0,.8), inset 0 0 60px rgba(160,120,220,.04);transform:rotate(1deg);">
+  <span style="display:block;font-family:var(--hand);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(160,120,220,.5);margin-bottom:.9em;">poem · the one this page is named after</span>
+  <h3 style="font-family:var(--disp);font-size:1.18rem;font-weight:600;font-style:italic;color:#ede6f5;margin:0 0 1.2em;line-height:1.3;">Amoretti LXXIV: Most Happy Letters</h3>
+  <div class="poem" style="font-family:var(--body);font-size:1.03rem;line-height:1.9;color:#ccc4dc;white-space:pre-wrap;font-style:italic;">Most happy letters, fram&#8217;d by skilful trade,
+With which that happy name was first design&#8217;d:
+The which three times thrice happy hath me made,
+With gifts of body, fortune, and of mind.
+
+[&#8230;]
+
+To speak her praise and glory excellent,
+Of all alive most worthy to be praised.</div>
+  <div class="by" style="font-family:var(--mono);font-size:.66rem;color:rgba(160,120,220,.55);margin-top:1.2em;letter-spacing:.04em;border-top:1px solid rgba(160,120,220,.18);padding-top:.65em;">&#8212; Edmund Spenser, <em style="font-style:normal;opacity:.8;">PoetryDB</em></div>
+  <p class="scrawl" style="font-family:var(--hand);font-size:1.25rem;color:rgba(220,210,240,.7);margin:1.3em 0 0;line-height:1.45;transform:rotate(.5deg);">he keeps saying "happy." over and over, he can't stop — one time isn't enough to hold it. "most happy LETTERS" — he's literally thanking the alphabet for spelling her name. this is where the page got its title.</p>
+</article>
+</div>
+
+    <p class="whisper r" style="margin:2.2rem 0 0 auto;transform:rotate(-2deg);">3,000 years. one feeling. no patch notes. ←</p>
+
+  </div><!-- /river -->
+
+  <p class="latenote">ok it's late and i love all of these and i love that you read this far. someone in 1200 BC would be so glad you're still doing this. go text the person you're thinking about. — me, 2:41am</p>
+
+  <a class="home-link" href="../index.html">← back to the wall</a>
+
+</div><!-- /lamp -->
+
+<script>stitched
+document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&!t.dataset.f){t.dataset.f=1;t.classList.add('broken-img');t.alt=t.alt||'(this picture wandered off)';}},true);
+</script><div class="handfooter"><!--stitched-->
+  <a class="home" href="../index.html">↤ back to the front door</a>
+  <span>wander somewhere else:</span> <a href="for-when-you-cant-sleep.html">for when youcan't sleep</a><span>·</span> <a href="hands-that-made-things.html">handsthat madethings</a><span>·</span> <a href="sky-is-oldest-story.html">the sky is the oldest story — i saved this for y</a><span>·</span> <a href="ordinary-holiness.html">ordinaryholiness</a>
+  <span style="flex-basis:100%;margin-top:.4rem">made by hand, with real things real people made. nothing here is for sale. — <span style="font-family:var(--hand);font-size:1.4rem;color:var(--red)">x</span></span>
+</div>
+</body>
+</html>

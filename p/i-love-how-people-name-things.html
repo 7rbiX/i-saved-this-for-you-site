@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>i love how people name things — a riso zine</title>
+<link rel="stylesheet" href="../wall.css">
+<style>
+/* ZINE / RISO — two inks only: red + blue, on warm white.
+   thick rules. registration-off. photocopied but warm. shout. */
+:root{ --i1:#e2432a; --i2:#2f5fe0; --pap:#f7f4ee; }
+
+body.zine{
+  background:var(--pap);
+  /* faint halftone dot texture, like a cheap photocopy */
+  background-image:
+    radial-gradient(var(--i2) .6px, transparent .6px),
+    radial-gradient(var(--i1) .6px, transparent .6px);
+  background-size:7px 7px, 7px 7px;
+  background-position:0 0, 3px 4px;
+  /* keep it FAINT so text stays readable */
+}
+body.zine::before{
+  content:"";position:fixed;inset:0;background:var(--pap);opacity:.86;
+  z-index:-1;pointer-events:none;
+}
+
+.zwrap{max-width:64rem;margin:0 auto;padding:0 0 4rem}
+
+/* the big stamped masthead -------------------------------------------------*/
+.masthead{
+  background:var(--i1);color:var(--pap);
+  border-bottom:10px solid #1a1a1a;
+  padding:2.4rem 1.4rem 2.2rem;position:relative;overflow:hidden;
+}
+.masthead .offset{
+  /* the blue "off-register" ghost of the title */
+  position:absolute;top:2.4rem;left:1.4rem;right:0;
+  color:var(--i2);mix-blend-mode:multiply;opacity:.5;
+  transform:translate(6px,4px);pointer-events:none;z-index:0;
+}
+.masthead h1,.masthead .offset h1{
+  font-family:var(--disp);font-weight:900;
+  font-size:clamp(2.6rem,10vw,6.4rem);line-height:.86;
+  letter-spacing:-.03em;margin:0;text-transform:lowercase;
+}
+.masthead h1{position:relative;z-index:1}
+.masthead .kicker{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.28em;
+  text-transform:uppercase;margin:0 0 1rem;color:var(--pap);
+}
+.masthead .sub{
+  font-family:var(--hand);font-size:clamp(1.3rem,3.5vw,2rem);
+  color:var(--pap);margin:1.1rem 0 0;max-width:34rem;line-height:1.15;
+  position:relative;z-index:1;transform:rotate(-.6deg);
+}
+.issue{
+  position:absolute;bottom:-1px;right:1.2rem;z-index:2;
+  background:#1a1a1a;color:var(--pap);font-family:var(--mono);
+  font-size:.66rem;letter-spacing:.2em;padding:.4rem .8rem;
+  text-transform:uppercase;transform:rotate(2deg);
+}
+
+/* thick zine rule */
+.zrule{height:0;border:0;border-top:8px solid #1a1a1a;margin:0}
+.zrule.red{border-color:var(--i1)} .zrule.blu{border-color:var(--i2)}
+.zrule.dot{border-top:6px dotted #1a1a1a}
+
+/* a hand-stamped section tab */
+.tab{
+  display:inline-block;font-family:var(--mono);font-size:.66rem;
+  letter-spacing:.22em;text-transform:uppercase;
+  background:#1a1a1a;color:var(--pap);padding:.35rem .75rem;
+  transform:rotate(-1.5deg);margin:0 0 .2rem;
+}
+.tab.blu{background:var(--i2)} .tab.red{background:var(--i1)}
+
+/* zine columns — cram things, let them touch the rules */
+.cols{display:grid;grid-template-columns:1fr;gap:0}
+@media(min-width:52rem){ .cols.two{grid-template-columns:1.05fr .95fr} }
+.bay{padding:1.8rem 1.4rem;border-bottom:8px solid #1a1a1a}
+.bay.left{border-right:8px solid #1a1a1a}
+@media(max-width:52rem){ .bay.left{border-right:0} }
+
+/* a screaming pull headline, riso style */
+.scream{
+  font-family:var(--disp);font-weight:900;line-height:.9;
+  font-size:clamp(2.4rem,9vw,5rem);letter-spacing:-.03em;
+  text-transform:uppercase;margin:.1em 0 .3em;color:var(--i1);
+  text-shadow:3px 3px 0 var(--i2);
+}
+.scream.b{color:var(--i2);text-shadow:3px 3px 0 var(--i1)}
+
+/* an image, photocopied: high contrast, single-ink tint duotone-ish */
+.copy{
+  display:block;width:100%;
+  filter:grayscale(.35) contrast(1.18) brightness(1.03);
+  border:5px solid #1a1a1a;
+}
+.copy.red{box-shadow:8px 8px 0 var(--i1)}
+.copy.blu{box-shadow:8px 8px 0 var(--i2)}
+
+figure.zfig{margin:0}
+.zcap{
+  font-family:var(--mono);font-size:.66rem;line-height:1.5;
+  color:#1a1a1a;background:var(--pap);border:3px solid #1a1a1a;border-top:0;
+  padding:.55rem .7rem;
+}
+.zcap a{color:var(--i2)}
+
+/* a marker / highlight in flat ink */
+.ink{background:var(--i2);color:var(--pap);padding:0 .18em;font-style:normal}
+.ink.red{background:var(--i1)}
+.ed{font-family:var(--hand);font-size:1.35rem;line-height:1.2;color:var(--i2)}
+.ed.red{color:var(--i1)}
+
+/* a found-quote slab */
+.slab{padding:1.6rem 1.4rem;border-bottom:8px solid #1a1a1a;position:relative}
+.slab.fill-red{background:var(--i1);color:var(--pap)}
+.slab.fill-blu{background:var(--i2);color:var(--pap)}
+.slab.fill-red a,.slab.fill-blu a{color:#fff;text-decoration:underline}
+.slab .src{font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;
+  text-transform:uppercase;opacity:.85;margin-top:.9rem}
+.slab blockquote{font-family:var(--disp);font-style:normal;font-weight:600;
+  font-size:clamp(1.2rem,3vw,1.8rem);line-height:1.3;margin:0}
+
+/* a wonky stamped word block */
+.stamp{
+  display:inline-block;font-family:var(--disp);font-weight:900;
+  font-size:clamp(2rem,8vw,4.5rem);line-height:1;text-transform:uppercase;
+  border:6px solid #1a1a1a;padding:.1em .25em;letter-spacing:-.02em;
+}
+
+a.home-tab{
+  position:fixed;left:0;top:42%;z-index:30;
+  background:#1a1a1a;color:var(--pap);font-family:var(--mono);
+  font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+  padding:.6rem .5rem;writing-mode:vertical-rl;text-decoration:none;
+  border-right:4px solid var(--i1);
+}
+a.home-tab:hover{background:var(--i2);color:#fff}
+
+.handnote{font-family:var(--hand);font-size:1.5rem;line-height:1.15}
+.colophon{
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;
+  color:#1a1a1a;padding:1.6rem 1.4rem;line-height:1.7;
+  border-bottom:8px solid #1a1a1a;
+}
+.colophon b{font-family:var(--hand);font-weight:400;font-size:1.4rem;color:var(--i1)}
+</style>
+</head>
+
+<body class="zine">
+<a href="../index.html" class="home-tab">↤ back to the wall</a>
+
+<div class="zwrap">
+
+  <!-- MASTHEAD ----------------------------------------------------------- -->
+  <header class="masthead">
+    <div class="offset" aria-hidden="true"><h1>i love how<br>people name things</h1></div>
+    <p class="kicker">issue no. 1 · a riso zine · made at 2am · staple here →</p>
+    <h1>i love how<br>people name things</h1>
+    <p class="sub">winds, moons, a 13-ton bell, somebody's cabbage. naming is a kind of love and i can prove it.</p>
+    <span class="issue">two inks only · red + blue</span>
+  </header>
+
+  <hr class="zrule">
+
+  <!-- OPENING SCRAWL ----------------------------------------------------- -->
+  <div class="bay" style="background:var(--i2);color:var(--pap);border-bottom:8px solid #1a1a1a">
+    <span class="tab">manifesto</span>
+    <p class="handnote" style="color:#fff;max-width:46rem;margin:.6rem 0 0;font-size:1.7rem">
+      ok here's the whole thesis: every time a person points at a thing and gives it a name,
+      they're saying <span class="ink red">i noticed you. you mattered enough to keep.</span>
+      a wind. a moon. a stranger's bell. that's love with extra steps.
+    </p>
+    <p class="ed" style="color:var(--sun);margin:.9rem 0 0;transform:rotate(-1deg)">(i printed this twice on purpose, the registration's off, leave it)</p>
+  </div>
+
+  <hr class="zrule red">
+
+  <!-- WIND SPREAD -------------------------------------------------------- -->
+  <div class="cols two">
+    <div class="bay left">
+      <span class="tab red">found · wind</span>
+      <h2 class="scream">chi&shy;nook</h2>
+      <p style="font-family:var(--body);font-size:1.05rem;line-height:1.6;margin:.2rem 0 1rem">
+        a warm wind off the mountains of alberta and BC. it carries the name of the
+        <span class="ink">Chinook people</span> of the lower Columbia River — a word that traveled inland
+        with fur traders until it meant something wild and warming.
+      </p>
+      <blockquote style="font-family:var(--disp);font-style:italic;font-size:1.15rem;line-height:1.45;border-left:6px solid #1a1a1a;padding-left:1rem;margin:0 0 1rem">
+        “The term ‘Chinook’ originates from the Chinook people… French-speaking fur traders later
+        brought the term inland to Alberta, where it became applied to föhn winds.”
+      </blockquote>
+      <p class="ed red">the wind remembers where it came from.</p>
+      <p style="font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:#1a1a1a;margin-top:1rem">
+        Chinook people of the lower Columbia River ·
+        <a href="https://en.wikipedia.org/wiki/Chinook_wind">Wikipedia — Chinook Wind</a>
+      </p>
+    </div>
+
+    <div class="bay" style="background:var(--i1);color:var(--pap)">
+      <span class="tab">found · the same wind, told as a story</span>
+      <p class="handnote" style="color:#fff;margin:.4rem 0 1rem;font-size:1.55rem;max-width:30rem">
+        ok but it gets better. the same wind has a <span class="ink">love story</span> attached. i can't.
+      </p>
+      <blockquote style="font-family:var(--disp);font-weight:600;font-size:1.35rem;line-height:1.35;margin:0 0 1rem;color:#fff">
+        “Native legend of the Lil'wat subgroup of the St'at'imc tells of a girl named Chinook-Wind,
+        who married Chinook Glacier, and moved to his country.”
+      </blockquote>
+      <p style="font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:#fff;opacity:.9">
+        St'at'imc and Lil'wat First Nations (British Columbia) ·
+        <a href="https://en.wikipedia.org/wiki/Chinook_wind">Wikipedia</a>
+      </p>
+      <p class="ed" style="color:var(--sun);margin-top:1rem">a wind that married a glacier. somebody loved the weather THIS much.</p>
+    </div>
+  </div>
+
+  <!-- MOON SLAB ---------------------------------------------------------- -->
+  <div class="slab fill-blu">
+    <span class="tab red">found · the moon, named twelve times</span>
+    <div style="display:flex;flex-wrap:wrap;gap:1.2rem;align-items:baseline;margin-top:.7rem">
+      <span class="stamp" style="color:var(--pap);border-color:var(--pap)">WOLF<br>MOON</span>
+      <div style="flex:1 1 16rem;min-width:14rem">
+        <blockquote style="color:#fff">“January — Wolf Moon: also Old Moon, Snow Moon (in some tribes), Moon After Yule.”</blockquote>
+        <p class="handnote" style="color:#fff;margin:.8rem 0 0;font-size:1.35rem">
+          same cold moon, and every people who looked up named it for what was happening to them —
+          wolves in the dark, the long-gone year, the snow. <span class="ink red">that's a diary written on the sky.</span>
+        </p>
+        <p class="src">Farmers Almanac / Algonquian peoples of the Northeastern Woodlands ·
+          <a href="https://www.farmersalmanac.com/full-moon-dates-and-times">farmersalmanac.com</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BELL + THE WOMAN spread -------------------------------------------- -->
+  <div class="cols two">
+    <div class="bay left">
+      <span class="tab red">found · named for a man</span>
+      <h2 class="scream b" style="font-size:clamp(2.2rem,8vw,4rem)">big ben</h2>
+      <p style="font-family:var(--body);font-size:1.05rem;line-height:1.6;margin:.2rem 0 1rem">
+        the 13-ton bell wasn't named for its size. it was named for <span class="ink">a guy doing his job</span> —
+        the Welsh engineer Sir Benjamin Hall — and the name just… stuck. forever.
+      </p>
+      <blockquote style="font-family:var(--disp);font-style:italic;font-size:1.1rem;line-height:1.45;border-left:6px solid var(--i1);padding-left:1rem;margin:0 0 1rem">
+        “it is proposed to call our king of bells ‘Big Ben’ in honour of Sir Benjamin Hall…
+        during whose tenure of office it was cast.”
+      </blockquote>
+      <p class="ed">imagine being so good at your job they hand you a bell to be remembered by</p>
+      <p style="font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:#1a1a1a;margin-top:1rem">
+        The Times of London, Oct 22 1856 ·
+        <a href="https://www.history.com/articles/how-did-big-ben-get-its-name">History.com</a>
+      </p>
+    </div>
+
+    <div class="bay" style="background:#1a1a1a;color:var(--pap)">
+      <span class="tab blu">found · named with one word</span>
+      <p class="handnote" style="color:var(--sun);margin:.4rem 0 .8rem">A Scandal in Bohemia — the opening line</p>
+      <blockquote style="font-family:var(--disp);font-weight:900;font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.15;margin:0 0 1rem;color:var(--pap)">
+        To Sherlock Holmes she is always <em style="color:var(--i1);font-style:italic">the</em> woman.
+      </blockquote>
+      <p style="font-family:var(--body);font-size:1.02rem;line-height:1.6;color:#eee;margin:0 0 1rem">
+        not by her name. by her <span class="ink red">singular weight</span>. one sentence and you understand
+        everything that matters about her, before you know a single fact.
+      </p>
+      <p class="ed red" style="color:var(--i1)">naming someone “the” — the whole category, just her. devastating.</p>
+      <p style="font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:#bbb;margin-top:1rem">
+        Arthur Conan Doyle · The Adventures of Sherlock Holmes ·
+        <a href="https://www.gutenberg.org/cache/epub/1661/pg1661.txt" style="color:var(--sun)">gutenberg.org</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- MON CHOU big red ---------------------------------------------------- -->
+  <div class="slab fill-red">
+    <span class="tab blu">found · the most honest pet name in the world</span>
+    <div style="display:flex;flex-wrap:wrap;gap:1.4rem;align-items:center;margin-top:.8rem">
+      <h2 class="scream" style="color:var(--pap);text-shadow:4px 4px 0 #1a1a1a;margin:0;font-size:clamp(3rem,11vw,6rem)">mon&nbsp;chou</h2>
+      <div style="flex:1 1 18rem;min-width:15rem">
+        <p style="font-family:var(--mono);font-size:.8rem;color:#fff;letter-spacing:.04em;margin:0 0 .6rem">lit. “my cabbage” — a term of endearment</p>
+        <p class="handnote" style="color:#fff;font-size:1.5rem;margin:0">
+          not a rose. not a star. a <span class="ink">cabbage</span>. and somehow it's the most loving thing
+          in this whole zine — because it's so unglamorous it has to be real.
+        </p>
+        <p class="src" style="color:#fff;opacity:.9"><a href="https://www.fluentin3months.com/terms-of-endearment/" style="color:#fff">Fluentin3Months</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- KOAN — naming by un-naming ----------------------------------------- -->
+  <div class="bay" style="background:var(--i2);color:var(--pap);border-bottom:8px solid #1a1a1a">
+    <span class="tab red">found · the un-name · 13th c.</span>
+    <div style="display:flex;flex-wrap:wrap;gap:1.4rem;align-items:center;margin-top:.7rem">
+      <span class="stamp" style="color:var(--pap);border-color:var(--pap);font-size:clamp(2.5rem,9vw,5rem)">無<br>MU</span>
+      <div style="flex:1 1 18rem;min-width:15rem">
+        <blockquote style="font-family:var(--disp);font-weight:600;font-style:italic;font-size:1.4rem;line-height:1.35;margin:0 0 1rem;color:#fff">
+          “A monk asked Zhaozhou, ‘Has a dog Buddha-nature or not?’ Zhaozhou answered, ‘Wú.’”
+        </blockquote>
+        <p class="handnote" style="color:#fff;font-size:1.35rem;margin:0">
+          the opposite move. somebody asked for a yes-or-no name and got <span class="ink red">‘mu’</span> —
+          not no, not yes, the answer that refuses the question. naming and un-naming, same coin.
+        </p>
+        <p class="src" style="color:#fff;opacity:.9">Zhaozhou Congshen (778–897), compiled by Wumen Huikai · The Gateless Barrier ·
+          <a href="https://en.wikipedia.org/wiki/Mu-k%C5%8Dan" style="color:#fff">Wikipedia</a></p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="zrule">
+
+  <!-- THE OBJECTS PEOPLE NAMED — image strip ----------------------------- -->
+  <div class="bay" style="border-bottom:8px solid #1a1a1a">
+    <span class="tab red">the gallery</span>
+    <h2 class="scream" style="font-size:clamp(1.8rem,6vw,3.2rem);margin-bottom:.1em">things somebody decided<br>deserved to be eternal</h2>
+    <p class="ed" style="margin:0 0 1.5rem">(a museum is just a building full of stuff humans refused to let disappear. naming, again.)</p>
+
+    <div style="display:grid;grid-template-columns:1fr;gap:2.2rem">
+      <div style="display:grid;grid-template-columns:1fr;gap:2.2rem">
+
+        <div style="display:flex;flex-wrap:wrap;gap:1.6rem;align-items:flex-start">
+          <figure class="zfig" style="flex:0 0 auto;max-width:380px;transform:rotate(-1.5deg)">
+            <img class="copy red" src="../img2/p148.jpg" loading="lazy"
+              alt="Meissen porcelain King Vulture, a commanding bird with elaborate polychrome plumage, modeled by Kändler in 1734">
+            <figcaption class="zcap">King Vulture · Meissen Porcelain Manufactory, modeled by Johann Joachim Kändler, 1734 · hard-paste porcelain and polychrome enamels · Art Institute of Chicago · CC0</figcaption>
+          </figure>
+          <p class="handnote" style="flex:1 1 16rem;min-width:14rem;color:var(--i1);font-size:1.55rem;line-height:1.2;align-self:center">
+            somebody looked at a vulture — a <span class="ink red">vulture</span> — and decided it needed to be
+            made of porcelain and live forever. i call it the Porcelain Sentinel. they didn't name it that. but somebody loved it that much.
+          </p>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap-reverse;gap:1.6rem;align-items:flex-start">
+          <p class="handnote" style="flex:1 1 16rem;min-width:14rem;color:var(--i2);font-size:1.5rem;line-height:1.2;align-self:center">
+            and this is just an 18th-century pattern book showing off — swirling baroque borders
+            that look like they might dissolve into curling smoke. the whole flex is
+            <span class="ink">“trust me, i know patterns.”</span>
+          </p>
+          <figure class="zfig" style="flex:0 0 auto;max-width:340px;transform:rotate(1.5deg)">
+            <img class="copy blu" src="../img2/p172.jpg" loading="lazy"
+              alt="Baroque title page of Neues Bild-und Musterbuch by Johann Michael Kirschbaum, 1771, with elaborate swirling decorative borders">
+            <figcaption class="zcap">Johann Michael Kirschbaum (German, active c. 1771) · <em>Neues Bild-und Musterbuch</em>, 1771 · paper, printed · Art Institute of Chicago</figcaption>
+          </figure>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:1.6rem;align-items:flex-start">
+          <figure class="zfig" style="flex:0 0 auto;max-width:360px;transform:rotate(-1deg)">
+            <img class="copy red" src="../img2/p210.jpg" loading="lazy"
+              alt="Edgar Degas, The Star, 1879–81, pastel — a dancer with neck arched back and one arm reaching upward">
+            <figcaption class="zcap">Edgar Degas (French, 1834–1917) · <em>The Star</em> (1879/81) · pastel · Art Institute of Chicago</figcaption>
+          </figure>
+          <p class="handnote" style="flex:1 1 16rem;min-width:14rem;color:var(--i1);font-size:1.5rem;line-height:1.2;align-self:center">
+            Degas named this one <span class="ink red">The Star</span>. neck stretched back, one arm reaching up
+            like she's grabbing the air itself — and everyone else around her dissolves into haze.
+            we named the reaching, not the dancer. (i found this at 2am and just sat there.)
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- POEM: naming makes it smaller ------------------------------------- -->
+  <div class="slab" style="background:var(--sun)">
+    <span class="tab red">poem · the one that started all this</span>
+    <div style="max-width:42rem;margin-top:.8rem">
+      <p style="font-family:var(--disp);font-size:clamp(1.1rem,2.6vw,1.45rem);line-height:1.7;color:#1a1a1a;white-space:pre-wrap;margin:0">To tell the Beauty would decrease
+To state the Spell demean --
+There is a syllable-less Sea
+Of which it is the sign --
+My will endeavors for its word
+And fails, but entertains
+A Rapture as of Legacies --
+Of introspective Mines --</p>
+      <p style="font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--i1);margin:1rem 0 0">— Emily Dickinson · PoetryDB</p>
+      <p class="handnote" style="color:var(--i2);margin:1.1rem 0 0;font-size:1.5rem;line-height:1.2">
+        and here's the catch dickinson saw 150 years ago: <span class="ink">some things get smaller when you say them out loud.</span>
+        naming is love AND a small loss at the same time. she <span style="text-decoration:line-through;text-decoration-color:var(--i1)">tries anyway</span>
+        fails, but entertains. that line broke me open.
+      </p>
+    </div>
+  </div>
+
+  <!-- BRADSTREET — numberless -------------------------------------------- -->
+  <div class="bay" style="background:var(--i1);color:var(--pap);border-bottom:8px solid #1a1a1a;position:relative;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;top:.3rem;right:-.4rem;font-family:var(--disp);font-weight:900;font-size:clamp(4rem,16vw,9rem);line-height:.8;color:#1a1a1a;opacity:.12;text-transform:uppercase;pointer-events:none">NUMBER<br>LESS</div>
+    <span class="tab blu">poem · the word she couldn't count</span>
+    <div style="max-width:34rem;position:relative;z-index:1;margin-top:.8rem">
+      <p style="font-family:var(--disp);font-size:1.3rem;line-height:1.6;color:var(--pap);white-space:pre-wrap;margin:0">I owe so much, so little can
+Return unto Thy name,
+Confusion seizes on my soul,
+And I am filled with shame.
+
+Thine mercies, Lord, have been so great
+In number <span style="background:var(--pap);color:var(--i1);padding:0 .25em">numberless</span>,
+Impossible for to recount
+Or any way express.</p>
+      <p style="font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pap);opacity:.8;margin:1rem 0 0">— Anne Bradstreet · <em>In Thankful Remembrance for My Dear Husband's Safe Arrival</em> · PoetryDB</p>
+      <p class="ed" style="color:var(--sun);margin:1rem 0 0">her husband came home safe and she invented a word for it — numberless — because the real number was too big to name. that's the whole zine in one word, honestly.</p>
+    </div>
+  </div>
+
+  <!-- COLOPHON ----------------------------------------------------------- -->
+  <div class="colophon">
+    <b>that's the issue.</b><br>
+    everything here is real. every poem is whole, every museum label kept, every link goes
+    where it says. i just printed it in two colors, off-register, and wrote in the margins.<br><br>
+    if you point at a thing and give it a name you are saying: <span style="color:var(--i2)">you mattered. i kept you.</span><br>
+    that's it. that's the love. ok i have to sleep. more tomorrow maybe.<br><br>
+    — <a href="../index.html">back to the wall ↩</a>
+  </div>
+
+</div>
+<script>stitched
+document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&!t.dataset.f){t.dataset.f=1;t.classList.add('broken-img');t.alt=t.alt||'(this picture wandered off)';}},true);
+</script><div class="handfooter"><!--stitched-->
+  <a class="home" href="../index.html">↤ back to the front door</a>
+  <span>wander somewhere else:</span> <a href="for-when-you-cant-sleep.html">for when youcan't sleep</a><span>·</span> <a href="cried-on-the-bus.html">things that made mecry a little</a><span>·</span> <a href="everything-is-light.html">everything is about light, actually — a letter</a><span>·</span> <a href="people-were-funny.html">nobody wasever as seriousas we think</a>
+  <span style="flex-basis:100%;margin-top:.4rem">made by hand, with real things real people made. nothing here is for sale. — <span style="font-family:var(--hand);font-size:1.4rem;color:var(--red)">x</span></span>
+</div>
+</body>
+</html>

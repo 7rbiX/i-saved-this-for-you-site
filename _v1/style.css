@@ -1,0 +1,348 @@
+/* =========================================================================
+   THE COMMONPLACE BOOK  ·  a handmade stylesheet
+   Set, as it were, by candlelight. Nothing here is sans-serif; nothing
+   here is in a hurry. Tuned to feel like a well-thumbed book left open
+   on a kitchen table.
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=UnifrakturMaguntia&family=Pinyon+Script&family=Special+Elite&display=swap');
+
+:root {
+  --ink:        #2a2118;   /* iron-gall ink, faded */
+  --ink-soft:   #51463a;
+  --paper:      #f4ebd2;   /* aged cream */
+  --paper-deep: #ece0c0;
+  --oxblood:    #7c2f29;   /* the red of old rubrics */
+  --gold:       #9a7b2e;   /* tarnished gilt */
+  --indigo:     #34435c;   /* washing-blue */
+  --moss:       #5c6043;
+  --rule:       #c9b894;
+  --shadow:     rgba(60,44,20,0.22);
+  --serif:      "IM Fell English", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --sc:         "IM Fell English SC", "IM Fell English", Georgia, serif;
+  --hand:       "Pinyon Script", "Snell Roundhand", cursive;
+  --type:       "Special Elite", "Courier New", monospace;
+  --black-letter:"UnifrakturMaguntia", "IM Fell English", serif;
+}
+
+/* ---- the paper itself ------------------------------------------------- */
+html { background:#241c12; }
+body {
+  margin:0;
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:1.18rem;
+  line-height:1.62;
+  background-color:var(--paper);
+  /* a faint, hand-laid paper grain + a gentle aging at the edges */
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(255,251,235,0.5), rgba(255,251,235,0) 60%),
+    radial-gradient(ellipse at 50% 50%, rgba(244,235,210,0) 55%, rgba(120,95,55,0.16) 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+  background-attachment:fixed, fixed, scroll;
+}
+
+/* the whole book sits on a slightly raised leaf of paper */
+.leaf {
+  max-width:54rem;
+  margin:0 auto;
+  padding:3.2rem 3.2rem 2rem;
+  background:linear-gradient(180deg, rgba(255,253,244,0.55), rgba(255,253,244,0) 8rem);
+  position:relative;
+}
+
+/* ---- headings & rules ------------------------------------------------- */
+h1,h2,h3,h4 { font-weight:normal; line-height:1.2; color:var(--ink); }
+h2 {
+  font-family:var(--sc);
+  font-size:1.9rem;
+  letter-spacing:.01em;
+  margin:2.4rem 0 .4rem;
+  text-align:center;
+}
+h3 {
+  font-family:var(--sc);
+  font-size:1.4rem;
+  margin:2rem 0 .3rem;
+  color:var(--oxblood);
+}
+h2 + .sub, h1 + .sub { text-align:center; }
+.sub {
+  font-style:italic;
+  color:var(--ink-soft);
+  margin:.1rem 0 1.2rem;
+  font-size:1.05rem;
+}
+
+/* an ornamental rule, fleuron in the middle */
+.rule {
+  border:0;
+  text-align:center;
+  margin:1.6rem auto;
+  overflow:visible;
+}
+.rule::before {
+  content:"❦";
+  display:inline-block;
+  color:var(--oxblood);
+  font-size:1.3rem;
+  background:var(--paper);
+  padding:0 1rem;
+  position:relative;
+  top:-.1rem;
+}
+.rule.line { border-top:1px solid var(--rule); height:0; }
+.rule.line::before { top:-1rem; }
+.rule.double { border-top:3px double var(--rule); height:0; }
+.rule.double::before { top:-1.05rem; }
+.fleur { text-align:center; color:var(--gold); letter-spacing:.6em; margin:1.2rem 0; }
+.fleur::after { content:"✦ ❦ ✦"; }
+
+/* ---- the masthead ----------------------------------------------------- */
+.masthead { text-align:center; padding:1rem 0 .4rem; }
+.masthead .vol {
+  font-family:var(--sc);
+  font-size:.82rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  display:flex; justify-content:space-between; align-items:center;
+  border-top:1px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+  padding:.35rem .2rem;
+  margin-bottom:1rem;
+}
+.masthead .vol span { flex:1; }
+.masthead .vol .mid { flex:0 0 auto; padding:0 1rem; }
+.masthead .title {
+  font-family:var(--black-letter);
+  font-size:4.6rem;
+  line-height:.95;
+  margin:.2rem 0;
+  color:var(--ink);
+  text-shadow:0 1px 0 rgba(255,255,255,.4);
+}
+.masthead .title a { color:inherit; text-decoration:none; background:none; }
+.masthead .motto {
+  font-style:italic; color:var(--oxblood);
+  font-size:1.05rem; margin:.4rem auto .2rem; max-width:34rem;
+}
+.masthead .estd {
+  font-family:var(--sc); letter-spacing:.18em; font-size:.8rem;
+  text-transform:uppercase; color:var(--ink-soft);
+}
+
+/* ---- navigation: a row of pointing hands ------------------------------ */
+nav.toc {
+  text-align:center;
+  font-family:var(--sc);
+  font-size:.96rem;
+  letter-spacing:.04em;
+  margin:1rem 0 .4rem;
+  line-height:2.1;
+}
+nav.toc a {
+  white-space:nowrap;
+  margin:0 .15rem;
+  text-decoration:none;
+  border-bottom:1px dotted var(--gold);
+  color:var(--ink);
+  background:none;
+}
+nav.toc a:hover { color:var(--oxblood); border-bottom-color:var(--oxblood); }
+nav.toc .sep { color:var(--gold); margin:0 .25rem; }
+
+/* ---- body text -------------------------------------------------------- */
+.column { max-width:36rem; margin:0 auto; }
+.column.wide { max-width:42rem; }
+p { margin:0 0 1rem; text-align:justify; hyphens:auto; }
+p.first { text-indent:0; }
+.column p + p { text-indent:1.4rem; }
+.column p.first + p { text-indent:1.4rem; }
+
+a { color:var(--oxblood); text-decoration:none; background:linear-gradient(transparent 88%, rgba(124,47,41,.28) 0); }
+a:hover { background:linear-gradient(transparent 0, rgba(124,47,41,.16) 0); }
+
+/* drop capital, woodcut style */
+.dropcap::first-letter {
+  font-family:var(--black-letter);
+  float:left;
+  font-size:4.6rem;
+  line-height:.66;
+  padding:.36rem .12rem 0 0;
+  margin:.1rem .08rem 0 0;
+  color:var(--oxblood);
+}
+
+em, i { font-style:italic; }
+strong, b { font-weight:normal; letter-spacing:.02em; border-bottom:1px solid rgba(42,33,24,.25); }
+.smallcaps { font-family:var(--sc); }
+blockquote {
+  margin:1.4rem 1rem; padding-left:1rem;
+  border-left:3px double var(--rule);
+  font-style:italic; color:var(--ink-soft);
+}
+blockquote cite { display:block; font-style:normal; font-family:var(--sc); font-size:.85rem; margin-top:.3rem; text-align:right; }
+
+/* a pull-quote that floats grandly */
+.pull {
+  font-family:var(--serif); font-style:italic;
+  font-size:1.45rem; line-height:1.3; color:var(--oxblood);
+  text-align:center; margin:1.8rem auto; max-width:30rem;
+  position:relative;
+}
+.pull::before, .pull::after { content:"❜"; color:var(--gold); }
+
+/* ---- margin notes (handwritten in the gutter) ------------------------- */
+.margin-note {
+  font-family:var(--hand);
+  font-size:1.5rem;
+  line-height:1.15;
+  color:var(--indigo);
+  border-left:2px solid var(--rule);
+  padding-left:.7rem;
+  margin:1rem 0;
+}
+@media (min-width:60rem) {
+  .margin-note {
+    float:right; clear:right;
+    width:11rem; margin-right:-13.5rem; margin-top:.2rem;
+    border-left:none; padding-left:0;
+    text-align:left;
+    transform:rotate(-1.4deg);
+  }
+}
+.margin-note .by { font-family:var(--type); font-size:.62rem; color:var(--ink-soft); display:block; margin-top:.2rem; transform:none; }
+
+/* ---- plates (the real pictures) --------------------------------------- */
+figure.plate {
+  margin:1.8rem auto; max-width:30rem; text-align:center;
+}
+figure.plate.wide { max-width:40rem; }
+.plate .frame {
+  display:inline-block; padding:.55rem; background:#fbf6e6;
+  border:1px solid #b9a679;
+  box-shadow:0 2px 5px var(--shadow), inset 0 0 0 4px #fbf6e6, inset 0 0 0 5px #cdb98c;
+  max-width:100%;
+}
+.plate img { display:block; max-width:100%; height:auto; filter:sepia(.18) saturate(.92) contrast(.98); }
+/* graceful fallback when an image cannot be reached: an engraved blank plate */
+.plate img.broken {
+  width:18rem; height:13rem; filter:none;
+  background:
+    repeating-linear-gradient(45deg, #efe3c4 0 7px, #e7d8b3 7px 14px);
+  position:relative;
+}
+figure.plate figcaption {
+  font-family:var(--type); font-size:.74rem; line-height:1.45;
+  color:var(--ink-soft); margin-top:.6rem; max-width:26rem;
+  margin-left:auto; margin-right:auto;
+}
+figure.plate figcaption .ttl { font-style:italic; color:var(--ink); }
+figure.plate figcaption .src { display:block; font-size:.64rem; color:#8a7a5e; margin-top:.2rem; }
+
+/* ---- footnotes -------------------------------------------------------- */
+sup.fn { font-size:.7rem; color:var(--oxblood); }
+sup.fn a { background:none; }
+.footnotes { margin-top:2rem; padding-top:.6rem; border-top:1px solid var(--rule); font-size:.92rem; color:var(--ink-soft); }
+.footnotes ol { padding-left:1.4rem; }
+.footnotes li { margin-bottom:.4rem; }
+
+/* ---- byline / kept by ------------------------------------------------- */
+.byline {
+  font-family:var(--sc); text-align:center; letter-spacing:.06em;
+  color:var(--ink-soft); font-size:.95rem; margin:.2rem 0 1.4rem;
+}
+.byline .name { color:var(--oxblood); }
+.kicker {
+  font-family:var(--sc); letter-spacing:.2em; text-transform:uppercase;
+  font-size:.78rem; color:var(--gold); text-align:center; margin-bottom:.2rem;
+}
+
+/* ---- room index cards (a wall of shelves) ----------------------------- */
+.shelf { display:grid; grid-template-columns:repeat(auto-fill, minmax(15rem,1fr)); gap:1.4rem 1.6rem; margin:1.6rem 0; }
+.shelf .card {
+  border:1px solid var(--rule); background:rgba(255,253,244,.5);
+  padding:1rem 1.1rem 1.1rem; position:relative;
+  box-shadow:0 1px 0 rgba(255,255,255,.5) inset, 0 2px 4px var(--shadow);
+}
+.shelf .card h3 { margin:.1rem 0 .1rem; text-align:left; color:var(--ink); font-size:1.25rem; }
+.shelf .card .sub { font-size:.92rem; margin:.1rem 0 .5rem; text-align:left; }
+.shelf .card p { font-size:.96rem; text-align:left; margin:0; }
+.shelf .card a.cover { position:absolute; inset:0; background:none; }
+.shelf .card:hover { background:rgba(255,250,232,.9); border-color:var(--gold); }
+.shelf .card .no { font-family:var(--type); font-size:.7rem; color:var(--gold); }
+
+/* a list of articles within a room */
+ul.contents-list { list-style:none; padding:0; margin:1rem 0; }
+ul.contents-list li { padding:.45rem 0; border-bottom:1px dotted var(--rule); display:flex; justify-content:space-between; gap:1rem; align-items:baseline; }
+ul.contents-list li .t { font-size:1.12rem; }
+ul.contents-list li .d { font-size:.9rem; color:var(--ink-soft); font-style:italic; text-align:right; flex:0 0 auto; max-width:16rem; }
+ul.contents-list li .by { font-family:var(--type); font-size:.66rem; color:#8a7a5e; }
+
+/* ---- "see also" / wander ---------------------------------------------- */
+.seealso { background:rgba(154,123,46,.08); border:1px solid var(--rule); padding:1rem 1.2rem; margin:2rem 0; font-size:.98rem; }
+.seealso h4 { font-family:var(--sc); margin:0 0 .4rem; color:var(--oxblood); letter-spacing:.05em; }
+.seealso ul { margin:0; padding-left:1.2rem; }
+.seealso li { margin:.2rem 0; }
+
+.wander { text-align:center; font-style:italic; margin:2rem 0 1rem; color:var(--ink-soft); }
+.wander a { font-family:var(--sc); font-style:normal; }
+
+/* ---- the footer / colophon ------------------------------------------- */
+footer.colophon {
+  margin-top:3rem; padding:1.4rem 0 2.5rem; border-top:3px double var(--ink);
+  text-align:center; font-size:.88rem; color:var(--ink-soft);
+}
+footer.colophon .type { font-family:var(--type); font-size:.74rem; letter-spacing:.02em; }
+footer.colophon a { color:var(--ink-soft); }
+footer.colophon nav { margin:.6rem 0; font-family:var(--sc); }
+footer.colophon nav a { margin:0 .5rem; }
+
+/* ---- guestbook / forms (purely ornamental) ---------------------------- */
+.guest-entry { border-bottom:1px dotted var(--rule); padding:1rem 0; }
+.guest-entry .who { font-family:var(--hand); font-size:1.6rem; color:var(--indigo); }
+.guest-entry .when { font-family:var(--type); font-size:.66rem; color:#8a7a5e; }
+.guest-entry .said { font-style:italic; margin-top:.2rem; }
+form.guest { border:1px solid var(--rule); padding:1.2rem; background:rgba(255,253,244,.5); margin:1.5rem 0; }
+form.guest label { font-family:var(--sc); display:block; margin:.5rem 0 .15rem; }
+form.guest input, form.guest textarea {
+  width:100%; box-sizing:border-box; font-family:var(--serif); font-size:1rem;
+  background:#fffdf4; border:1px solid var(--rule); padding:.4rem .5rem; color:var(--ink);
+}
+form.guest button {
+  margin-top:.8rem; font-family:var(--sc); font-size:1rem; letter-spacing:.06em;
+  background:var(--oxblood); color:#f4ebd2; border:none; padding:.5rem 1.3rem; cursor:pointer;
+}
+.note-aside {
+  font-family:var(--type); font-size:.78rem; color:var(--ink-soft);
+  background:rgba(154,123,46,.07); border:1px dashed var(--rule);
+  padding:.6rem .9rem; margin:1.2rem 0;
+}
+
+/* ---- breadcrumb ------------------------------------------------------- */
+.crumb { font-family:var(--sc); font-size:.82rem; letter-spacing:.04em; color:var(--ink-soft); text-align:center; margin-bottom:.4rem; }
+.crumb a { background:none; border-bottom:1px dotted var(--gold); }
+
+/* ---- misc ------------------------------------------------------------- */
+.center { text-align:center; }
+.dim { color:var(--ink-soft); }
+.lead { font-size:1.28rem; line-height:1.5; font-style:italic; text-align:center; color:var(--ink-soft); margin:1rem auto 1.4rem; max-width:34rem; }
+.tear { height:1.4rem; }
+::selection { background:rgba(124,47,41,.18); }
+
+@media (max-width:40rem) {
+  .leaf { padding:1.4rem 1.2rem; }
+  .masthead .title { font-size:3rem; }
+  body { font-size:1.08rem; }
+  .dropcap::first-letter { font-size:3.6rem; }
+}
+
+/* ---- print: make it a real page -------------------------------------- */
+@media print {
+  html, body { background:#fff; color:#000; }
+  .leaf { max-width:none; padding:0; }
+  nav.toc, form.guest, .wander, .seealso a.cover { display:none; }
+  a { color:#000; background:none; }
+  .plate img { filter:none; }
+}

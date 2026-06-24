@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>weather as a feeling</title>
+<link rel="stylesheet" href="../wall.css">
+<style>
+  /* WIDE MARGINS, ANNOTATED.
+     a narrow tidy reading column down the middle, and BIG empty margins
+     on both sides that i've scribbled all over in Caveat. arrows. asides.
+     it's a marked-up library book. somebody (me) couldn't shut up. */
+  body{ background:#f6f3ec; }
+
+  .sheet{
+    /* the three-track grid: left margin | column | right margin */
+    display:grid;
+    grid-template-columns: minmax(0,1fr) min(40rem,86vw) minmax(0,1fr);
+    column-gap:0;
+    max-width:80rem;
+    margin:0 auto;
+    padding:0 1.2rem;
+  }
+  .col{ grid-column:2; position:relative; }
+  .marginL{ grid-column:1; position:relative; }
+  .marginR{ grid-column:3; position:relative; }
+
+  /* the running text. clean, calm, serif. */
+  .col p.read{
+    font-family:var(--body);
+    font-size:1.12rem;
+    line-height:1.78;
+    color:#2a2924;
+    margin:1.3rem 0;
+  }
+  .col h2{
+    font-family:var(--disp);
+    font-weight:300;
+    font-style:italic;
+    font-size:clamp(1.8rem,4vw,2.8rem);
+    line-height:1.05;
+    color:#1c1c18;
+    margin:2.4rem 0 1rem;
+  }
+
+  /* the margin scribbles */
+  .note{
+    font-family:var(--hand);
+    font-size:1.18rem;
+    line-height:1.32;
+    color:var(--blue);
+    position:absolute;
+    width:11rem;
+  }
+  .note.red{color:var(--red)} .note.green{color:var(--green)}
+  .note.purple{color:var(--purple)} .note.sun{color:#b5840d}
+  .note.r{ text-align:right; }
+  .note small{ font-size:.78em; opacity:.7; }
+
+  /* images sit in the column, tidy, with a museum label */
+  figure.plate{ margin:2.2rem 0; }
+  figure.plate img{
+    width:100%;
+    border:1px solid #e2ddd2;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+  }
+  figure.plate figcaption{
+    font-family:var(--mono);
+    font-size:.66rem;
+    letter-spacing:.02em;
+    line-height:1.6;
+    color:var(--ink2);
+    opacity:.78;
+    margin-top:.7rem;
+  }
+  figure.plate.bleed{
+    margin-left:calc(-1 * (50vw - 50%) * .35);
+    margin-right:calc(-1 * (50vw - 50%) * .35);
+  }
+
+  .poem-in{
+    font-family:var(--disp);
+    font-weight:300;
+    font-size:1.32rem;
+    line-height:1.7;
+    color:#222;
+    margin:1.6rem 0;
+  }
+  .poem-in .src{
+    font-family:var(--mono);
+    font-weight:400;
+    font-size:.66rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink2);
+    opacity:.65;
+    margin-top:1rem;
+    display:block;
+  }
+
+  /* title block */
+  .top{
+    text-align:center;
+    padding:14vh 1.2rem 4vh;
+    max-width:46rem;margin:0 auto;
+  }
+  .top .kicker{
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.3em;
+    text-transform:uppercase;color:var(--ink2);opacity:.6;
+  }
+  .top h1{
+    font-family:var(--disp);font-weight:300;
+    font-size:clamp(3rem,10vw,7rem);line-height:.98;letter-spacing:-.025em;
+    margin:1.4rem 0 0;color:#1a1a16;
+  }
+  .top h1 em{font-style:italic;font-weight:500;color:var(--blue);}
+  .top .sub{
+    font-family:var(--hand);font-size:1.5rem;color:var(--ink2);
+    margin-top:1.4rem;
+  }
+
+  hr.rule{
+    border:0;border-top:1px solid #ddd6c8;max-width:40rem;
+    margin:3rem auto;
+  }
+
+  /* a found-word card sits inline, small */
+  .wordcard{
+    border:1px solid #d9d2c4;background:#fbfaf5;
+    padding:1.4rem 1.6rem;margin:2rem 0;
+    box-shadow:2px 3px 10px rgba(0,0,0,.05);
+    transform:rotate(-.5deg);
+  }
+  .wordcard .w{
+    font-family:var(--disp);font-weight:600;font-style:italic;
+    font-size:2rem;color:var(--red);line-height:1;
+  }
+  .wordcard .d{font-family:var(--body);font-style:italic;font-size:1.02rem;margin:.5rem 0 .7rem;color:#333;}
+  .wordcard .s{font-family:var(--mono);font-size:.64rem;letter-spacing:.04em;opacity:.6;}
+  .wordcard .s a{color:inherit;}
+
+  .home{font-family:var(--hand);font-size:1.4rem;color:var(--ink2);}
+
+  /* on narrow screens the margins collapse; notes drop inline & tilt */
+  @media (max-width:880px){
+    .sheet{grid-template-columns:1fr; }
+    .col,.marginL,.marginR{grid-column:1;}
+    .note{position:static;width:auto;display:block;margin:.6rem 0;
+      transform:none !important; max-width:24rem;}
+    .note.r{text-align:left;}
+    figure.plate.bleed{margin-left:0;margin-right:0;}
+  }
+</style>
+</head>
+<body>
+
+  <header class="top">
+    <p class="kicker">i saved this for you · the weather drawer</p>
+    <h1>weather as a <em>feeling</em></h1>
+    <p class="sub">clouds, rain, snow, and every mood the sky has ever had.</p>
+    <p style="font-family:var(--hand); font-size:1.25rem; color:var(--ink2); margin-top:2rem; transform:rotate(-.8deg);">
+      (read down the middle. i scribbled in the margins, like i always do in books i love.)
+    </p>
+  </header>
+
+  <hr class="rule">
+
+  <!-- ============ block 1: the primrose ============ -->
+  <div class="sheet">
+    <div class="marginL">
+      <p class="note red" style="top:.2rem; right:1rem; transform:rotate(-3deg);">
+        coleridge asks the<br>flower <em>why so pale?</em><br>
+        <small>like a worried friend leaning over a sickbed</small>
+      </p>
+    </div>
+
+    <div class="col">
+      <h2>it starts, like a lot of feelings do, with one cold flower.</h2>
+      <p class="read">
+        weather in poems is almost never about weather. it's about whatever the person was
+        carrying when they looked up. coleridge looks at a primrose that bloomed too early and
+        worries over it like a child out in the frost.
+      </p>
+      <div class="poem-in">
+        But, tender blossom, why so pale?<br>
+        Dost hear stern Winter in the gale?<br>
+        And didst thou tempt the ungentle sky<br>
+        To catch one vernal glance and die?<br><br>
+        And sweeter far the early blow,<br>
+        Fast following after storms of Woe,<br>
+        Than (Comfort&rsquo;s riper season come)<br>
+        Are full-blown joys and Pleasure&rsquo;s gaudy bloom.
+        <span class="src">Samuel Coleridge &middot; To A Primrose &middot; PoetryDB</span>
+      </div>
+      <p class="read">
+        that last turn gets me every time &mdash; the painful early joy, the one that comes right
+        after the storm, is somehow <em>sweeter</em> than the easy comfort that arrives later.
+        like he's saying: the cold is part of why it's beautiful.
+      </p>
+    </div>
+
+    <div class="marginR">
+      <p class="note green" style="top:8rem; left:1rem; transform:rotate(2.5deg);">
+        &larr; &ldquo;gaudy bloom&rdquo;<br>that word <em>gaudy</em><br>does so much work
+      </p>
+    </div>
+  </div>
+
+  <!-- ============ block 2: the lily that doesn't care ============ -->
+  <div class="sheet">
+    <div class="marginL">
+      <p class="note purple" style="top:3rem; right:1rem; transform:rotate(1.5deg);">
+        july heat, &amp; the lily<br>just&hellip; <em>doesn't care</em>&nbsp;&rarr;
+      </p>
+      <p class="note" style="top:13rem; right:1rem; transform:rotate(-2deg);">
+        &ldquo;drinks of living waters&rdquo;<br>&mdash; she has roots somewhere<br>the heat can't reach
+      </p>
+    </div>
+
+    <div class="col">
+      <p class="read">
+        and then the opposite mood. helen hunt jackson stands in the dead heat of july and finds
+        a white lily that simply refuses to wilt &mdash; not because it's tough, but because it
+        knows where its water comes from.
+      </p>
+      <div class="poem-in">
+        Like starry blooms on a new firmament,<br>
+        White lilies float and regally abide.<br>
+        In vain the cruel skies their hot rays shed;<br>
+        The lily does not feel their brazen glare.<br>
+        In vain the pallid clouds refuse to share<br>
+        Their dews, the lily feels no thirst, no dread.<br>
+        Unharmed she lifts her queenly face and head;<br>
+        She drinks of living waters and keeps fair.
+        <span class="src">Helen Hunt Jackson &middot; A Calendar of Sonnets: July &middot; PoetryDB</span>
+      </div>
+      <p class="read">
+        it's about having shelter <em>inside</em> yourself. the sky can do whatever it wants up
+        there. down here she keeps fair.
+      </p>
+    </div>
+    <div class="marginR"></div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- ============ block 3: storm pictures ============ -->
+  <div class="sheet">
+    <div class="marginL">
+      <p class="note red" style="top:6rem; right:1rem; transform:rotate(-2deg);">
+        those clouds are<br>practically <em>eating</em><br>the sky &rarr;
+      </p>
+    </div>
+
+    <div class="col">
+      <h2>then the sky stops being a metaphor and starts being a threat.</h2>
+      <p class="read">
+        ok now we go to the painters, because they could do something poems can't: make the
+        whole sky come at you. look at this one. people and a horse, frozen in the half-second
+        between panic and prayer.
+      </p>
+      <figure class="plate">
+        <img src="../img2/p191.jpg" loading="lazy"
+             alt="People and a horse huddle together as a vast dark storm erupts behind them over a landscape of fire and shadow">
+        <figcaption>
+          Alvan Fisher (American, 1792&ndash;1863), <em>Escape from Fire</em>, 1827, oil on canvas
+          &middot; Art Institute of Chicago &middot; CC0
+        </figcaption>
+      </figure>
+      <p class="read">
+        and turner, who didn't even bother with a horizon line &mdash; he just let the sea and
+        the sky become one churning thing, and put tiny people in boats inside it, still
+        bargaining for fish while it tries to swallow them. weather as the size of you.
+      </p>
+      <figure class="plate bleed">
+        <img src="../img2/p291.jpg" loading="lazy"
+             alt="Fishing boats in a turbulent hazy sea, figures bargaining on deck, sky and water merging into golden murk">
+        <figcaption>
+          J. M. W. Turner (English, 1775&ndash;1851), <em>Fishing Boats with Hucksters Bargaining for Fish</em>,
+          1837&ndash;38, oil on canvas &middot; Art Institute of Chicago &middot; CC0
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="marginR">
+      <p class="note green" style="top:7rem; left:1rem; transform:rotate(2deg);">
+        between panic<br>&amp; prayer &mdash; that<br>exact second &darr;
+      </p>
+      <p class="note purple" style="top:30rem; left:1rem; transform:rotate(-2deg);">
+        no horizon line.<br>just one big<br><em>churning</em> &larr;
+      </p>
+    </div>
+  </div>
+
+  <!-- ============ block 4: a lone rider ============ -->
+  <div class="sheet">
+    <div class="marginL">
+      <p class="note" style="top:2rem; right:1rem; transform:rotate(-3deg);">
+        the whole frame is just&nbsp;:<br>snow. cold. <em>will.</em>&nbsp;&rarr;
+      </p>
+    </div>
+    <div class="col">
+      <figure class="plate">
+        <img src="../img2/p252.jpg" loading="lazy"
+             alt="A lone rider with a lance pushes through a swirling blizzard, barely visible against swells of cream and gray snow">
+        <figcaption>
+          Adolphe Schreyer (German, 1828&ndash;1899), <em>Man with Lance Riding through the Snow</em>,
+          c.&nbsp;1880, oil on canvas &middot; Art Institute of Chicago
+        </figcaption>
+      </figure>
+      <p class="read">
+        one figure, one storm, the whole painting made of weather and the stubbornness to keep
+        going through it anyway. <span style="text-decoration:line-through; color:#999;">giving up</span>
+        was never on the table.
+      </p>
+    </div>
+    <div class="marginR"></div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- ============ block 5: after the storm ============ -->
+  <div class="sheet">
+    <div class="marginL">
+      <p class="note red" style="top:5rem; right:1rem; transform:rotate(2deg);">
+        Homer painted this<br>in his seventies,<br>living alone by the<br>sea. <small>you can feel it.</small>
+      </p>
+    </div>
+    <div class="col">
+      <h2>but every storm has an after, and the after is its own weather.</h2>
+      <p class="read">
+        winslow homer, in his seventies, alone on a cliff in maine. the storm is technically
+        over but nobody's told the sea yet &mdash; it's still heaving while the light tries,
+        tentatively, to come back.
+      </p>
+      <figure class="plate bleed">
+        <img src="../img2/p013.jpg" loading="lazy"
+             alt="Churning dark waves beneath a sky just beginning to clear after a violent storm at sea">
+        <figcaption>
+          Winslow Homer (American, 1836&ndash;1910), <em>Early Morning After a Storm at Sea</em>,
+          1900&ndash;1903, oil on canvas &middot; Cleveland Museum of Art &middot; CC0
+        </figcaption>
+      </figure>
+      <p class="read">
+        and thomas cole gives us the moment after <em>that</em> &mdash; the mountain rinsed clean,
+        the whole forest catching fire with autumn light. the clearing moment. when you believe
+        in light again.
+      </p>
+      <figure class="plate">
+        <img src="../img2/p134.jpg" loading="lazy"
+             alt="A forested mountain peak glowing with golden autumn light through clearing storm clouds">
+        <figcaption>
+          Thomas Cole (American, b. England, 1801&ndash;1848),
+          <em>View of Schroon Mountain, Essex County, New York, After a Storm</em>, 1838, oil on canvas
+          &middot; Cleveland Museum of Art &middot; CC0
+        </figcaption>
+      </figure>
+    </div>
+    <div class="marginR">
+      <p class="note green" style="top:11rem; left:1rem; transform:rotate(-1.5deg);">
+        the light is already<br>trying to come back<br>&larr; look at that sky
+      </p>
+      <p class="note sun" style="top:34rem; left:1rem; transform:rotate(2.5deg);">
+        Cole was 37<br>when he made this.<br><em>believe in light again</em> &darr;
+      </p>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- ============ block 6: the quiet east ============ -->
+  <div class="sheet">
+    <div class="marginL">
+      <p class="note" style="top:5rem; right:1rem; transform:rotate(-2deg);">
+        the brushstrokes<br><em>are</em> the mist &rarr;<br>
+        <small>the landscape holding its breath before the rain</small>
+      </p>
+    </div>
+    <div class="col">
+      <h2>and somewhere else entirely, weather learns to whisper.</h2>
+      <p class="read">
+        the chinese and japanese painters in this drawer don't depict the rain. they paint the
+        <em>space</em> the rain will fall into. dai xi's pavilion just waits, the whole valley
+        suspended in the second before the weather arrives.
+      </p>
+      <figure class="plate">
+        <img src="../img2/p092.jpg" loading="lazy"
+             alt="Misty mountain landscape with a pavilion and stone bridge in spare fluid ink brushstrokes">
+        <figcaption>
+          Dai Xi (Chinese, 1801&ndash;1860), <em>Rain-coming Pavilion by the Stone Bridge at Mt. Tiantai</em>,
+          1848, handscroll, ink on paper &middot; Cleveland Museum of Art &middot; CC0
+        </figcaption>
+      </figure>
+      <p class="read">
+        wang jianzhang does the same with rain itself &mdash; a thatched hut barely there, the
+        rain written entirely in the gaps between brushstrokes. you don't see the damp. you
+        feel it settle.
+      </p>
+      <figure class="plate">
+        <img src="../img2/p097.jpg" loading="lazy"
+             alt="Spring Rain Thatched Hut handscroll, ink on paper, a hut barely visible through suggested rain and mist">
+        <figcaption>
+          Wang Jianzhang (Chinese, active 1621&ndash;1662), <em>Spring Rain Thatched Hut</em>, 1650,
+          handscroll, ink on paper &middot; Cleveland Museum of Art
+        </figcaption>
+      </figure>
+      <p class="read">
+        and kaihō yūshō, on gold-washed paper, paints winter turning to spring as mostly empty
+        space with one green shoot reaching up in the middle &mdash; like hope remembering itself.
+        the emptiness is the whole point.
+      </p>
+      <figure class="plate">
+        <img src="../img2/p230.jpg" loading="lazy"
+             alt="Spare winter-turning-to-spring branches on gold-washed ground, one green shoot reaching upward">
+        <figcaption>
+          Kaihō Yūshō (Japanese, 1533&ndash;1615), c.&nbsp;1600, ink, color and gold on paper
+          &middot; Cleveland Museum of Art
+        </figcaption>
+      </figure>
+    </div>
+    <div class="marginR">
+      <p class="note purple" style="top:13rem; left:1rem; transform:rotate(2deg);">
+        rain written in<br>the <em>space</em> &uarr;
+      </p>
+      <p class="note green" style="top:44rem; left:1rem; transform:rotate(-2.5deg);">
+        ma (&#38291;) &mdash; the<br>space between.<br><small>the emptiness is the painting</small> &uarr;
+      </p>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- ============ block 7: a word for it ============ -->
+  <div class="sheet">
+    <div class="marginL">
+      <p class="note red" style="top:3rem; right:1rem; transform:rotate(-2deg);">
+        a word for that<br>feeling <em>before</em><br>the storm breaks &rarr;<br>
+        <small>we needed this word</small>
+      </p>
+    </div>
+    <div class="col">
+      <h2>turns out there's a word for the weather inside you.</h2>
+      <p class="read">
+        the english language, bless it, has a plain little word for that anxious static in the
+        air right before something breaks. the weather before the weather.
+      </p>
+      <div class="wordcard">
+        <div class="w">fantod</div>
+        <div class="d">&ldquo;a state of worry or nervous anxiety, irritability.&rdquo;</div>
+        <div class="s">Wiktionary, English lexicon &middot;
+          <a href="https://en.wiktionary.org/wiki/fantod">en.wiktionary.org/wiki/fantod</a></div>
+      </div>
+      <p class="read">
+        (plural: fantods. you can have several at once. i usually do.)
+      </p>
+    </div>
+    <div class="marginR">
+      <p class="note purple" style="top:11rem; left:1rem; transform:rotate(2.5deg);">
+        &larr; that pre-storm<br>itch in the air
+      </p>
+    </div>
+  </div>
+
+  <!-- ============ block 8: the close, in snow ============ -->
+  <div class="sheet">
+    <div class="marginL">
+      <p class="note green" style="top:4rem; right:1rem; transform:rotate(-2deg);">
+        from &ldquo;cannot&rdquo; to<br>&ldquo;will not&rdquo; &mdash; the<br>whole poem is<br>right there &rarr;
+      </p>
+    </div>
+    <div class="col">
+      <h2>and then it snows, and you decide to stay.</h2>
+      <p class="read">
+        emily brontë ends us in the worst of it &mdash; clouds beyond clouds, wastes beyond
+        wastes &mdash; and chooses, on purpose, not to leave. watch the verb change. that's the
+        whole feeling.
+      </p>
+      <div class="poem-in">
+        But a tyrant spell has bound me,<br>
+        And I cannot, cannot go.<br><br>
+        Clouds beyond clouds above me,<br>
+        Wastes beyond wastes below;<br>
+        But nothing drear can move me:<br>
+        I will not, cannot go.
+        <span class="src">Emily Brontë &middot; The Night is Darkening Around Me &middot; PoetryDB</span>
+      </div>
+      <p class="read">
+        and maybe that's the right place to leave it, since every fairy tale that ever
+        frightened or comforted a child starts in exactly this weather:
+      </p>
+      <p class="poem-in" style="font-style:italic; font-size:1.45rem;">
+        &ldquo;Es war einmal mitten im Winter, und die Schneeflocken fielen wie Federn vom Himmel herab.&rdquo;
+        <span class="src">Brothers Grimm, <em>Schneewittchen</em> &middot;
+          <a href="https://www.grimmstories.com/de/grimm_maerchen/schneewittchen" style="color:inherit;">Grimm Stories</a>
+        </span>
+      </p>
+      <p class="read" style="font-size:1rem; color:#5a564d;">
+        <em>it was once, in the middle of winter, and the snowflakes fell like feathers from the
+        sky.</em> not &ldquo;once upon a time.&rdquo; just &mdash; <strong>it was.</strong> and
+        then immediately you're in the snow.
+      </p>
+    </div>
+    <div class="marginR">
+      <p class="note" style="top:9rem; left:1rem; transform:rotate(2deg);">
+        the weather is a feeling<br>and the feeling here<br>is <em>refusal</em> &larr;
+      </p>
+      <p class="note sun" style="top:34rem; left:1rem; transform:rotate(-2deg);">
+        snowflakes like<br>feathers &mdash; winter as<br>a once-upon-a-time,<br>already happening<br>to you &uarr;
+      </p>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <div style="text-align:center; padding:4vh 1.2rem 14vh;">
+    <p style="font-family:var(--hand); font-size:1.4rem; color:var(--ink2); max-width:30rem; margin:0 auto 2.4rem; transform:rotate(-.5deg);">
+      that's the drawer. i ran out of margin before i ran out of sky, which feels right.
+      more tomorrow, probably, when it rains.
+    </p>
+    <a href="../index.html" class="home">&larr; back to the wall</a>
+  </div>
+
+<script>stitched
+document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&!t.dataset.f){t.dataset.f=1;t.classList.add('broken-img');t.alt=t.alt||'(this picture wandered off)';}},true);
+</script><div class="handfooter"><!--stitched-->
+  <a class="home" href="../index.html">↤ back to the front door</a>
+  <span>wander somewhere else:</span> <a href="animals-were-with-us.html">the animals werealways with us</a><span>·</span> <a href="everything-is-light.html">everything is about light, actually — a letter</a><span>·</span> <a href="cried-on-the-bus.html">things that made mecry a little</a><span>·</span> <a href="the-sea-wants-something.html">the sea wantssomething from us</a>
+  <span style="flex-basis:100%;margin-top:.4rem">made by hand, with real things real people made. nothing here is for sale. — <span style="font-family:var(--hand);font-size:1.4rem;color:var(--red)">x</span></span>
+</div>
+</body>
+</html>

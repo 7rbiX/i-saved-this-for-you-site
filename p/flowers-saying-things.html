@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>flowers have been saying things this whole time</title>
+<link rel="stylesheet" href="../wall.css">
+<style>
+  /* ── WARM NEWSPRINT — a broadsheet someone marked up in pen ─────── */
+  body{
+    background:
+      radial-gradient(120% 80% at 50% -5%, #fffdf7 0%, rgba(255,255,255,0) 60%),
+      #f3eee2;
+  }
+  .sheet{
+    max-width:70rem; margin:0 auto; background:#faf6ec;
+    padding:1.4rem clamp(1rem,3vw,3rem) 5rem;
+    box-shadow:0 2px 0 rgba(0,0,0,.04), 0 30px 60px rgba(30,25,15,.08);
+    position:relative;
+  }
+  /* ── masthead ── */
+  .masthead{ border-bottom:4px double var(--ink); padding-bottom:.5rem; margin-bottom:.3rem; }
+  .dateline{
+    display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap;
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink2); border-bottom:1px solid rgba(0,0,0,.3); padding-bottom:.35rem; margin-bottom:.5rem;
+  }
+  .flag{
+    font-family:var(--disp); font-weight:900; font-style:italic;
+    font-size:clamp(2.1rem,7.4vw,5.4rem); line-height:.92; letter-spacing:-.025em;
+    text-align:center; margin:.3rem 0 .2rem; color:var(--ink);
+  }
+  .flag .small{ display:block; font-size:.32em; font-weight:600; font-style:normal; letter-spacing:.02em; }
+  .standfirst{
+    font-family:var(--body); font-style:italic; font-size:1.15rem; text-align:center;
+    max-width:46rem; margin:.4rem auto .2rem; color:var(--ink2);
+  }
+  /* hand annotation scrawled over the masthead */
+  .annot{
+    font-family:var(--hand); color:var(--red); font-size:1.5rem; line-height:1.1;
+    transform:rotate(-3deg); position:absolute; z-index:8;
+  }
+  .annot.blue{ color:var(--blue); } .annot.green{ color:var(--green); } .annot.purple{ color:var(--purple); }
+
+  /* ── columns ── */
+  .cols{ column-gap:2.2rem; column-rule:1px solid rgba(0,0,0,.16); margin-top:1.4rem; }
+  @media(min-width:42rem){ .cols{ column-count:2; } }
+  @media(min-width:64rem){ .cols{ column-count:3; } }
+  .cols > *{ break-inside:avoid; margin:0 0 1.5rem; }
+
+  .dropcap::first-letter{
+    font-family:var(--disp); font-weight:900; font-size:3.6em; float:left;
+    line-height:.72; padding:.05em .08em 0 0; color:var(--red);
+  }
+  .col-body{ font-family:var(--body); font-size:1.04rem; line-height:1.55; color:var(--ink); }
+  .secthead{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--ink2); border-top:2px solid var(--ink); padding-top:.3rem; margin:0 0 .7rem;
+  }
+  figure.cut{ margin:0 0 .4rem; background:none; box-shadow:none; }
+  figure.cut img{ width:100%; border:1px solid rgba(0,0,0,.18); filter:saturate(.97) contrast(1.02); }
+  figcaption.lbl{ font-family:var(--mono); font-size:.66rem; line-height:1.4; color:#555; padding-top:.35rem; }
+  .byhand{ font-family:var(--hand); color:var(--blue); font-size:1.18rem; line-height:1.3; margin:.4rem 0 0; }
+  .byhand.r{ color:var(--red); } .byhand.g{ color:var(--green); } .byhand.p{ color:var(--purple); }
+
+  .pullquote{
+    font-family:var(--disp); font-style:italic; font-weight:600; font-size:1.5rem; line-height:1.2;
+    color:var(--ink); border-top:3px solid var(--red); border-bottom:1px solid rgba(0,0,0,.2);
+    padding:.7rem 0; margin:.4rem 0;
+  }
+  .pullquote.blue{ border-top-color:var(--blue); }
+  .pullquote.green{ border-top-color:var(--green); }
+
+  .poemcard{ font-family:var(--body); }
+  .poemcard h4{ font-family:var(--disp); font-size:1.15rem; font-style:italic; margin:0 0 .4rem; }
+  .poemcard .lines{ font-size:1rem; line-height:1.7; color:var(--ink); }
+  .poemcard .cred{ font-family:var(--mono); font-size:.66rem; letter-spacing:.04em; text-transform:uppercase; color:#6a5a3a; border-top:1px solid #ddd6c2; padding-top:.5rem; margin-top:.7rem; }
+
+  hr.rule{ border:0; border-top:3px double rgba(0,0,0,.45); margin:1.4rem 0; }
+  .marginpen{ font-family:var(--hand); color:var(--red); font-size:1.15rem; line-height:1.25; transform:rotate(-1.5deg); display:block; margin:.3rem 0; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- a pen mark scrawled across the top corner -->
+  <span class="annot" style="top:.6rem; right:1.2rem;">read this one slowly!!</span>
+
+  <header class="masthead">
+    <div class="dateline">
+      <span>The Quiet Botanical Gazette</span>
+      <span>No. 7 · pressed &amp; saved</span>
+      <span>petals, gardens &amp; cipher</span>
+    </div>
+    <h1 class="flag">Flowers Have Been Saying<br>Things This Whole Time
+      <span class="small">— gardens, petals, and the secret language of what grows —</span>
+    </h1>
+    <p class="standfirst">a special evening edition, transcribed by one person at the kitchen table, who suspects the bouquets were never just decoration.</p>
+    <span class="annot blue" style="left:1rem; bottom:-1.4rem; font-size:1.25rem;">(i think they were trying to tell us something)</span>
+  </header>
+
+  <hr class="rule">
+
+  <!-- lede column block -->
+  <div class="cols">
+
+    <div class="col-body dropcap">
+      every culture that ever had a garden also had a code for it. a carnation meant one thing, a faded
+      bloom meant another, a flower handed across a fence could end or begin a whole life. i kept finding
+      these — in jade, in silk, in oil paint, in dying men's poems — and they're all <em>saying</em> something.
+      so i clipped them out and laid them next to each other to see if they'd talk.
+      <span class="byhand r">spoiler: they do.</span>
+    </div>
+
+    <!-- Memling -->
+    <section>
+      <p class="secthead">The Portrait · Exhibit A</p>
+      <figure class="cut snap" style="padding:8px;">
+        <img src="../img2/p119.jpg" loading="lazy" alt="Hans Memling portrait of a young woman holding a pink carnation, calm inward gaze, verdant landscape behind">
+        <figcaption class="lbl">Hans Memling. <em>Young Woman with a Pink</em>, ca. 1485–90. Oil on wood. The Metropolitan Museum of Art · Open Access</figcaption>
+      </figure>
+      <p class="byhand r">she's holding that pink like it's her only answer to something. your eye keeps going back to her hands — to that one small red flower.</p>
+    </section>
+
+    <!-- pullquote 1 -->
+    <p class="pullquote">“So let us, unobtrusive and unnoticed, but happy none the less, fill the air around us with happiness.”</p>
+
+    <!-- Women's Rights poem -->
+    <article class="poemcard">
+      <p class="secthead">Verse · filed under hope</p>
+      <h4>Women's Rights</h4>
+      <div class="lines">
+        As humble plants by country hedgerows growing,<br>
+        That treasure up the rain,<br>
+        And yield in odours, ere the day's declining,<br>
+        The gift again;<br><br>
+        So let us, unobtrusive and unnoticed,<br>
+        But happy none the less,<br>
+        Be privileged to fill the air around us<br>
+        With happiness;
+      </div>
+      <p class="cred">— Annie Louisa Walker · PoetryDB</p>
+      <p class="byhand g">flowers as a mirror for quiet power — treasuring rain and giving it back as scent. keeping your own light even when nobody's watching.</p>
+    </article>
+
+    <!-- Morisot -->
+    <section>
+      <p class="secthead">The Garden · in oils</p>
+      <figure class="cut snap" style="padding:8px;">
+        <img src="../img2/p117.jpg" loading="lazy" alt="Berthe Morisot, Woman in a Garden, a woman seated among lush blooming flowers in loose impressionist brushstrokes">
+        <figcaption class="lbl">Berthe Morisot (French, 1841–1895). <em>Woman in a Garden</em>, 1882–83. Oil on canvas. Art Institute of Chicago</figcaption>
+      </figure>
+      <p class="byhand">she's almost floating on the brushstrokes — that exact moment of being lost in thought, the density of flowers becoming a cocoon. you can feel the breeze in the loose paint.</p>
+      <span class="marginpen">↑ blooming chaos, weight of fabric</span>
+    </section>
+
+    <!-- Confessions poem -->
+    <article class="poemcard">
+      <p class="secthead">Verse · filed under defiant</p>
+      <h4>Confessions</h4>
+      <div class="lines" style="white-space:pre-wrap;">Yet never catch her and me together,
+  As she left the attic, there,
+By the rim of the bottle labelled "Ether,"
+  And stole from stair to stair
+
+And stood by the rose-wreathed gate. Alas,
+  We loved, sir--used to meet;
+How sad and bad and mad it was--
+  But then, how it was sweet!</div>
+      <p class="cred">— Robert Browning · PoetryDB</p>
+      <p class="byhand p">a dying man paints his love in bottle-labels and garden walls, then just says it. all the contradictions at once. "sad and bad and mad — but sweet."</p>
+    </article>
+
+    <!-- jade -->
+    <section>
+      <p class="secthead">The Jewel · a garden that won't wilt</p>
+      <figure class="cut snap" style="padding:8px;">
+        <img src="../img2/p281.jpg" loading="lazy" alt="Mughal jade flower ornament inset with rubies, emeralds and diamonds in kundan technique">
+        <figcaption class="lbl">India, Mughal dynasty (1526–1857), 17th/18th century. Nephrite jade, gold, rubies, emeralds, diamonds (kundan). Art Institute of Chicago · CC0</figcaption>
+      </figure>
+      <p class="byhand g">someone polished each gem into ruby droplets, fruit hanging from jade branches. a garden where nothing will ever wilt, nothing will ever fall.</p>
+    </section>
+
+    <!-- pullquote 2 -->
+    <p class="pullquote blue">“Sweet daffodils, violets and roses sprang up wherever they wandered.”</p>
+
+    <!-- Epithalamium poem -->
+    <article class="poemcard">
+      <p class="secthead">Verse · filed under joy ✿</p>
+      <h4>Epithalamium: A Marriage Poem</h4>
+      <div class="lines">
+        When Helen and Jonas, so true and so loving,<br>
+        Along the green lawn were seen arm in arm moving,<br>
+        Sweet daffodils, violets and roses spontaneous<br>
+        Wherever they wandered sprang up instantaneous.
+      </div>
+      <p class="cred">— Major Henry Livingston, Jr. · PoetryDB · public domain</p>
+      <p class="byhand">flowers spring up where they walk — the world itself blessing them. earnest, uncynical joy. he commits to it completely.</p>
+    </article>
+
+    <!-- Van Gogh -->
+    <section>
+      <p class="secthead">The Garden · where everything breathes green</p>
+      <figure class="cut snap" style="padding:8px;">
+        <img src="../img2/p115.jpg" loading="lazy" alt="Van Gogh, The Poet's Garden, 1888, thick swirling brushstrokes of lime and gold, flowering bushes under a luminous Arles sky">
+        <figcaption class="lbl">Vincent van Gogh (Dutch, 1853–1890). <em>The Poet's Garden</em>, 1888. Oil on canvas. Art Institute of Chicago</figcaption>
+      </figure>
+      <p class="byhand g">arles, and you can feel how much he loved it — brushstrokes doing the work of wind in the trees, flowers scattered like they can't help blooming. a garden you want to walk into.</p>
+    </section>
+
+    <!-- ink flowers -->
+    <section>
+      <p class="secthead">The Scroll · restraint as generosity</p>
+      <figure class="cut snap" style="padding:8px;">
+        <img src="../img2/p032.jpg" loading="lazy" alt="Zhao Zhong, Ink Flowers, 1361, ink flowers drifting across paper in spare brushstrokes with wide negative space">
+        <figcaption class="lbl">Zhao Zhong (Chinese, 1300s). <em>Ink Flowers</em>, 1361. Handscroll; ink on paper. Cleveland Museum of Art · CC0</figcaption>
+      </figure>
+      <p class="byhand">these drift across the paper like they're dissolving as you look. so much breathing room. restraint, offered as a kind of generosity.</p>
+    </section>
+
+    <!-- The Faded Flower poem -->
+    <article class="poemcard">
+      <p class="secthead">Verse · filed under remorse</p>
+      <h4>The Faded Flower</h4>
+      <div class="lines">
+        And now I bend me o'er thy wither'd bloom,<br>
+        And drop the tear — as Fancy, at my side,<br>
+        Deep-sighing, points the fair frail Abra's tomb —<br>
+        'Like thine, sad Flower, was that poor wanderer's pride!'
+      </div>
+      <p class="cred">— Samuel Coleridge · PoetryDB</p>
+      <p class="byhand r">that pivot from flower to human, from plant to mortality — standing over the thing he carelessly destroyed. it breaks something open.</p>
+    </article>
+
+    <!-- Savonnerie Spring -->
+    <section>
+      <p class="secthead">The Weave · 144 knots per inch</p>
+      <figure class="cut snap" style="padding:8px;">
+        <img src="../img2/p225.jpg" loading="lazy" alt="Savonnerie wool-and-hemp knotted-pile panel depicting Spring: flowering branches, animals and birds on a warm gold ground, c. 1715">
+        <figcaption class="lbl">Royal Savonnerie Manufactory, Chaillot Workshops (French, est. 1627). <em>Panel: Spring</em>, c. 1715. Wool and hemp knotted pile. Cleveland Museum of Art</figcaption>
+      </figure>
+      <p class="byhand g">imagine tying 144 individual knots per square inch just to get these flowering branches and wandering goats exactly right. spring, made permanent by someone's hands.</p>
+    </section>
+
+    <!-- pullquote 3 -->
+    <p class="pullquote green">“The whole year on one screen — told with so much air between things.”</p>
+
+    <!-- Kaiho screen -->
+    <section>
+      <p class="secthead">The Screen · hope arriving unannounced</p>
+      <figure class="cut snap" style="padding:8px;">
+        <img src="../img2/p236.jpg" loading="lazy" alt="Kaihō Yūshō, Winter and Summer Flowers, c. 1600, sparse branches and tiny green flowers on a luminous gold ground">
+        <figcaption class="lbl">Kaihō Yūshō (Japanese, 1533–1615). <em>Winter and Summer Flowers</em>, c. 1600. Six-panel folding screen; ink, color, gold on paper. Cleveland Museum of Art · CC0</figcaption>
+      </figure>
+      <p class="byhand">the gold holds these whispered branches like a secret — then those tiny green flowers appear, so small they feel like hope arriving unannounced.</p>
+    </section>
+
+    <!-- Memling carnation echo as small italian silk -->
+    <section>
+      <p class="secthead">The Cloth · a chant you can see</p>
+      <figure class="cut snap" style="padding:8px;">
+        <img src="../img2/p170.jpg" loading="lazy" alt="14th-century Italian silk fragment, birds and plants in geometric symmetry, greens and golds repeating in a shimmering weave">
+        <figcaption class="lbl">Fragment. Italy, 14th century. Silk &amp; gilt-substrate linen, warp-float twill with brocading wefts. Art Institute of Chicago · CC0</figcaption>
+      </figure>
+      <p class="byhand g">birds and plants in perfect symmetry — greens and golds repeating like a chant you can actually <em>see</em>. they were trying to weave something holy into the cloth.</p>
+    </section>
+
+    <!-- George Washington quilt — the funny one -->
+    <section>
+      <p class="secthead">The Quilt · scattered like wildflowers</p>
+      <figure class="cut snap" style="padding:8px;">
+        <img src="../img2/p378.jpg" loading="lazy" alt="Wholecloth printed cotton quilt c.1876 with George Washington's profile repeated across deep red ground alongside roses">
+        <figcaption class="lbl">American. <em>George Washington Quilt</em>, about 1876. Wholecloth printed cotton. The Metropolitan Museum of Art · Open Access</figcaption>
+      </figure>
+      <p class="byhand r">someone decided one washington wasn't enough patriotic fervor and scattered him across deep red like wildflowers, roses in between. it's meant to keep you WARM, not just honor a president. i love it so much.</p>
+    </section>
+
+    <!-- fire screen, the gothic garden -->
+    <section>
+      <p class="secthead">The Furniture · a garden frozen in wood</p>
+      <figure class="cut snap" style="padding:8px;">
+        <img src="../img2/p187.jpg" loading="lazy" alt="Rosewood fire screen with needlepoint floral panel set in gothic carved frame with dragon and scroll ornament, c.1855">
+        <figcaption class="lbl">Artist unknown (American, 19th c., New York or Boston). <em>Fire Screen</em>, c. 1855. Rosewood &amp; white pine, needlepoint panel. Art Institute of Chicago</figcaption>
+      </figure>
+      <p class="byhand p">someone stitched a whole bouquet, then bolted it into this absolutely ridiculous gothic frame — dragons, scrollwork everywhere. nature, captured and then dressed in the fanciest furniture-clothes imaginable.</p>
+    </section>
+
+    <!-- Poynter Festival, closing image -->
+    <section>
+      <p class="secthead">The Rite · flowers fall for devotion</p>
+      <figure class="cut snap" style="padding:8px;">
+        <img src="../img2/p324.jpg" loading="lazy" alt="Edward Poynter, The Festival, 1875, two women in flowing white robes with petals drifting in slow ceremonial motion">
+        <figcaption class="lbl">Edward John Poynter (English, 1836–1919). <em>The Festival</em>, 1875. Oil on canvas. Art Institute of Chicago</figcaption>
+      </figure>
+      <p class="byhand">two women in white, petals drifting, everything slow — the ceremony of it. that moment where everything matters and nothing needs to be rushed.</p>
+    </section>
+
+  </div>
+
+  <hr class="rule">
+
+  <p style="font-family:var(--hand); font-size:1.6rem; color:var(--red); text-align:center; transform:rotate(-1deg); margin:1.6rem 0 .4rem;">
+    so. still think a bouquet is just a bouquet?
+  </p>
+  <p style="font-family:var(--mono); font-size:.78rem; text-align:center; color:var(--ink2);">
+    end of the evening edition · pressed flat &amp; saved · <a href="../index.html">— back to the wall —</a>
+  </p>
+
+</div>
+<script>stitched
+document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&!t.dataset.f){t.dataset.f=1;t.classList.add('broken-img');t.alt=t.alt||'(this picture wandered off)';}},true);
+</script><div class="handfooter"><!--stitched-->
+  <a class="home" href="../index.html">↤ back to the front door</a>
+  <span>wander somewhere else:</span> <a href="children-know-something.html">children know somethingwe forgot</a><span>·</span> <a href="for-when-you-cant-sleep.html">for when youcan't sleep</a><span>·</span> <a href="the-sea-wants-something.html">the sea wantssomething from us</a><span>·</span> <a href="everything-is-light.html">everything is about light, actually — a letter</a>
+  <span style="flex-basis:100%;margin-top:.4rem">made by hand, with real things real people made. nothing here is for sale. — <span style="font-family:var(--hand);font-size:1.4rem;color:var(--red)">x</span></span>
+</div>
+</body>
+</html>

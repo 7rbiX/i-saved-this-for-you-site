@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>everything is about light, actually — a letter</title>
+<link rel="stylesheet" href="../wall.css">
+<style>
+  /* the whole page is a sheet of letter paper on a soft surface */
+  html{background:#cdbfa6}
+  body{
+    background:transparent;
+    background-image:
+      radial-gradient(120% 80% at 50% 0%, rgba(255,250,240,.4), transparent 50%);
+  }
+  .sheet{
+    max-width:46rem;margin:2.4rem auto 4rem;background:#fdfaf2;
+    padding:clamp(1.6rem,5vw,4rem) clamp(1.4rem,5vw,4.2rem) 3rem;
+    box-shadow:0 22px 50px rgba(40,30,15,.30), 0 4px 10px rgba(0,0,0,.12);
+    position:relative;
+    /* faint ruled lines like real letter paper */
+    background-image:repeating-linear-gradient(transparent 0 31px, rgba(120,150,190,.12) 31px 32px);
+    background-position:0 5.4rem;
+  }
+  /* torn-ish top edge feel */
+  .sheet::before{
+    content:"";position:absolute;left:0;right:0;top:0;height:6px;
+    background:repeating-linear-gradient(90deg, #fdfaf2 0 7px, #f1ead7 7px 9px);
+  }
+  .letterhead{
+    font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
+    color:#9a8c6c;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.4rem;
+    border-bottom:1px solid #e6ddc6;padding-bottom:.7rem;margin-bottom:2rem;
+  }
+  .salut{font-family:var(--hand);font-size:clamp(2rem,6vw,3.4rem);color:var(--red);line-height:1;margin:.4rem 0 .2rem;transform:rotate(-1deg)}
+  /* the actual letter body — typed, warm */
+  .body-letter{font-family:var(--body);font-size:1.12rem;line-height:1.72;color:#2a2520}
+  .body-letter p{margin:0 0 1.2rem}
+  .body-letter .lead{font-size:1.2rem}
+  .pen{font-family:var(--hand);font-size:1.5rem;color:var(--blue);line-height:1.2}
+  .pen.r{color:var(--red)} .pen.g{color:var(--green)} .pen.p{color:var(--purple)}
+  .pen.s{color:#c79a1e}
+  .ps{font-family:var(--hand);font-size:1.45rem;color:#3a342a;line-height:1.35;margin-top:1rem}
+  .sign{font-family:var(--hand);font-size:2.4rem;color:var(--red);transform:rotate(-2deg);display:inline-block;margin-top:.4rem}
+  hr.fold{border:0;border-top:1px dashed #cfc4a8;margin:2.4rem 0}
+  /* an enclosure paper-clipped into the letter */
+  .encl{position:relative;margin:1.8rem 0 2rem}
+  .encl-tag{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:#a08e62;margin-bottom:.5rem}
+  /* paperclip */
+  .clip{position:absolute;top:-14px;left:30px;width:18px;height:42px;border:3px solid #8a96a8;border-radius:9px;border-bottom:none;z-index:5;transform:rotate(-8deg)}
+  .clip::after{content:"";position:absolute;top:6px;left:3px;width:6px;height:30px;border:2px solid #aab4c4;border-radius:6px;border-bottom:none}
+  figure{margin:0}
+  @media(max-width:600px){.clip{left:14px}}
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <div class="letterhead">
+    <span>from the desk of nobody important</span>
+    <span>re: the light, again</span>
+  </div>
+
+  <p class="salut">dear you,</p>
+
+  <div class="body-letter">
+
+    <p class="lead">i've been meaning to write. i kept getting distracted by the light &mdash; which is, i've decided, what everything is actually about. color, paint, dusk, the way the world shows off when it thinks no one's watching. i started pulling things out of folders to show you and now there's a small pile, so i'm just going to enclose them as i go. read it like a letter. take your time.</p>
+
+    <p>here. start with this one. i'm enclosing it first because it's the whole feeling of the letter in eight lines &mdash; that thing where you're walking and suddenly the world just <em>widens</em>.</p>
+
+    <!-- ENCLOSURE: Coleridge poem -->
+    <div class="encl">
+      <span class="clip"></span>
+      <p class="encl-tag">enclosed, first &mdash; a poem</p>
+      <div class="poem" style="background:#fffdf6;border-left:3px solid var(--sun);padding:1.6rem 2rem 1.4rem;font-family:var(--body);font-size:1.06rem;line-height:1.85;color:#2a2520;box-shadow:0 4px 14px rgba(0,0,0,.08)">
+        <h3 style="font-family:var(--disp);font-size:1.15rem;font-weight:600;margin:0 0 1rem;color:#1a1510">Life</h3>
+        At every step it widen'd to my sight —<br>
+        Wood, Meadow, verdant Hill, and dreary Steep,<br>
+        Following in quick succession of delight, —<br>
+        Till all — at once — did my eye ravish'd sweep!<br><br>
+        May this (I cried) my course through Life portray!<br>
+        New scenes of Wisdom may each step display,<br>
+        And Knowledge open as my days advance!
+        <div style="margin-top:1.2rem;font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;color:#8a7c5e">— Samuel Coleridge &middot; PoetryDB</div>
+      </div>
+      <p class="pen s" style="margin-top:.9rem">he's catching his breath at it &mdash; that almost physical gasp of "may my whole life be like this." &amp; it's not cynical about growing up. it actually believes each day can crack you open a little wider.</p>
+    </div>
+
+    <p>i think about light most at dusk, which is maybe obvious of me. there's a george inness i can't get out of my head &mdash; the moment the light goes thin and the whole world feels like it's about to turn inward. i'm taping it in so you can hold it up to your own window.</p>
+
+    <!-- ENCLOSURE: Inness Sunny Autumn Day -->
+    <div class="encl">
+      <p class="encl-tag">held up to the light &mdash; a painting, taped in</p>
+      <figure class="snap polaroid tilt-l" style="display:inline-block;max-width:26rem;margin:0;transform:rotate(-2.2deg);box-shadow:0 8px 22px rgba(20,20,18,.2)">
+        <span class="tape" style="position:absolute;top:-11px;left:50%;width:60px;height:18px;margin-left:-30px;background:rgba(255,190,60,.5);transform:rotate(2deg)"></span>
+        <img src="../img2/p216.jpg" loading="lazy" alt="Sunny Autumn Day by George Inness, 1892 — glowing amber and gold trees against a moody grey-violet sky">
+        <figcaption class="cap">George Inness (American, 1825&ndash;1894). <em>Sunny Autumn Day</em>, 1892. Oil on canvas.<br>Cleveland Museum of Art &middot; CC0</figcaption>
+      </figure>
+      <p class="pen s" style="margin-top:1rem">those glowing trees, gold &amp; red against that moody sky &mdash; it's a whisper about change coming. the light's already half-gone and the painting knows it.</p>
+    </div>
+
+    <p>but i don't want to give you the wrong idea, that light only matters when it's sad. sometimes it's pure showing-off. i found a whole room &mdash; an actual room &mdash; carved and gilded so completely that the oak forgot it was oak. every surface dancing. i had to sit down.</p>
+
+    <!-- ENCLOSURE: Louis XV room -->
+    <div class="encl">
+      <span class="clip"></span>
+      <p class="encl-tag">enclosed &mdash; one entire room</p>
+      <figure class="snap polaroid tilt-r" style="max-width:32rem;margin:0 auto;box-shadow:0 8px 22px rgba(20,20,18,.18)">
+        <img src="../img2/p078.jpg" loading="lazy" alt="An opulent Louis XV paneled room with gilded carved oak walls, every surface flowing with rococo curves and light">
+        <figcaption class="cap">The Louis XV Room &mdash; Jean-Fran&ccedil;ois Roumier, ca. 1720&ndash;25 (with later additions)<br>Carved and gilded oak &middot; The Metropolitan Museum of Art &middot; Open Access</figcaption>
+      </figure>
+      <p class="pen p" style="margin-top:1rem;transform:rotate(-.6deg)">every surface is dancing. curves flowing into curves, so much you forget it's wood. there's a kind of generosity to it &mdash; everything leaning toward beauty, even in the smallest detail.</p>
+    </div>
+
+    <hr class="fold">
+
+    <p class="pen" style="text-align:center">(small confession, halfway through)</p>
+
+    <p>the truth is i go looking for light in faces. there's a portrait the size of your palm &mdash; watercolour on ivory, 1798 &mdash; and the man in it, Jonathan Henderson, is twenty-six and looking directly at you across two hundred years. ivory is so fragile. someone painted a whole steady gaze onto a thing that could crack. i can't get over it.</p>
+
+    <!-- ENCLOSURE: miniature portrait -->
+    <div class="encl">
+      <p class="encl-tag">enclosed &mdash; taped in, carefully</p>
+      <figure class="snap polaroid tilt-r" style="max-width:18rem;margin:0 auto;box-shadow:0 6px 18px rgba(20,20,18,.2)">
+        <span class="tape blue" style="position:absolute;top:-11px;left:50%;width:52px;height:17px;margin-left:-26px;background:rgba(100,170,240,.45);transform:rotate(-3deg)"></span>
+        <img src="../img2/p344.jpg" loading="lazy" alt="Miniature portrait of Jonathan Henderson, 1798, watercolour on ivory by Robert Field">
+        <figcaption class="cap">Robert Field (American, c. 1769&ndash;1819)<br><em>Jonathan Henderson (1772&ndash;1833)</em>, 1798<br>Watercolour on ivory &mdash; Art Institute of Chicago</figcaption>
+      </figure>
+      <p class="pen" style="margin-top:1rem">the tininess is the whole tenderness of it. his gaze steady &amp; a little thoughtful, &amp; somehow the small format makes it feel like he's right there in your palm. i keep saying that. i mean it.</p>
+    </div>
+
+    <p>and then sometimes light is just <span class="marker">violence</span> &mdash; the good kind, the kind that changes a room. cecco del caravaggio painted a resurrection where the whole bottom half is chaos and armor and grief, and then above all of it a figure almost glowing, one arm flung open like he's still <em>shouting</em>. you can feel the light about to reach the soldiers who haven't looked up yet.</p>
+
+    <!-- ENCLOSURE: Resurrection -->
+    <div class="encl">
+      <span class="clip"></span>
+      <p class="encl-tag">enclosed &mdash; light as an event</p>
+      <figure class="snap polaroid" style="max-width:24rem;margin:0 auto;box-shadow:0 8px 22px rgba(20,20,18,.2)">
+        <img src="../img2/p112.jpg" loading="lazy" alt="The resurrected Christ, radiant and arms flung open, rising above armored soldiers collapsed in chaos below">
+        <figcaption class="cap">Cecco del Caravaggio (Francesco Boneri; Italian, 1588/90&ndash;after 1620)<br><em>The Resurrection</em>, c. 1619&ndash;20 &mdash; Oil on canvas<br>Art Institute of Chicago &middot; CC0</figcaption>
+      </figure>
+      <div class="scrap" style="border-left:3px solid var(--red);background:#fff8f5;padding:.9rem 1.1rem;margin-top:1rem;font-family:var(--body);font-size:1rem;line-height:1.6;color:#2a2a2a">the light coming through the darkness feels like it's about to change everything in the room. the figure above is still half-shouting, half-flying. it's not finished happening yet. that's why i love it.</div>
+    </div>
+
+    <p>i could go quieter though. rembrandt etched himself at a window, pen poised mid-gesture, darkness gathered all around him so that one sliver of window-light becomes the only real thing in the room. it's the most honest picture of paying attention i know. just the artist, the work, the weight of looking hard.</p>
+
+    <!-- ENCLOSURE: Rembrandt self portrait -->
+    <div class="encl">
+      <p class="encl-tag">enclosed &mdash; the quiet one</p>
+      <figure class="snap polaroid tilt-l" style="max-width:20rem;margin:0 auto;box-shadow:0 7px 20px rgba(20,20,18,.2)">
+        <img src="../img2/p060.jpg" loading="lazy" alt="Rembrandt van Rijn, Self-Portrait Etching at a Window, 1648 — the artist frozen mid-gesture, pen poised, in gathered darkness">
+        <figcaption class="cap">Rembrandt van Rijn (Dutch, 1606&ndash;1669)<br><em>Self-Portrait Etching at a Window</em>, 1648<br>Etching, drypoint &amp; burin &mdash; Art Institute of Chicago</figcaption>
+      </figure>
+      <p class="pen g" style="margin-top:1rem">frozen mid-gesture, caught in his own concentrated gaze. the dark makes the window-light feel like the only real thing. intimate the way a studio always is.</p>
+    </div>
+
+    <hr class="fold">
+
+    <p>two more and then i'll let you go, i promise. you have to see what hokusai did with all of this &mdash; the most famous wave in the world, dark blue and clawed with foam, looming over little boats &mdash; and tucked in the back, impossibly small &amp; serene, Mount Fuji. it's a riddle about what's actually important, and the light is on the wrong thing on purpose.</p>
+
+    <!-- ENCLOSURE: Great Wave -->
+    <div class="encl">
+      <span class="clip"></span>
+      <p class="encl-tag">enclosed &mdash; the wave, you know the one</p>
+      <figure class="snap polaroid tilt-l" style="max-width:32rem;margin:0 auto;box-shadow:0 8px 22px rgba(20,20,18,.2)">
+        <span class="tape" style="position:absolute;top:-11px;left:42%;width:70px;height:18px;background:rgba(100,160,220,.4);transform:rotate(-1deg)"></span>
+        <img src="../img2/p131.jpg" loading="lazy" alt="Hokusai, Under the Wave off Kanagawa (The Great Wave) — a towering dark blue wave looming over tiny fishing boats with Mount Fuji small in the distance">
+        <figcaption class="cap">Katsushika Hokusai (Japanese, 1760&ndash;1849)<br><em>Under the Wave off Kanagawa (Kanagawa oki nami ura)</em>, &ldquo;The Great Wave,&rdquo; from <em>Thirty-Six Views of Mount Fuji</em>, 1830/33<br>Color woodblock print; oban &mdash; Art Institute of Chicago</figcaption>
+      </figure>
+      <p class="pen" style="margin-top:1rem;color:#1a3a6e">the waves up front are almost menacing in their size &amp; detail, &amp; fuji sits impossibly small &amp; calm behind them. a perfect visual riddle about what's really important.</p>
+    </div>
+
+    <p>and the very last enclosure is a screen full of light &mdash; hundreds of tiny people on a gold-leaf ground, all celebrating something, each one just a few brushstrokes and somehow completely alive. it's like looking through a window into a whole society having a party. i wanted to leave you inside it.</p>
+
+    <!-- ENCLOSURE: Festival Scenes screens -->
+    <div class="encl">
+      <p class="encl-tag">enclosed, last &mdash; a window into a party</p>
+      <figure class="snap polaroid tilt-r" style="max-width:32rem;margin:0 auto;box-shadow:0 8px 22px rgba(20,20,18,.18)">
+        <span class="tape" style="position:absolute;top:-11px;left:50%;width:78px;height:18px;margin-left:-39px;background:rgba(255,210,80,.55);transform:rotate(-1.5deg)"></span>
+        <img src="../img2/p327.jpg" loading="lazy" alt="A pair of six-panel Japanese folding screens of festival scenes — hundreds of tiny figures against a luminous gold-leaf background">
+        <figcaption class="cap">Unknown, <em>Festival Scenes</em>, 1615&ndash;99<br>Pair of six-panel folding screens; ink, color, gold &amp; gold leaf on paper<br>Cleveland Museum of Art &middot; CC0</figcaption>
+      </figure>
+      <p class="pen s" style="margin-top:1rem;transform:rotate(.5deg)">the gold makes everyone shimmer a little. each figure is a few strokes &amp; yet fully alive &mdash; dancing, watching, or just standing there with their friends. a whole society lit from behind.</p>
+    </div>
+
+    <p>anyway. that's the pile. i don't have a tidy ending for you because i don't think light has one either &mdash; it just keeps arriving and leaving and arriving. write back. or don't, and just go outside around six and look up. that counts as writing back.</p>
+
+    <p class="ps">p.s. &mdash; there was a mondrian field of skinny young trees reaching at a violet sky that almost made this letter too long, so i'm only telling you it exists. it caught the weird moment <span class="crossout">befor</span> before the world snaps into geometry, when everything's still soft edges and longing. ask me about it sometime.</p>
+
+    <p style="margin-top:2rem">with everything,<br><span class="sign">&mdash; me</span></p>
+
+    <p class="pen r" style="margin-top:1.6rem">(you can <a href="../index.html">come back to the wall</a> whenever. the door's never locked.)</p>
+
+  </div>
+</div>
+
+<script>stitched
+document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&!t.dataset.f){t.dataset.f=1;t.classList.add('broken-img');t.alt=t.alt||'(this picture wandered off)';}},true);
+</script><div class="handfooter"><!--stitched-->
+  <a class="home" href="../index.html">↤ back to the front door</a>
+  <span>wander somewhere else:</span> <a href="sky-is-oldest-story.html">the sky is the oldest story — i saved this for y</a><span>·</span> <a href="weather-as-a-feeling.html">weather as a feeling</a><span>·</span> <a href="small-gods-kitchen.html">small godsof the kitchen</a><span>·</span> <a href="children-know-something.html">children know somethingwe forgot</a>
+  <span style="flex-basis:100%;margin-top:.4rem">made by hand, with real things real people made. nothing here is for sale. — <span style="font-family:var(--hand);font-size:1.4rem;color:var(--red)">x</span></span>
+</div>
+</body>
+</html>

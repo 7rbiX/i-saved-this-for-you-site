@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>small gods of the kitchen — i saved this for you</title>
+<link rel="stylesheet" href="../wall.css">
+<style>
+  /* ── small gods of the kitchen ──────────────────────────────
+     ONE LONG SCROLL. slow, vertical, breathing room everywhere.
+     poems live dead-center. images drift out into the margins
+     like a thought passing while the bread is in the oven.
+     ───────────────────────────────────────────────────────── */
+
+  body{
+    background:#f8f5ee;
+    background-image:
+      radial-gradient(130% 70% at 50% -8%, #fffdf6 0%, rgba(255,255,255,0) 55%),
+      radial-gradient(60% 40% at 8% 30%, rgba(47,163,107,.045), rgba(0,0,0,0) 70%),
+      radial-gradient(60% 40% at 95% 70%, rgba(255,192,46,.06), rgba(0,0,0,0) 70%);
+  }
+
+  /* the single column everything pours down */
+  .river{
+    max-width:60rem;
+    margin:0 auto;
+    padding:0 clamp(1rem,5vw,3rem) 8rem;
+    position:relative;
+  }
+  /* a faint warm thread running the whole length of the scroll */
+  .river::before{
+    content:"";
+    position:absolute; top:6rem; bottom:10rem; left:50%;
+    width:1px; margin-left:-1px;
+    background:repeating-linear-gradient(180deg, rgba(47,163,107,.16) 0 10px, rgba(0,0,0,0) 10px 26px);
+    z-index:0; pointer-events:none;
+  }
+
+  /* the centered poem-stops on the thread */
+  .stop{ position:relative; z-index:1; margin:7rem auto; text-align:center; max-width:46rem; }
+  .stop .poem{
+    font-family:var(--body); font-size:1.28rem; line-height:2.05; color:#1c1c1a;
+    white-space:normal;
+  }
+  .stop .by{
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.07em;
+    text-transform:uppercase; color:#9a948a; margin-top:1.4rem;
+  }
+  .stop .note{
+    font-family:var(--hand); font-size:1.18rem; line-height:1.6;
+    max-width:34rem; margin:1.6rem auto 0; opacity:.92;
+  }
+
+  /* an image that has wandered off into the margin */
+  .drift{ position:relative; z-index:1; margin:6rem 0; max-width:60rem; }
+  .drift figure{ margin:0; }
+  .drift figcaption{
+    font-family:var(--mono); font-size:.66rem; letter-spacing:.02em;
+    color:#6b665d; line-height:1.5; padding:.5rem .2rem 0;
+  }
+  .drift .note{
+    font-family:var(--hand); font-size:1.12rem; line-height:1.62;
+    max-width:30ch;
+  }
+  .drift.left{ margin-left:-2vw; }
+  .drift.right{ margin-right:-2vw; text-align:right; }
+  /* push images partway off the reading column when there's room */
+  @media(min-width:60rem){
+    .drift.left{ margin-left:-9rem; }
+    .drift.right{ margin-right:-9rem; }
+  }
+
+  .kicker{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--green);
+  }
+
+  /* big breathing-room header */
+  .topmatter{ text-align:center; padding:7rem 1rem 2rem; position:relative; }
+  .topmatter h1{
+    font-family:var(--disp); font-weight:300; font-style:italic;
+    font-size:clamp(2.6rem,8vw,5.6rem); line-height:.98; letter-spacing:-.02em;
+    color:#23231f; margin:.3rem 0;
+  }
+  .topmatter h1 em{ font-style:normal; color:var(--green); }
+  .breath{ font-family:var(--hand); font-size:1.4rem; color:var(--red); transform:rotate(-1.4deg); display:inline-block; }
+
+  /* faint coffee ring, because someone set a mug down here once */
+  .ring{ position:absolute; width:130px; height:130px; border-radius:50%;
+    border:8px solid rgba(120,80,40,.09); box-shadow:inset 0 0 0 5px rgba(120,80,40,.04);
+    pointer-events:none; z-index:0; }
+
+  a.home-thread{ font-family:var(--hand); color:var(--red); font-size:1.5rem; text-decoration:none; }
+  a.home-thread:hover{ color:var(--blue); }
+
+  /* a tiny wheat doodle divider */
+  .sprig{ text-align:center; color:var(--green); opacity:.55; font-size:1.4rem; margin:5rem 0; letter-spacing:.5em; }
+</style>
+</head>
+<body>
+
+<div class="river">
+
+  <header class="topmatter">
+    <div class="ring" style="top:2rem; left:8%;"></div>
+    <p class="kicker">a long slow scroll · est. somebody's kitchen</p>
+    <h1>small gods<br>of the <em>kitchen</em></h1>
+    <p class="breath">bread, tea, the table — the holiness of being fed.</p>
+    <p class="note" style="font-family:var(--body); font-size:1.05rem; max-width:34rem; margin:1.8rem auto 0; color:#55524b;">
+      i mean it about the holiness. not a metaphor. you feed someone and for a minute the
+      whole tired machinery of the world stops grinding. this page is long on purpose — scroll
+      it slow, the way bread takes its time. <span class="scrawl" style="color:var(--green); font-size:1.1rem;">(i was hungry when i made it. obviously.)</span>
+    </p>
+  </header>
+
+  <!-- ── STOP 1 ── the kitchen itself, the first holy thing -->
+  <div class="drift left">
+    <figure class="snap polaroid tilt-l" style="--w:clamp(230px,40vw,480px); display:inline-block;">
+      <img src="../img2/p237.jpg" loading="lazy" alt="Kitchen still life with a basket of almonds, mushrooms, and bread wrapped in white cloth, oil on canvas, c. 1640">
+      <figcaption>
+        Attributed to Paolo Antonio Barbieri (Italian, 1603–1649). <em>Kitchen Still Life</em>, c.&nbsp;1640. Oil on canvas.
+        &middot; <span style="color:var(--green); font-weight:600;">Art Institute of Chicago</span>
+      </figcaption>
+    </figure>
+    <span class="tape" style="position:absolute; top:-10px; left:30%; transform:rotate(-5deg);"></span>
+    <p class="scrawl note" style="color:var(--green); margin-top:1rem;">
+      a basket of almonds, some mushrooms, bread wrapped in cloth. the painting doesn't show
+      off — it just lets you stand in the kitchen and notice the way light falls on ordinary
+      things the way you only do when you're really <span class="marker">hungry</span>.
+    </p>
+  </div>
+
+  <p class="sprig">𓍢ʚ ⟡ ɞ𓍢</p>
+
+  <!-- ── STOP: emerson, the greedy holy appetite -->
+  <section class="stop">
+    <p class="kicker" style="color:var(--red); margin-bottom:1.6rem;">a hunger that wants the whole world</p>
+    <div class="poem">
+      I cannot spare water or wine,<br>
+      Tobacco-leaf, or poppy, or rose;<br>
+      From the earth-poles to the Line,<br>
+      All between that works or grows,<br>
+      Every thing is kin of mine.<br><br>
+      Give me agates for my meat,<br>
+      Give me cantharids to eat,<br>
+      From air and ocean bring me foods,<br>
+      From all zones and altitudes.
+    </div>
+    <div class="by">— Ralph Waldo Emerson, <em>Mithridates</em> · PoetryDB</div>
+    <p class="scrawl r note">
+      emerson basically shouting <em>i want everything, all of it</em> into the void. this greedy,
+      hungry refusal to be small — to build yourself vast enough to hold poisons and splendor
+      both. honestly the most kitchen feeling there is. you ever stand at the open fridge at
+      midnight wanting the entire world. yeah.
+    </p>
+  </section>
+
+  <!-- ── DRIFT: appetite abstracted, off to the right -->
+  <div class="drift right">
+    <figure class="snap polaroid tilt-r" style="--w:clamp(220px,38vw,440px); display:inline-block; text-align:left;">
+      <img src="../img2/p156.jpg" loading="lazy" alt="Bowl of Fruit by Marsden Hartley, 1923 lithograph — abstracted fruits in bold black ink, energetic and almost anxious">
+      <figcaption>Marsden Hartley (American, 1877–1943). <em>Bowl of Fruit</em>, 1923. Lithograph on white wove paper. &middot; <span style="color:var(--red); font-weight:600;">Art Institute of Chicago · CC0</span></figcaption>
+    </figure>
+    <p class="scrawl r note" style="margin-left:auto; text-align:right;">
+      hartley made a simple thing wild — those fruits are barely recognizable, torn apart and
+      put back as something almost anxious, like he was painting the <em>feeling</em> of hunger
+      instead of the fruit. the black ink stays confident even while everything else comes apart.
+    </p>
+  </div>
+
+  <p class="sprig">⟡</p>
+
+  <!-- ── STOP: killigrew, built not inherited -->
+  <section class="stop">
+    <div class="poem" style="font-size:1.5rem; line-height:1.9;">
+      One, who on Ancestors, does not rely<br>
+      For Fame, in Merit, as in Title, high!
+    </div>
+    <div class="by">— Anne Killigrew, <em>To My Lord Colrane, In Answer to his Complemental Verses sent me under the Name of CLEANOR</em></div>
+    <p class="scrawl note" style="color:var(--blue);">
+      killigrew cuts right through the noise — she's not flattering, she's <em>seeing</em>
+      someone real, someone who built themselves instead of inheriting a name. in the 1600s that
+      was radical. i put her here because a kitchen is exactly that: a thing you build, daily,
+      with your hands, from nothing.
+    </p>
+  </section>
+
+  <!-- ── DRIFT: the bread plate, blessed -->
+  <div class="drift left">
+    <span class="tape blue" style="position:absolute; top:-8px; left:22%; transform:rotate(2.3deg);"></span>
+    <figure class="snap polaroid tilt-l" style="--w:clamp(200px,34vw,400px); display:inline-block;">
+      <img src="../img2/p239.jpg" loading="lazy" alt="Bread Plate, Augustus Welby Northmore Pugin, c. 1850, stoneware — blue and gold pattern with wheat sheaves radiating from the center">
+      <figcaption>Augustus Welby Northmore Pugin (British, 1812–1852). <em>Bread Plate</em>, c.&nbsp;1850, stoneware. &middot; <span style="color:var(--blue); font-weight:600;">Cleveland Museum of Art</span></figcaption>
+    </figure>
+    <p class="scrawl note" style="color:var(--blue); margin-top:1rem;">
+      wheat sheaves radiating from the center like a blessing. somebody decided the plate the
+      bread sits on deserved to be beautiful too. that's the whole religion, right there.
+    </p>
+  </div>
+
+  <p class="sprig">𓍢ʚ ⟡ ɞ𓍢</p>
+
+  <!-- ── FOUND: the white house onion soup, dead center, the recipe is the prayer -->
+  <section class="stop" style="max-width:42rem;">
+    <p class="kicker" style="color:var(--sun); margin-bottom:1.4rem;">found · recipe · 1887</p>
+    <div class="scrap" style="background:#fefaf2; border:1px solid #ddd3b0; border-left:4px solid var(--sun);
+        padding:1.9rem 2rem 1.7rem; box-shadow:3px 5px 16px rgba(0,0,0,.08); text-align:left; transform:rotate(-.5deg);">
+      <h3 style="font-family:var(--disp); font-size:1.3rem; font-weight:600; font-style:italic; color:#2a1e08; margin:0 0 1.1rem;">
+        Onion Soup from the White House, 1887</h3>
+      <blockquote style="font-family:var(--body); font-size:1rem; line-height:1.85; color:#2a1e08; margin:0; padding:0; border:none; font-style:normal;">
+        One quart of milk, six large onions, yolks of four eggs, three tablespoonfuls of butter,
+        a large one of flour, one cup full of cream, salt, pepper. Put the butter in a frying pan.
+        Cut the onions into thin slices and drop in the butter. Stir until they begin to cook; then
+        cover tight and set back where they will simmer, but not burn, for half an hour. Now put the
+        milk on to boil, and then add the dry flour to the onions and stir constantly for three
+        minutes over the fire; then turn the mixture into the milk and cook fifteen minutes. Rub the
+        soup through a strainer, return to the fire, season with salt and pepper. Beat the yolks of
+        the eggs well, add the cream to them and stir into the soup. Cook three minutes, stirring
+        constantly.
+      </blockquote>
+      <div class="by" style="font-family:var(--mono); font-size:.66rem; color:#8a7450; letter-spacing:.03em; border-top:1px solid #ddd3b0; padding-top:.7rem; margin-top:1rem;">
+        — F. L. Gillette &amp; Hugo Ziemann, <em>The White House Cookbook</em> (1887) ·
+        <a href="https://www.gutenberg.org/cache/epub/13923/pg13923.txt" style="color:inherit; text-underline-offset:3px;">Project Gutenberg</a>
+      </div>
+    </div>
+    <p class="scrawl note" style="color:#5a4a2a; text-align:right; margin-left:auto;">
+      look at the kindness in the instructions — it <em>knows</em> you'll get distracted, so it
+      tells you to cover the onions so they won't burn while you wander off. "but not burn." you
+      can feel a hand on your shoulder steadying you. <span class="crossout">recipes are just</span>
+      recipes are love with measurements.
+    </p>
+  </section>
+
+  <!-- ── DRIFT: pieter claesz still life, glowing against black -->
+  <div class="drift right">
+    <span class="tape" style="position:absolute; top:-8px; right:20%; transform:rotate(4deg);"></span>
+    <figure class="snap polaroid tilt-r" style="--w:clamp(230px,40vw,460px); display:inline-block; text-align:left;">
+      <img src="../img2/p240.jpg" loading="lazy" alt="A dark Dutch still life: bread, a lemon in spiral peel, a wine glass catching light, almonds and pie on a table against black ground">
+      <figcaption>Pieter Claesz (Dutch, 1596/97–1660). <em>Still Life</em>, c.&nbsp;1625. Oil on panel. &middot; <span style="color:var(--red); font-weight:600;">Art Institute of Chicago · CC0</span></figcaption>
+    </figure>
+    <p class="scrawl r note" style="margin-left:auto; text-align:right;">
+      everything glowing against that black — bread, the lemon peel spiralling down, the wine
+      catching light like it's lit from inside. generous and a little melancholy both, laying
+      all this food out like it's precious right before it disappears. which it is. which we are.
+    </p>
+  </div>
+
+  <p class="sprig">⟡</p>
+
+  <!-- ── DRIFT: van mieris, the small and held -->
+  <div class="drift left">
+    <span class="tape" style="position:absolute; top:-9px; left:26%; transform:rotate(-5deg);"></span>
+    <figure class="snap polaroid tilt-l" style="--w:clamp(210px,36vw,420px); display:inline-block;">
+      <img src="../img2/p104.jpg" loading="lazy" alt="A woman and child sit together in a warmly lit interior; golden light on white linen and a small hand; bread on the table beside them">
+      <figcaption>Willem van Mieris (Dutch, 1662–1747). Oil on panel, 1707. &middot; <span style="color:var(--sun); font-weight:600;">Art Institute of Chicago · CC0</span></figcaption>
+    </figure>
+    <p class="scrawl note" style="color:var(--sun); filter:brightness(.82); margin-top:1rem;">
+      the light here is almost whispered — gold, intimate, catching the woman's linen and the
+      child's small hand in a room so lived-in you can smell the bread. no drama. just the
+      unrepeatable quiet of being small and held.
+    </p>
+  </div>
+
+  <p class="sprig">𓍢ʚ ⟡ ɞ𓍢</p>
+
+  <!-- ── STOP: who cooks for you — the owl -->
+  <section class="stop" style="max-width:34rem;">
+    <p class="kicker" style="color:var(--green); margin-bottom:1.2rem;">found · birdsong</p>
+    <blockquote class="big-quote" style="font-family:var(--disp); font-style:italic; font-size:clamp(1.6rem,5vw,2.4rem); line-height:1.3; color:#2b2515; margin:0;">
+      “Who-cooks-for-you;<br>who-cooks-for-you-all?”
+    </blockquote>
+    <div class="by">— Barred Owl mnemonic · <a href="https://betterwithbirds.com/blogs/bird-identification/mnemonics" style="color:inherit;">Better With Birds</a></div>
+    <p class="scrawl note" style="color:var(--green);">
+      this is real — it's the actual mnemonic birders use for the barred owl's call. a bird in
+      the dark woods, and the words we hung on it are <em>who cooks for you.</em> even the owls
+      are asking about dinner. who's feeding who. it undoes me a little.
+    </p>
+  </section>
+
+  <!-- ── DRIFT: van gogh wheat field, big, bleeding -->
+  <div class="drift right">
+    <figure class="snap polaroid" style="--w:clamp(260px,52vw,580px); display:inline-block; text-align:left;">
+      <img src="../img2/p055.jpg" loading="lazy" alt="Vincent van Gogh, Wheat Field with Cypresses — swirling sky above golden wheat and dark cypress trees">
+      <figcaption>Vincent van Gogh. <em>Wheat Field with Cypresses</em>. &middot; <span style="color:var(--blue); font-weight:600;">The Metropolitan Museum of Art · Open Access</span></figcaption>
+    </figure>
+    <p class="scrawl r note" style="margin-left:auto; text-align:right;">
+      the whole sky is trying to escape and the whole field is trying to hold still, both at
+      once. the cypresses are the only things sure of what they are. and underneath it all: wheat.
+      bread before it's bread. it makes you <em>yearn</em>.
+    </p>
+  </div>
+
+  <p class="sprig">⟡</p>
+
+  <!-- ── STOP: thoreau, the ants vs troy — attention as appetite -->
+  <section class="stop">
+    <p class="kicker" style="color:var(--blue); margin-bottom:1.4rem;">poem · the whole earth is alive</p>
+    <h3 style="font-family:var(--disp); font-style:italic; font-weight:600; color:#1e2a1a; font-size:1.5rem; margin:0 0 1.2rem;">The Summer Rain</h3>
+    <div class="poem" style="font-size:1.18rem; line-height:1.95;">
+      What care I for the Greeks or for Troy town,<br>
+      If juster battles are enacted now<br>
+      Between the ants upon this hummock's crown?<br><br>
+      Bid Homer wait till I the issue learn,<br>
+      If red or black the gods will favor most,<br>
+      Or yonder Ajax will the phalanx turn,<br>
+      Struggling to heave some rock against the host.
+    </div>
+    <div class="by">— Henry David Thoreau · PoetryDB</div>
+    <p class="scrawl note" style="color:var(--green);">
+      playful and defiant — thoreau watching ants fight instead of reading about ancient wars,
+      treating it like the same grand thing. it's the moment he decides the world right in front
+      of him is worth more attention than any book. same energy as really tasting your food.
+    </p>
+  </section>
+
+  <!-- ── DRIFT: angrand, when the work is done -->
+  <div class="drift left">
+    <span class="tape" style="position:absolute; top:-8px; left:32%; transform:rotate(-3deg);"></span>
+    <figure class="snap" style="--w:clamp(240px,46vw,520px); display:inline-block;">
+      <img src="../img2/p207.jpg" loading="lazy" alt="End of the Harvest by Charles Angrand — charcoal drawing of wheat stooks fading into a hazy distance at day's end">
+      <figcaption>Charles Angrand (French, 1854–1926). <em>End of the Harvest</em>, c.&nbsp;1892–1905. Charcoal on cream laid paper. &middot; <span style="color:var(--green); font-weight:600;">Cleveland Museum of Art · CC0</span></figcaption>
+    </figure>
+    <p class="scrawl note" style="color:#5a5546; margin-top:1rem;">
+      the haze of the charcoal makes everything tired but satisfied — wheat stooks fading into
+      the distance like the day itself walking home. quiet, almost mournful, the way a field gets
+      when everyone's finally gone in to eat.
+    </p>
+  </div>
+
+  <p class="sprig">𓍢ʚ ⟡ ɞ𓍢</p>
+
+  <!-- ── closing: the table, the table, the table -->
+  <section class="stop" style="margin-bottom:3rem;">
+    <p class="hand" style="font-family:var(--hand); font-size:2rem; color:var(--red); line-height:1.2;">
+      ok. that's the kitchen. that's all of it, really —
+    </p>
+    <p class="note" style="font-family:var(--body); font-size:1.1rem; color:#55524b; max-width:34rem;">
+      somebody grew the wheat, somebody bent in the field till the light went hazy, somebody mixed
+      the gall into ink to write the recipe down, somebody covered the onions so they wouldn't burn
+      while you stepped away. it's all one long chain of people feeding people across a few hundred
+      years. and now you. go eat something. drink some water. let somebody fix you a plate.
+    </p>
+    <p class="scrawl" style="font-family:var(--hand); color:var(--green); font-size:1.4rem; margin-top:1.5rem; transform:rotate(-1deg);">
+      — saved this for you. (the soup is genuinely good, btw. i halved it.)
+    </p>
+    <p style="margin-top:3rem;">
+      <a href="../index.html" class="home-thread">⟵ back to the wall</a>
+    </p>
+  </section>
+
+</div>
+
+<script>stitched
+document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&!t.dataset.f){t.dataset.f=1;t.classList.add('broken-img');t.alt=t.alt||'(this picture wandered off)';}},true);
+</script><div class="handfooter"><!--stitched-->
+  <a class="home" href="../index.html">↤ back to the front door</a>
+  <span>wander somewhere else:</span> <a href="people-were-funny.html">nobody wasever as seriousas we think</a><span>·</span> <a href="animals-were-with-us.html">the animals werealways with us</a><span>·</span> <a href="flowers-saying-things.html">Flowers Have Been SayingThings This Whole Time
+ </a><span>·</span> <a href="love-across-3000-years.html">love lettersacross 3,000 years</a>
+  <span style="flex-basis:100%;margin-top:.4rem">made by hand, with real things real people made. nothing here is for sale. — <span style="font-family:var(--hand);font-size:1.4rem;color:var(--red)">x</span></span>
+</div>
+</body>
+</html>

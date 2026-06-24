@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>for when you can't sleep</title>
+<link rel="stylesheet" href="../wall.css">
+<style>
+  /* ===========================================================
+     FULL-BLEED + WHISPER.
+     one enormous image. almost no words. let the dark do the work.
+     scroll slowly. it's 3am somewhere.
+     =========================================================== */
+  html,body{background:#06060a}
+  body{
+    margin:0;color:#e9e1d6;
+    font-family:var(--body);
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:#3a3550;color:#fff}
+  a{color:#9fb0e0}
+
+  /* the hero: one image, full screen, almost nothing on it */
+  .hero{
+    position:relative;min-height:100svh;width:100%;
+    display:grid;place-items:end center;overflow:hidden;
+  }
+  .hero img{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;object-position:center 32%;
+    filter:brightness(.82) saturate(.95);
+  }
+  .hero .veil{
+    position:absolute;inset:0;pointer-events:none;
+    background:
+      linear-gradient(to top, rgba(6,6,10,.92) 0%, rgba(6,6,10,.30) 40%, transparent 70%),
+      radial-gradient(120% 80% at 50% -10%, rgba(6,6,10,.55), transparent 50%);
+  }
+  .hero .title{
+    position:relative;z-index:2;
+    text-align:center;padding:0 1.4rem clamp(3rem,9vh,7rem);
+    max-width:40rem;
+  }
+  .hero h1{
+    font-family:var(--disp);font-weight:300;font-style:italic;
+    font-size:clamp(2.6rem,8vw,6.5rem);line-height:.98;
+    color:#f1ebe0;margin:0;letter-spacing:-.01em;
+    text-shadow:0 2px 40px rgba(0,0,0,.6);
+  }
+  .hero .whisper{
+    font-family:var(--hand);font-size:clamp(1.2rem,3.4vw,1.9rem);
+    color:#b9c2e0;margin-top:1rem;opacity:.9;transform:rotate(-.8deg);
+  }
+  .hero .credit{
+    position:absolute;left:0;right:0;bottom:0;z-index:2;
+    font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;
+    text-transform:uppercase;color:rgba(233,225,214,.34);
+    text-align:center;padding:.9rem 1rem 1.1rem;line-height:1.7;
+  }
+  .hero .credit em{text-transform:none;font-style:italic;letter-spacing:0}
+
+  /* the chevron, a quiet invitation downward */
+  .down{
+    position:absolute;top:clamp(2rem,6vh,4rem);left:50%;z-index:2;
+    transform:translateX(-50%);
+    font-family:var(--mono);font-size:.56rem;letter-spacing:.32em;
+    text-transform:uppercase;color:rgba(233,225,214,.30);
+    text-align:center;line-height:2.4;
+  }
+
+  /* a whisper section: nearly empty, a single line floating in black */
+  .whisper-line{
+    min-height:62svh;display:grid;place-items:center;
+    padding:6rem 1.6rem;text-align:center;
+  }
+  .whisper-line p{
+    font-family:var(--disp);font-weight:300;font-style:italic;
+    font-size:clamp(1.5rem,4.6vw,3.2rem);line-height:1.35;
+    color:#d8d1e2;max-width:24ch;margin:0;
+  }
+  .whisper-line .by{
+    display:block;margin-top:1.6rem;
+    font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;
+    text-transform:uppercase;color:rgba(216,209,226,.36);
+    font-style:normal;font-weight:400;
+  }
+
+  /* a second full-bleed image, just as quiet */
+  .bleed{
+    position:relative;min-height:96svh;width:100%;
+    display:grid;place-items:end start;overflow:hidden;
+  }
+  .bleed.center{place-items:center}
+  .bleed img{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;filter:brightness(.78);
+  }
+  .bleed .veil{
+    position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(to top, rgba(5,8,16,.88), transparent 55%);
+  }
+  .bleed.center .veil{
+    background:radial-gradient(ellipse 60% 70% at 50% 50%, transparent 25%, rgba(5,6,12,.78) 100%);
+  }
+  .bleed .cap{
+    position:relative;z-index:2;padding:clamp(2.4rem,7vw,5rem);max-width:34rem;
+  }
+  .bleed.center .cap{text-align:center;max-width:30rem}
+  .bleed .cap .line{
+    font-family:var(--hand);font-size:clamp(1.3rem,3.4vw,2rem);
+    line-height:1.45;color:#cfd6ea;margin:0 0 1rem;
+  }
+  .bleed .cap .cred{
+    font-family:var(--mono);font-size:.56rem;letter-spacing:.12em;
+    text-transform:uppercase;color:rgba(207,214,234,.4);line-height:1.7;
+  }
+  .bleed .cap .cred em{text-transform:none;font-style:italic;letter-spacing:0}
+
+  /* the very last bit — a hand note, then home. small, almost asleep. */
+  .end{
+    text-align:center;padding:9rem 1.6rem 7rem;
+  }
+  .end .note{
+    font-family:var(--hand);font-size:clamp(1.4rem,4vw,2.2rem);
+    color:#aeb6d6;line-height:1.4;transform:rotate(-1deg);
+    display:inline-block;
+  }
+  .end .typo{opacity:.7}
+  .end .home{
+    display:block;margin-top:3.5rem;
+    font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;
+    text-transform:uppercase;color:rgba(159,176,224,.7);
+    text-decoration:none;
+  }
+  .end .home:hover{color:#cdd6f5}
+  .moon{font-size:1.3em}
+</style>
+</head>
+<body>
+
+<!-- THE HERO. just this. sleep, by restout. i found it at 2am and just sat there. -->
+<section class="hero">
+  <img src="../img2/p107.jpg" loading="eager"
+       alt="A reclining sleeping figure, pale flesh luminous against dark drapes and silk, surrounded by flowers — Jean Bernard Restout, Sleep, c. 1771">
+  <div class="veil"></div>
+  <div class="down">scroll, slowly &middot; <span class="moon">&#9790;</span></div>
+  <div class="title">
+    <h1>for when you<br>can't sleep</h1>
+    <div class="whisper">the moon, the dark, the long middle of the night</div>
+  </div>
+  <div class="credit">
+    Jean Bernard Restout (French, 1732&ndash;1797) &middot; <em>Sleep</em>, c.&nbsp;1771 &middot; oil on canvas &middot; Cleveland Museum of Art &middot; CC0
+  </div>
+</section>
+
+<!-- a single line, floating -->
+<section class="whisper-line">
+  <p>Moonless darkness stands between.<br>Past, the Past, no more be seen.
+    <span class="by">Gerard Manley Hopkins</span>
+  </p>
+</section>
+
+<!-- second full image: hiroshige, the woman by the blue river -->
+<section class="bleed">
+  <img src="../img2/p342.jpg" loading="lazy"
+       alt="A woman in robes sits quietly at the edge of a piercing blue river under a full moon — Hiroshige, Six Jewel Rivers, 1857">
+  <div class="veil"></div>
+  <div class="cap">
+    <p class="line">somebody else is awake by the water tonight too</p>
+    <p class="cred">Utagawa Hiroshige &middot; <em>Six Jewel Rivers from Various Provinces</em>, 1857 &middot; woodblock print &middot; The Metropolitan Museum of Art &middot; Open Access</p>
+  </div>
+</section>
+
+<!-- one more line -->
+<section class="whisper-line">
+  <p>And the best of all ways<br>to lengthen our days<br>is to steal a few hours from the night.
+    <span class="by">Thomas Moore &middot; The Young May Moon</span>
+  </p>
+</section>
+
+<!-- third image, centered glow: the dark night inside a cup -->
+<section class="bleed center">
+  <img src="../img2/p246.jpg" loading="lazy"
+       alt="Song-dynasty Jian ware tea bowl, dark stoneware with hare's-fur iron-oxide streaks pooling toward the base">
+  <div class="veil"></div>
+  <div class="cap">
+    <p class="line">the whole dark night, pooled inside one cup</p>
+    <p class="cred">Tea Bowl &middot; China, Fujian Province &middot; Song dynasty, 12th c. &middot; Jian ware, "hare's-fur" glaze &middot; Art Institute of Chicago &middot; CC0</p>
+  </div>
+</section>
+
+<!-- fourth image, the travelers in the blue hour, full bleed -->
+<section class="bleed">
+  <img src="../img2/p364.jpg" loading="lazy"
+       alt="Three travelers on a road at dusk beneath a pale moon, rows of trees receding into blue distance — Hiroshige, Numazu, 1831–34">
+  <div class="veil"></div>
+  <div class="cap">
+    <p class="line">and if you do have to be up, walk &mdash;<br>the moon will keep pace</p>
+    <p class="cred">Utagawa Hiroshige (1797&ndash;1858) &middot; <em>Numazu&mdash;Dusk</em>, Fifty-Three Stations of the T&omacr;kaid&omacr;, 1831&ndash;34 &middot; color woodblock &middot; Art Institute of Chicago</p>
+  </div>
+</section>
+
+<!-- the keats line, the gentlest -->
+<section class="whisper-line">
+  <p>a bower quiet for us, and a sleep<br>full of sweet dreams, and health,<br>and quiet breathing.
+    <span class="by">John Keats &middot; Endymion</span>
+  </p>
+</section>
+
+<!-- the end. small. -->
+<footer class="end">
+  <span class="note">that's all i've got. close your eyes.<br>i'll leave the <span class="typo">moonlght</span> on. <span class="moon">&#9790;</span></span>
+  <a class="home" href="../index.html">&larr; back home (quietly)</a>
+</footer>
+
+<script>stitched
+document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&!t.dataset.f){t.dataset.f=1;t.classList.add('broken-img');t.alt=t.alt||'(this picture wandered off)';}},true);
+</script><div class="handfooter"><!--stitched-->
+  <a class="home" href="../index.html">↤ back to the front door</a>
+  <span>wander somewhere else:</span> <a href="cried-on-the-bus.html">things that made mecry a little</a><span>·</span> <a href="ordinary-holiness.html">ordinaryholiness</a><span>·</span> <a href="small-gods-kitchen.html">small godsof the kitchen</a><span>·</span> <a href="stay-a-while.html">stay a while</a>
+  <span style="flex-basis:100%;margin-top:.4rem">made by hand, with real things real people made. nothing here is for sale. — <span style="font-family:var(--hand);font-size:1.4rem;color:var(--red)">x</span></span>
+</div>
+</body>
+</html>

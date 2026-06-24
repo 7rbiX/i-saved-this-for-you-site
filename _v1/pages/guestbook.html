@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Guest-Book · The Commonplace Book</title>
+<meta name="description" content="The Commonplace Book — a handmade wiki of culture, art and the things worth keeping.">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext y='13' font-size='14'%3E%E2%9D%A6%3C/text%3E%3C/svg%3E">
+</head>
+<body class="inner">
+<div class="leaf">
+<header class="masthead">
+  <div class="vol"><span>Vol. I · No. 1</span><span class="mid"><a href="../" style="background:none">The Commonplace Book</a></span><span style="text-align:right">Anno 2026</span></div>
+  
+  <nav class="toc"><a href="../">The Parlour</a><span class="sep">☞</span><a href="../pages/contents.html">The Rooms</a><span class="sep">☞</span><a href="../pages/keepers.html">The Keepers</a><span class="sep">☞</span><a href="../pages/guestbook.html">The Guest-Book</a><span class="sep">☞</span><a href="../pages/colophon.html">Colophon</a></nav>
+  <hr class="rule double">
+</header>
+<article><h2>The Guest-Book</h2><p class="sub">leave a word; the next traveller will read it</p><hr class="rule double">
+  <div class="column wide">
+  <p class="first dropcap">By the door of every old house there is a book, and a pen on a string, and the gentle expectation that you will write something. Not a review. A trace. Proof you were here, and that for a moment we kept company. Here is ours.</p>
+  <div class="guest-entry"><span class="who">Eliza M.</span> <span class="when">— left on a Tuesday, in the rain</span><p class="said">I came looking for my grandmother’s bread and found her whole kitchen. Thank you.</p></div><div class="guest-entry"><span class="who">A passing tinker</span> <span class="when">— no date given</span><p class="said">Mended an umbrella outside. Read about clocks. Felt, for an hour, that the old trades were not so dead after all.</p></div><div class="guest-entry"><span class="who">Thomas, age 9</span> <span class="when">— with help spelling</span><p class="said">I LIKED THE TOY BOX BEST. THE MARBLS.</p></div><div class="guest-entry"><span class="who">Someone far from home</span> <span class="when">— late, by a borrowed light</span><p class="said">I have not seen my country in eleven years. The room about festivals made me cry and then made me glad. Keep going.</p></div>
+  <form class="guest" onsubmit="event.preventDefault();var d=document.getElementById('thanks');d.style.display='block';d.scrollIntoView();this.reset();">
+    <label for="g-name">Your name (or what you’d like to be remembered as)</label>
+    <input id="g-name" maxlength="60" placeholder="A friend of the book">
+    <label for="g-said">A word before you go</label>
+    <textarea id="g-said" rows="3" maxlength="400" placeholder="Write something true."></textarea>
+    <button type="submit">Sign the book</button>
+  </form>
+  <p id="thanks" style="display:none" class="note-aside">Thank you. Your mark is made — kept, like everything here, by hand. (This being a quiet little book and not a great machine, your words stay on this page, with you. That is on purpose.)</p>
+  </div></article>
+<footer class="colophon">
+  <div class="fleur"></div>
+  <nav><a href="../">The Parlour</a> · <a href="../pages/contents.html">The Rooms</a> · <a href="../pages/keepers.html">The Keepers</a> · <a href="../pages/guestbook.html">The Guest-Book</a> · <a href="../pages/colophon.html">Colophon</a></nav>
+  <p class="type">The Commonplace Book is set in <em>IM Fell English</em>, after a type cut in Oxford about the year 1690,<br>with a masthead in <em>UnifrakturMaguntia</em> and notes in a passing hand.</p>
+  <p class="type">All plates are real works in the public domain, chiefly from the Open Access collection of<br>The Metropolitan Museum of Art. Kept by many hands · Anno 2026.</p>
+  <p class="dim" style="font-style:italic">If you have read this far, you are one of us now.</p>
+</footer>
+</div>
+</body>
+</html>
