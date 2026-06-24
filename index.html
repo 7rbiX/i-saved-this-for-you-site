@@ -12,7 +12,7 @@
 
   /* the hello ------------------------------------------------------- */
   .hello{position:relative;max-width:40rem;margin:1.5rem auto 1rem;z-index:5}
-  .titlewrap{position:relative;margin:0 0 1.4rem}
+  .titlewrap{position:relative;z-index:8;margin:0 0 1.4rem}
   .door h1{font-size:clamp(3rem,11vw,7.4rem);line-height:.86;margin:0;font-weight:900;
     font-style:italic;color:var(--ink)}
   .door h1 .you{color:var(--red);display:inline-block;transform:rotate(-3deg)}
@@ -21,7 +21,7 @@
     background:rgba(255,192,46,.75);transform:rotate(-1.2deg);z-index:-1;border-radius:4px}
   .underline-doodle{display:block;width:min(30rem,80%);margin:.2rem 0 0;color:var(--blue)}
 
-  .note{font-family:var(--body);font-size:1.22rem;line-height:1.62;color:var(--ink)}
+  .note{position:relative;z-index:8;font-family:var(--body);font-size:1.22rem;line-height:1.62;color:var(--ink)}
   .note p{margin:.6rem 0 1rem}
   .note .by{font-family:var(--hand);font-size:1.9rem;color:var(--red);transform:rotate(-2deg);
     display:inline-block;margin-top:.2rem}
@@ -29,10 +29,11 @@
   /* a couple of taped photos floating near the hello */
   .float{position:absolute;z-index:4}
   .float img{display:block;width:100%}
-  .f1{width:175px;right:-1rem;top:-2.5rem;transform:rotate(4deg)}
-  .f2{width:140px;left:-7.5rem;top:7rem;transform:rotate(-6deg)}
-  .f3{width:120px;right:-6rem;top:13rem;transform:rotate(7deg)}
-  @media(max-width:62rem){.f1,.f2,.f3{display:none}}
+  .f1{width:160px;right:-8.5rem;top:-3.5rem;transform:rotate(5deg)}
+  .f2{width:130px;left:-9rem;top:6.5rem;transform:rotate(-6deg)}
+  .f3{width:112px;right:-9.5rem;top:14rem;transform:rotate(7deg)}
+  /* hide the floating photos once the side margins get too tight to hold them */
+  @media(max-width:70rem){.f1,.f2,.f3{display:none}}
 
   .stuck{font-family:var(--mono);font-size:.74rem;color:var(--ink2);margin-top:5px;line-height:1.3}
 
